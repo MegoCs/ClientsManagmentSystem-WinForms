@@ -1,0 +1,642 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{44BE8D0F-D312-448E-87AC-88BF50B20346}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mo7meen</RootNamespace>
+    <AssemblyName>MIS-Gov</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>F:\Work\Pulished Projects\Mis-Gov\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>MIS-Gov</ProductName>
+    <PublisherName>MegoCs</PublisherName>
+    <SuiteName>MIS-Dept</SuiteName>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.0</ApplicationVersion>
+    <UseApplicationTrust>true</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8EDB1A187EA0080C21562313AA96013431163B19</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Mo7meen_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>
+    </TargetZone>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>IMG-20160319-WA0001.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEntsabMoney.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEntsabMoney.Designer.cs">
+      <DependentUpon>AddEntsabMoney.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddNewItems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewItems.Designer.cs">
+      <DependentUpon>AddNewItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddSheeq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddSheeq.Designer.cs">
+      <DependentUpon>AddSheeq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BankTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BankTypes.Designer.cs">
+      <DependentUpon>BankTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOutList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckOutList.Designer.cs">
+      <DependentUpon>CheckOutList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientReportForm.Designer.cs">
+      <DependentUpon>ClientReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBoxItem.cs" />
+    <Compile Include="ConfigForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigForm.Designer.cs">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionClass.cs" />
+    <Compile Include="DataSet1.cs">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="deletEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="deletEmployee.Designer.cs">
+      <DependentUpon>deletEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditeClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditeClient.Designer.cs">
+      <DependentUpon>EditeClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editeQest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editeQest.Designer.cs">
+      <DependentUpon>editeQest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditeSheeque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditeSheeque.Designer.cs">
+      <DependentUpon>EditeSheeque.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionsClass.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="LatePayment1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LatePayment.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="LatePaymentReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LatePaymentReport.Designer.cs">
+      <DependentUpon>LatePaymentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="M7kamaDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>M7kamaDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ManagmentPaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManagmentPaymentForm.Designer.cs">
+      <DependentUpon>ManagmentPaymentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotosForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhotosForm.Designer.cs">
+      <DependentUpon>PhotosForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlPanel.Designer.cs">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gard.Designer.cs">
+      <DependentUpon>Gard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginForm.Designer.cs">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mo2damat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Mo2damat.Designer.cs">
+      <DependentUpon>Mo2damat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewItem.Designer.cs">
+      <DependentUpon>NewItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PayQest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PayQest.Designer.cs">
+      <DependentUpon>PayQest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PhotosGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PhotosGroup.Designer.cs">
+      <DependentUpon>PhotosGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecivePayments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecivePayments.Designer.cs">
+      <DependentUpon>RecivePayments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchForSheeq.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchForSheeq.Designer.cs">
+      <DependentUpon>SearchForSheeq.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SearchQest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchQest.Designer.cs">
+      <DependentUpon>SearchQest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SellingOpreation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SellingOpreation.Designer.cs">
+      <DependentUpon>SellingOpreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SessionInfo.cs" />
+    <Compile Include="showSheeqs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="showSheeqs.Designer.cs">
+      <DependentUpon>showSheeqs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubbReportsViwer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubbReportsViwer.Designer.cs">
+      <DependentUpon>SubbReportsViwer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="T5cesPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="T5cesPayment.Designer.cs">
+      <DependentUpon>T5cesPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="T5sesUsers.cs">
+      <DependentUpon>T5sesUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="T5sesUsers.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T5sesUsers.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="T5sesUsersValid.cs">
+      <DependentUpon>T5sesUsersValid.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="T5sesUsersValid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>T5sesUsersValid.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="TkhcesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TkhcesForm.Designer.cs">
+      <DependentUpon>TkhcesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tnazol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Tnazol.Designer.cs">
+      <DependentUpon>Tnazol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TnazolSuppData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TnazolSuppData.Designer.cs">
+      <DependentUpon>TnazolSuppData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TransferUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TransferUnit.Designer.cs">
+      <DependentUpon>TransferUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UnitsBack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UnitsBack.Designer.cs">
+      <DependentUpon>UnitsBack.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updateEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updateEmployee.Designer.cs">
+      <DependentUpon>updateEmployee.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEntsabMoney.resx">
+      <DependentUpon>AddEntsabMoney.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddNewItems.resx">
+      <DependentUpon>AddNewItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddSheeq.resx">
+      <DependentUpon>AddSheeq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BankTypes.resx">
+      <DependentUpon>BankTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckOutList.resx">
+      <DependentUpon>CheckOutList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientReportForm.resx">
+      <DependentUpon>ClientReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigForm.resx">
+      <DependentUpon>ConfigForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="deletEmployee.resx">
+      <DependentUpon>deletEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditeClient.resx">
+      <DependentUpon>EditeClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editeQest.resx">
+      <DependentUpon>editeQest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditeSheeque.resx">
+      <DependentUpon>EditeSheeque.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LatePaymentRep.rdlc" />
+    <EmbeddedResource Include="LatePaymentReport.resx">
+      <DependentUpon>LatePaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManagmentPaymentForm.resx">
+      <DependentUpon>ManagmentPaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhotosForm.resx">
+      <DependentUpon>PhotosForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlPanel.resx">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gard.resx">
+      <DependentUpon>Gard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginForm.resx">
+      <DependentUpon>LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mo2damat.resx">
+      <DependentUpon>Mo2damat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewItem.resx">
+      <DependentUpon>NewItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PayQest.resx">
+      <DependentUpon>PayQest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PhotosGroup.resx">
+      <DependentUpon>PhotosGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="RecivePayments.resx">
+      <DependentUpon>RecivePayments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="SearchForSheeq.resx">
+      <DependentUpon>SearchForSheeq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchQest.resx">
+      <DependentUpon>SearchQest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SellingOpreation.resx">
+      <DependentUpon>SellingOpreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="showSheeqs.resx">
+      <DependentUpon>showSheeqs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubbReportsViwer.resx">
+      <DependentUpon>SubbReportsViwer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="T5cesPayment.resx">
+      <DependentUpon>T5cesPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="T5sesReport.rdlc" />
+    <EmbeddedResource Include="T5sesReportValid.rdlc" />
+    <EmbeddedResource Include="TkhcesForm.resx">
+      <DependentUpon>TkhcesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Tnazol.resx">
+      <DependentUpon>Tnazol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TnazolSuppData.resx">
+      <DependentUpon>TnazolSuppData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TransferUnit.resx">
+      <DependentUpon>TransferUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UnitsBack.resx">
+      <DependentUpon>UnitsBack.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updateEmployee.resx">
+      <DependentUpon>updateEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="LatePayment.xsc">
+      <DependentUpon>LatePayment.xsd</DependentUpon>
+    </None>
+    <None Include="LatePayment.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>LatePayment1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="LatePayment.xss">
+      <DependentUpon>LatePayment.xsd</DependentUpon>
+    </None>
+    <None Include="M7kamaDBDataSet.xsc">
+      <DependentUpon>M7kamaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="M7kamaDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>M7kamaDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="M7kamaDBDataSet.xss">
+      <DependentUpon>M7kamaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Mo7meen_TemporaryKey.pfx" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="T5sesUsers.xsc">
+      <DependentUpon>T5sesUsers.xsd</DependentUpon>
+    </None>
+    <None Include="T5sesUsers.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>T5sesUsers.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="T5sesUsers.xss">
+      <DependentUpon>T5sesUsers.xsd</DependentUpon>
+    </None>
+    <None Include="T5sesUsersValid.xsc">
+      <DependentUpon>T5sesUsersValid.xsd</DependentUpon>
+    </None>
+    <None Include="T5sesUsersValid.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>T5sesUsersValid.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="T5sesUsersValid.xss">
+      <DependentUpon>T5sesUsersValid.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Data\M7kamaDB.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="images\fblogo.png" />
+    <None Include="Resources\IconMark.bmp" />
+    <None Include="Resources\IMG-20160319-WA0001.ico" />
+    <Content Include="IMG-20160319-WA0001.ico" />
+    <None Include="images\light_bulb.png" />
+    <Content Include="Transactions\Log.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PublishFile Include="Microsoft.ReportViewer.Common">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.DataVisualization">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.ReportViewer.WinForms">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+    <PublishFile Include="Microsoft.SqlServer.Types">
+      <Visible>False</Visible>
+      <Group>
+      </Group>
+      <TargetPath>
+      </TargetPath>
+      <PublishState>Include</PublishState>
+      <IncludeHash>True</IncludeHash>
+      <FileType>Assembly</FileType>
+    </PublishFile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
