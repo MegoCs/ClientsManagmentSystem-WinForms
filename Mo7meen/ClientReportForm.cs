@@ -239,6 +239,7 @@ namespace Mo7meen
         private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             System.Drawing.Image image = System.Drawing.Image.FromStream(this.streamToPrint);
+            this.printDoc.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
             int x = e.MarginBounds.X;
             int y = e.MarginBounds.Y;
             int width = image.Width;
@@ -259,12 +260,15 @@ namespace Mo7meen
         public void StartPrint(Stream streamToPrint, string streamType)
         {
             this.printDoc.PrintPage += new PrintPageEventHandler(printDoc_PrintPage);
+            this.printDoc.DefaultPageSettings.PaperSize=new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
             this.streamToPrint = streamToPrint;
             this.streamType = streamType;
             System.Windows.Forms.PrintDialog PrintDialog1 = new PrintDialog();
             PrintDialog1.AllowSomePages = true;
             PrintDialog1.ShowHelp = true;
             PrintDialog1.Document = printDoc;
+            PrintDialog1.Document.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
+            PrintDialog1.PrinterSettings.DefaultPageSettings.PaperSize= new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
             DialogResult result = PrintDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
