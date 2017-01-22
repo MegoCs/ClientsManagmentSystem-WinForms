@@ -55,13 +55,12 @@
             this.groupBox1.Controls.Add(this.nameMota);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.nationalIDMota);
-            this.groupBox1.Location = new System.Drawing.Point(25, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(400, 167);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "بيانات المتنازل";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // tanazolDate
             // 
@@ -142,7 +141,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(25, 185);
+            this.button1.Location = new System.Drawing.Point(12, 185);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(138, 47);
             this.button1.TabIndex = 1;
@@ -152,7 +151,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(240, 185);
+            this.button4.Enabled = false;
+            this.button4.Location = new System.Drawing.Point(227, 185);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(185, 46);
             this.button4.TabIndex = 3;
@@ -164,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 262);
+            this.ClientSize = new System.Drawing.Size(423, 244);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);

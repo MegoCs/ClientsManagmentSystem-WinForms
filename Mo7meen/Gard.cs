@@ -56,13 +56,13 @@ namespace Mo7meen
         }
         public void load() 
         {
-            String sql = "select count(*) As total from Clients WHERE  (check_out = 'n')";
+            String sql = "SELECT COUNT(*) AS total FROM (Clients INNER JOIN ClientsUnits ON Clients.ID = ClientsUnits.client_id) WHERE(ClientsUnits.RecoredState = 'N')";
             dosome(clientNumber, sql);
-            sql = "select SUM(paid_value) As total from first_paids WHERE (client_id NOT IN (SELECT ID FROM  Clients WHERE(check_out = 'y')))";
+            sql = "select SUM(paid_value) As total from first_paids WHERE (client_id NOT IN (SELECT ID FROM  Clients WHERE(check_out = 'Y')))";
             dosome(mo2damat, sql);
-            sql = "select SUM(qest_value) As total from aqsat WHERE (client_id NOT IN (SELECT ID FROM  Clients WHERE(check_out = 'y')))";
+            sql = "select SUM(qest_value) As total from aqsat WHERE (client_id NOT IN (SELECT ID FROM  Clients WHERE(check_out = 'Y')))";
             dosome(aqsat, sql);
-            sql = "select SUM(paid_value) As total from T5sesMoney WHERE (client_id NOT IN (SELECT ID FROM  Clients WHERE(check_out = 'y')))";
+            sql = "select SUM(paid_value) As total from T5sesMoney WHERE (client_id NOT IN (SELECT ID FROM  Clients WHERE(check_out = 'Y')))";
             dosome(t5ses, sql);
             
 

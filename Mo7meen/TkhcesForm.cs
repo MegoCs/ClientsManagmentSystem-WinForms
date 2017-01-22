@@ -42,9 +42,11 @@ namespace Mo7meen
                     #endregion
                     reportViewer1.Visible = true;
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                 }
             }
         }

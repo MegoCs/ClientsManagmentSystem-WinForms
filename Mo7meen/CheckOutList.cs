@@ -40,8 +40,9 @@ namespace Mo7meen
                 }
                 catch (Exception ex) {
                     MessageBox.Show("خطأ اثناء تحميل البيانات");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 }
-             }
+            }
 
         }
 

@@ -38,8 +38,9 @@ namespace Mo7meen
                     String sql = "INSERT INTO cheques (cheque_number,cheque_owner,cheque_value,cheque_Esdar_Date,Group_id,cheque_Sarf_Date,client_id) VALUES (" + sheeque_num + ",'" + sheeque_name + "'," + sheeque_value + ",'" + DateEsdar + "'," + photosGroup_id + ",'" + DateSarf + "',"+client_id+") ";
                     conn.SQLUPDATE(sql,true);
                 }
-                catch {
+                catch (Exception ex){
                     MessageBox.Show("خطأ اتمام البيانات");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 }
             }
             else {

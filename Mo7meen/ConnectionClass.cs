@@ -34,6 +34,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ ف الاتصال بقاعدة البيانات" + ex.Message);
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [ConnectionClass] By [" + SessionInfo.empName + "]");
             }
         }
 
@@ -57,10 +58,11 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ ف العملية " + ex.Message);
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [ConnectionClass] By [" + SessionInfo.empName + "]");
             }
         }
 
-        public void SQLUPDATE(String sql, bool Message)
+        public bool SQLUPDATE(String sql, bool Message)
         {
             try
             {
@@ -70,12 +72,14 @@ namespace Mo7meen
                 myCommand.ExecuteNonQuery();
                 if (Message)
                     MessageBox.Show("تم حفظ البيانات");
+                return true;
             }
             catch (Exception ex)
             {
-                MessageBox.Show("خطا ف العملية برجاء اعد المحاولة");
+                MessageBox.Show("خطا ف العملية");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [ ConnectionClass] By [" + SessionInfo.empName + "]");
+                return false;
             }
         }
-
     }
 }

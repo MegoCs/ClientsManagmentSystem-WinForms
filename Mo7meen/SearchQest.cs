@@ -33,7 +33,7 @@ namespace Mo7meen
                 {
                     String date1 = dateTimePicker1.Value.ToString("yyyy/MM/dd");
                     String date2 = dateTimePicker2.Value.ToString("yyyy/MM/dd");
-                    String sql = "SELECT aqsat.details as 'تفاصيل الايصالات', bank_accounts.type as 'الحساب المستلم',qest_date AS 'تاريخ القسط',aqsat.qest_value as 'قيمة القسط', Clients.client_name as 'اسم العميل' ,aqsat.group_id,aqsat.ID FROM((aqsat INNER JOIN bank_accounts ON aqsat.bank_id = bank_accounts.ID) INNER JOIN Clients ON aqsat.client_id = Clients.ID) WHERE qest_date between #" + date1 + "# and #" + date2 + "# order by qest_date";
+                    String sql = "SELECT aqsat.details as 'تفاصيل الايصالات', bank_accounts.type as 'الحساب المستلم',qest_date AS 'تاريخ القسط',aqsat.qest_value as 'قيمة القسط', Clients.client_name as 'اسم العميل' ,aqsat.group_id,aqsat.ID FROM((aqsat INNER JOIN bank_accounts ON aqsat.bank_id = bank_accounts.ID) INNER JOIN Clients ON (aqsat.client_id = Clients.ID and Clients.check_out = 'N')) WHERE qest_date between #" + date1 + "# and #" + date2 + "# order by qest_date";
                     conn.SQLCODE(sql, true);
                     DataTable table = new DataTable();
                     conn.myAdabter.Fill(table);
@@ -43,16 +43,18 @@ namespace Mo7meen
 
                     this.Invoke((MethodInvoker)delegate () { sumValues(3); });
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                 }
             }
             else
             {
                 if (!String.IsNullOrEmpty(national_id.Text))
                 {
-                    String sql = "select * from Clients where national_id = '" + national_id.Text + "' and deleted = 'n'";
+                    String sql = "select * from Clients where national_id = '" + national_id.Text + "' and deleted = 'N' and Clients.check_out = 'N'";
                     conn.SQLCODE(sql, false);
                     if (conn.myReader.Read())
                     {
@@ -69,7 +71,8 @@ namespace Mo7meen
                     dataGridView1.Columns[5].Visible = false;
                     this.Invoke((MethodInvoker)delegate () { sumValues(3); });
                 }
-                else {
+                else
+                {
                     MessageBox.Show("برجاء اتمام البيانات");
                 }
             }
@@ -97,8 +100,8 @@ namespace Mo7meen
             {
                 if (!String.IsNullOrEmpty(item.Cells["group_id"].Value.ToString()))
                 {
-                    if(int.Parse(item.Cells["group_id"].Value.ToString())!=0)
-                    photos_group.Add(int.Parse(item.Cells["group_id"].Value.ToString()));
+                    if (int.Parse(item.Cells["group_id"].Value.ToString()) != 0)
+                        photos_group.Add(int.Parse(item.Cells["group_id"].Value.ToString()));
                 }
             }
         }
@@ -110,7 +113,8 @@ namespace Mo7meen
                 PhotosGroup pgGObj = new PhotosGroup(photos_group);
                 pgGObj.ShowDialog();
             }
-            else {
+            else
+            {
                 MessageBox.Show("لا توجد ملفات للاقساط المختارة");
             }
 
@@ -118,18 +122,30 @@ namespace Mo7meen
 
         private void button2_Click(object sender, EventArgs e)
         {
-           // editeQest edite = new editeQest();
-            if (dataGridView1.SelectedRows.Count > 0) // make sure user select at least 1 row 
-            {
-                String bankSystem = dataGridView1.SelectedRows[0].Cells[1].Value + String.Empty;
-                String qestDate = dataGridView1.SelectedRows[0].Cells[2].Value + String.Empty;
-                String qestValue = dataGridView1.SelectedRows[0].Cells[3].Value + String.Empty;
-                idToSearch = int.Parse(dataGridView1.SelectedRows[0].Cells["id"].Value.ToString());
-                
-                editeQest edite2 = new editeQest(qestValue, qestDate, bankSystem ,  idToSearch);
-                edite2.ShowDialog();
+
+            try
+            {    // editeQest edite = new editeQest();
+                if (dataGridView1.SelectedRows.Count == 1) // make sure user select at least 1 row 
+                {
+                    String bankSystem = dataGridView1.SelectedRows[0].Cells[1].Value + String.Empty;
+                    String qestDate = dataGridView1.SelectedRows[0].Cells[2].Value + String.Empty;
+                    String qestValue = dataGridView1.SelectedRows[0].Cells[3].Value + String.Empty;
+                    idToSearch = int.Parse(dataGridView1.SelectedRows[0].Cells["id"].Value.ToString());
+
+                    editeQest edite2 = new editeQest(qestValue, qestDate, bankSystem, idToSearch);
+                    edite2.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("برجاء اختيار القسط للتعديل");
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطأ فى العملية");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+            }
+
         }
     }
 }

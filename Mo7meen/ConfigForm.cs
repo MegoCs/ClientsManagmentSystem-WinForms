@@ -21,6 +21,8 @@ namespace Mo7meen
         String choosenFolderToSaveinto;
         private bool imgSaved;
 
+        public string CurrentRuntimePath { get; private set; }
+
         private void SaveBackUpData()
         {
             try
@@ -44,6 +46,8 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("مشكله فى الاعدادات");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
             }
         }
 
@@ -70,6 +74,8 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ اثناء تحميل البيانات!" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
             }
         }
 
@@ -108,6 +114,8 @@ namespace Mo7meen
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ اثناء مسح البيانات القديمة !" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                 }
             }
         }
@@ -128,10 +136,10 @@ namespace Mo7meen
                     MessageBox.Show("تم مسح بيانات النسخة القديمة");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("خطأ اثناء مسح البيانات");
-                throw;
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
             }
         }
 
@@ -171,6 +179,8 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
             }
         }
 
@@ -220,6 +230,7 @@ namespace Mo7meen
             string dst = (System.IO.Path.GetDirectoryName(executable));
             ImgFolderPath = dst + @"\Transactions";
             DataFolderPath = dst + @"\Data";
+            CurrentRuntimePath = dst;
             if (GetDirectorySize(ImgFolderPath) / 1000000000 > 1)
                 sizeLab.Text = "" + (GetDirectorySize(ImgFolderPath) / 1000000000);
             else
@@ -254,6 +265,33 @@ namespace Mo7meen
         {
             this.Invoke((MethodInvoker)delegate () { ClearDbFile(); });
             this.Invoke((MethodInvoker)delegate () { ClearImgFolder(); });
+        }
+
+        private void copyLogBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SaveFileDialog SaveFD1 = new SaveFileDialog();
+                string FileName = "";
+                SaveFD1.InitialDirectory = choosenFolderToSaveinto;
+                SaveFD1.FileName = "Logs " + DateTime.Now.ToString("dd-MM-yyyy") + ".txt";
+                SaveFD1.Title = "Backup";
+                SaveFD1.DefaultExt = "txt";
+                SaveFD1.FilterIndex = 1;
+                SaveFD1.RestoreDirectory = true;
+                if (SaveFD1.ShowDialog() == DialogResult.OK)
+                {
+                    FileName = SaveFD1.FileName;
+                    System.IO.File.Copy(CurrentRuntimePath + @"\Logs.txt", FileName, true);
+                    MessageBox.Show("تم نقل نسخه ملف الاخطاء", "ملف الاخطاء", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("مشكله فى الاعدادات");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
+            }
         }
     }
 }

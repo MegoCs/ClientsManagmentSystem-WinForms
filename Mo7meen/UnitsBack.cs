@@ -75,7 +75,7 @@ namespace Mo7meen
         private void button2_Click(object sender, EventArgs e)
         {
             if (ID != 0) {
-            String sql = "update Clients set check_out='y' where national_id='" + nationalIdtext.Text + "' ";
+            String sql = "update Clients set check_out='Y' where national_id='" + nationalIdtext.Text + "' ";
             conn.SQLUPDATE(sql,false);
 
                 sql = "select unit_id from ClientsUnits where client_id=" + ID + " and RecoredState='N'";

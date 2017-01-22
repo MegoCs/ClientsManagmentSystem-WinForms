@@ -13,19 +13,28 @@ namespace Mo7meen
     public partial class Tnazol : Form
     {
         ConnectionClass c1 = new ConnectionClass();
-        TnazolSuppData newclient = new TnazolSuppData();
+        TnazolSuppData newclient;
         ErrorProvider err;
         private int motnazelID;
+
+        public bool MotnazelToComplete { get; internal set; }
+        public string MotnazelToNationalId { get; internal set; }
 
         public Tnazol()
         {
             InitializeComponent();
             c1.startConnection();
+             newclient = new TnazolSuppData(this);
+
         }
-     
+
         private void button1_Click(object sender, EventArgs e)
         {
             newclient.ShowDialog();
+            if (this.MotnazelToComplete && !string.IsNullOrEmpty(MotnazelToNationalId))
+                button4.Enabled = true;
+            else
+                MessageBox.Show("لم يتم حفظ بيانات المتنازل اليه");
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -43,7 +52,6 @@ namespace Mo7meen
         private void button4_Click(object sender, EventArgs e)
         {
             //validate
-
             if (string.IsNullOrWhiteSpace(nationalIDMota.Text))
             {
                 err = new ErrorProvider();
@@ -56,11 +64,11 @@ namespace Mo7meen
             }
 
             //insert into tanazolat
-            if (err == null&&newclient.tm&&motnazelID!=0)
+            if (err == null&&MotnazelToComplete&&motnazelID!=0&&!string.IsNullOrEmpty(MotnazelToNationalId))
             {
                 try
                 {
-                    String motanazaElleh = newclient.nationalIdFunc;
+                    String motanazaElleh = MotnazelToNationalId;
                     String subquery = "select ID from Clients where national_id='" + motanazaElleh + "'";
                     c1.SQLCODE(subquery, false);
                     int ToID = 0;
@@ -70,32 +78,34 @@ namespace Mo7meen
                         ToID = int.Parse(c1.myReader["ID"].ToString());
                     }
 
-                    if (ToID!=0 && motnazelID!=0)
+                    if (ToID != 0 && motnazelID != 0)
                     {
                         String da = tanazolDate.Value.ToString("yyyy/MM/dd");
-                        String query = "insert into tanazolat (from_id,to_id,tanazol_date) values (" + motnazelID + "," + ToID + ",#" + da + "#)";
-                        c1.SQLUPDATE(query, false);
-
-                        String updateSql1 = "update Clients set TnazolState ='F' where national_id='" + nationalIDMota.Text.ToString() + "'";
-                        c1.SQLUPDATE(updateSql1, false);
-                        String updateSql2 = "update Clients set TnazolState ='T' where national_id='" + motanazaElleh + "'";
-                        c1.SQLUPDATE(updateSql2, false);
-
-                        String unitTypeTanazolSql = "select * from ClientsUnits where client_id=" + motnazelID;
-                        c1.SQLCODE(unitTypeTanazolSql, false);
-                        if (c1.myReader.Read())
+                        String query1 = "insert into tanazolat (from_id,to_id,tanazol_date) values (" + motnazelID + "," + ToID + ",#" + da + "#)";
+                        if (c1.SQLUPDATE(query1, false))
                         {
-                            unitType = int.Parse(c1.myReader["unit_id"].ToString());
-                        }
-                        FunctionsClass.updtaeMyScriptHistory(motnazelID);
 
-                        String sql2 = "insert into ClientsUnits(client_id,unit_id,RecoredState)values(" + ToID + "," + unitType + ",'N')";
-                        c1.SQLUPDATE(sql2, true); 
+                            String query2 = "update Clients set TnazolState ='F' where id=" + motnazelID + "";
+                            c1.SQLUPDATE(query2, false);
+                            String query3 = "update Clients set TnazolState ='T' where id=" + ToID + "";
+                            c1.SQLUPDATE(query3, false);
+
+                            String unitTypeTanazolSql = "select * from ClientsUnits where client_id=" + motnazelID;
+                            c1.SQLCODE(unitTypeTanazolSql, false);
+                            if (c1.myReader.Read())
+                            {
+                                unitType = int.Parse(c1.myReader["unit_id"].ToString());
+                            }
+                            String sql2 = "insert into ClientsUnits(client_id,unit_id,RecoredState)values(" + ToID + "," + unitType + ",'N')";
+                            c1.SQLUPDATE(sql2, true);
+                            FunctionsClass.updtaeMyScriptHistory(motnazelID);
+                        }
                     }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 }
             }
             else
@@ -104,9 +114,5 @@ namespace Mo7meen
             }
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
     }
 }

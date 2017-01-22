@@ -35,7 +35,9 @@ namespace Mo7meen
             }
             catch (Exception ex)
             {
-                MessageBox.Show("11111خطأ اثناء تحميل البيانات");
+                MessageBox.Show("خطأ اثناء تحميل البيانات");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
             }
         }
         private void button1_Click(object sender, EventArgs e)
@@ -87,7 +89,7 @@ namespace Mo7meen
                     {
                         int unit = int.Parse(unitNumber.Text);
                         int borg = int.Parse(borgNumber.Text);
-                        sql = "update Clients set unit_number = " + unit + ", tour_number = " + borg + " , delivered ='y' where id=" + ID + " ";
+                        sql = "update Clients set unit_number = " + unit + ", tour_number = " + borg + " , delivered ='Y' where id=" + ID + " ";
                         conn.SQLUPDATE(sql, false);
                     }
                     String national = national_id_new.Text;
@@ -103,6 +105,8 @@ namespace Mo7meen
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                 }
             }
             else

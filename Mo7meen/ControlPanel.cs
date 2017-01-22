@@ -182,6 +182,7 @@ namespace Mo7meen
             if (found(priv, 'a'))
             {
                 sadadTa5sees.Enabled = true;
+                recivePaymebntBtn.Enabled = true;
             }
             if (found(priv, 'b'))
             {

@@ -148,7 +148,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ ف العملية");
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
             }
         }
 

@@ -34,9 +34,11 @@ namespace Mo7meen
                     tryloadthis(area);
                     FunctionsClass fc = new FunctionsClass();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                 }
             }
             else {

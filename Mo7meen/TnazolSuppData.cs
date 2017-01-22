@@ -15,22 +15,7 @@ namespace Mo7meen
         ErrorProvider[] err = new ErrorProvider[6];
         bool[] arr = new bool[6];
         ConnectionClass c1 = new ConnectionClass();
-     //   private string _nationalId;
-        bool tmam=false;
-        public string nationalIdFunc
-        {
-            get { return nationalId.Text; }
-            set {  }
-        }
-
-        public bool tm
-        {
-            get {
-                return tmam;
-            }
-            set { }
-        }
-
+        private Tnazol currentTnazolOp;
 
         private bool checkfull(bool[] arr)
         {
@@ -44,8 +29,9 @@ namespace Mo7meen
             return true;
         }
 
-        public TnazolSuppData()
+        public TnazolSuppData(Tnazol currentTnazolOp)
         {
+            this.currentTnazolOp = currentTnazolOp;
             c1.startConnection();
             InitializeComponent();
         }
@@ -70,15 +56,18 @@ namespace Mo7meen
                 if (err[0] != null)
                     err[0].Clear();
             }
-
-
-            if (string.IsNullOrWhiteSpace(nationalId.Text))
+            
+            if (InsertNationalIdChecker(nationalId.Text) || string.IsNullOrWhiteSpace(nationalId.Text) || (nationalId.Text.Length != 14 && nationalId.Text.Length != 16))
             {
+
                 err[1] = new ErrorProvider();
-                err[1].SetError(nationalId, "يجب إدخال رقم البطاقة ");
+                err[1].SetError(nationalId, "خطأ متعلق بالرقم القومى متواجد قبل ذلك او ليس 14 رقم او 16 فى حاله اكتر من وحده");
                 arr[1] = false;
-                //     z=false;
             }
+
+
+
+
             else
             {
                 // z=true;
@@ -146,7 +135,13 @@ namespace Mo7meen
                 {
                     String sqlInsert = "insert into Clients(membership_id,client_name,phone_number,address,national_id,deleted,montaseb,delivered,check_out,description)"
                     + "values(0,'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','Y','N'," + "'N','" + description.Text + "')";
-                    c1.SQLUPDATE(sqlInsert,true);
+                    if (c1.SQLUPDATE(sqlInsert, true))
+                    {
+                        currentTnazolOp.MotnazelToComplete = true;
+                        currentTnazolOp.MotnazelToNationalId = nationalId.Text;
+                        MessageBox.Show("تم حفظ بيانات المتنازل الية يمكن اتمام عملبة التنازل");
+                        this.Close();
+                    }
                 }
                 else
                 {
@@ -154,20 +149,34 @@ namespace Mo7meen
                     {
                         String sqlInsert = "insert into Clients(membership_id,client_name,phone_number,address,national_id,deleted,montaseb,delivered,check_out,description)"
                                     + "values(" + int.Parse(membershipId.Text) + ",'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','N','N'," + "'N','" + description.Text + "')";
-                        c1.SQLUPDATE(sqlInsert, true);
+                        if (c1.SQLUPDATE(sqlInsert, true)) {
+                            currentTnazolOp.MotnazelToComplete = true;
+                            currentTnazolOp.MotnazelToNationalId = nationalId.Text;
+                            MessageBox.Show("تم حفظ بيانات المتنازل الية يمكن اتمام عملبة التنازل");
+                            this.Close();
+                        }
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("خطأ ف العملية");
+                        Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                     }
                 }
-                tmam = true;
-                this.Close();
             }
             else
             {
                 MessageBox.Show("يوجد حقول فارغة ");
             }
+        }
+
+        private bool InsertNationalIdChecker(string text)
+        {
+            c1.SQLCODE("select * from clients where national_id='" + text + "'", false);
+            if (c1.myReader.Read())
+            {
+                return true;
+            }
+            return false;
         }
 
         private void entsabCheck_CheckedChanged(object sender, EventArgs e)

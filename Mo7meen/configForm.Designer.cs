@@ -47,6 +47,7 @@
             this.clearDbFileBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
+            this.copyLogBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -221,20 +222,31 @@
             // 
             // clearDbFileBtn
             // 
-            this.clearDbFileBtn.Location = new System.Drawing.Point(16, 374);
+            this.clearDbFileBtn.Location = new System.Drawing.Point(228, 374);
             this.clearDbFileBtn.Margin = new System.Windows.Forms.Padding(4);
             this.clearDbFileBtn.Name = "clearDbFileBtn";
-            this.clearDbFileBtn.Size = new System.Drawing.Size(547, 53);
+            this.clearDbFileBtn.Size = new System.Drawing.Size(335, 53);
             this.clearDbFileBtn.TabIndex = 6;
             this.clearDbFileBtn.Text = "بدأ فترة مالية جديده";
             this.clearDbFileBtn.UseVisualStyleBackColor = true;
             this.clearDbFileBtn.Click += new System.EventHandler(this.clearDbFileBtn_Click);
             // 
+            // copyLogBtn
+            // 
+            this.copyLogBtn.Location = new System.Drawing.Point(48, 374);
+            this.copyLogBtn.Name = "copyLogBtn";
+            this.copyLogBtn.Size = new System.Drawing.Size(173, 53);
+            this.copyLogBtn.TabIndex = 7;
+            this.copyLogBtn.Text = "نسخ ملف الاخطاء";
+            this.copyLogBtn.UseVisualStyleBackColor = true;
+            this.copyLogBtn.Click += new System.EventHandler(this.copyLogBtn_Click);
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(579, 442);
+            this.ClientSize = new System.Drawing.Size(582, 442);
+            this.Controls.Add(this.copyLogBtn);
             this.Controls.Add(this.clearDbFileBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -273,5 +285,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button copyLogBtn;
     }
 }

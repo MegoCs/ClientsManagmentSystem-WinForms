@@ -69,8 +69,9 @@ namespace Mo7meen
                 ue.ShowDialog();
             }
             catch (Exception ex) {
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
             }
-            }
+        }
     }
 }

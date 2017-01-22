@@ -118,9 +118,9 @@
             // saveButton
             // 
             this.saveButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.saveButton.Location = new System.Drawing.Point(100, 116);
+            this.saveButton.Location = new System.Drawing.Point(38, 116);
             this.saveButton.Name = "saveButton";
-            this.saveButton.Size = new System.Drawing.Size(164, 23);
+            this.saveButton.Size = new System.Drawing.Size(261, 44);
             this.saveButton.TabIndex = 3;
             this.saveButton.Text = "حفظ";
             this.saveButton.UseVisualStyleBackColor = true;
@@ -129,29 +129,29 @@
             // sadadTa5seesCH
             // 
             this.sadadTa5seesCH.AutoSize = true;
-            this.sadadTa5seesCH.Location = new System.Drawing.Point(224, 111);
+            this.sadadTa5seesCH.Location = new System.Drawing.Point(200, 88);
             this.sadadTa5seesCH.Name = "sadadTa5seesCH";
-            this.sadadTa5seesCH.Size = new System.Drawing.Size(92, 17);
+            this.sadadTa5seesCH.Size = new System.Drawing.Size(132, 17);
             this.sadadTa5seesCH.TabIndex = 8;
-            this.sadadTa5seesCH.Text = "سداد التخصيص";
+            this.sadadTa5seesCH.Text = "سداد التخصيص و استلام";
             this.sadadTa5seesCH.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.sadadTa5seesCH.UseVisualStyleBackColor = true;
             // 
             // addUnitsCH
             // 
             this.addUnitsCH.AutoSize = true;
-            this.addUnitsCH.Location = new System.Drawing.Point(347, 42);
+            this.addUnitsCH.Location = new System.Drawing.Point(347, 45);
             this.addUnitsCH.Name = "addUnitsCH";
-            this.addUnitsCH.Size = new System.Drawing.Size(85, 17);
+            this.addUnitsCH.Size = new System.Drawing.Size(123, 17);
             this.addUnitsCH.TabIndex = 9;
-            this.addUnitsCH.Text = "اضافة وحدات";
+            this.addUnitsCH.Text = "اضافة و تعديل وحدات";
             this.addUnitsCH.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.addUnitsCH.UseVisualStyleBackColor = true;
             // 
             // addEmployeeCH
             // 
             this.addEmployeeCH.AutoSize = true;
-            this.addEmployeeCH.Location = new System.Drawing.Point(348, 20);
+            this.addEmployeeCH.Location = new System.Drawing.Point(387, 23);
             this.addEmployeeCH.Name = "addEmployeeCH";
             this.addEmployeeCH.Size = new System.Drawing.Size(83, 17);
             this.addEmployeeCH.TabIndex = 10;
@@ -168,7 +168,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.passwordText);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Location = new System.Drawing.Point(3, 12);
+            this.groupBox1.Location = new System.Drawing.Point(38, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(267, 105);
             this.groupBox1.TabIndex = 11;
@@ -201,9 +201,9 @@
             this.groupBox2.Controls.Add(this.addNewUnitsCh);
             this.groupBox2.Controls.Add(this.addEmployeeCH);
             this.groupBox2.Controls.Add(this.sadadTa5seesCH);
-            this.groupBox2.Location = new System.Drawing.Point(276, 12);
+            this.groupBox2.Location = new System.Drawing.Point(311, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(440, 157);
+            this.groupBox2.Size = new System.Drawing.Size(496, 157);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "صلاحيات الاستخدام";
@@ -211,7 +211,7 @@
             // gardCH
             // 
             this.gardCH.AutoSize = true;
-            this.gardCH.Location = new System.Drawing.Point(387, 131);
+            this.gardCH.Location = new System.Drawing.Point(427, 134);
             this.gardCH.Name = "gardCH";
             this.gardCH.Size = new System.Drawing.Size(43, 17);
             this.gardCH.TabIndex = 9;
@@ -223,18 +223,18 @@
             // montasebeenCH
             // 
             this.montasebeenCH.AutoSize = true;
-            this.montasebeenCH.Location = new System.Drawing.Point(246, 134);
+            this.montasebeenCH.Location = new System.Drawing.Point(221, 131);
             this.montasebeenCH.Name = "montasebeenCH";
-            this.montasebeenCH.Size = new System.Drawing.Size(69, 17);
+            this.montasebeenCH.Size = new System.Drawing.Size(111, 17);
             this.montasebeenCH.TabIndex = 9;
-            this.montasebeenCH.Text = "المنتسبين";
+            this.montasebeenCH.Text = "مصاريف و منتسبين";
             this.montasebeenCH.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.montasebeenCH.UseVisualStyleBackColor = true;
             // 
             // moqdematCH
             // 
             this.moqdematCH.AutoSize = true;
-            this.moqdematCH.Location = new System.Drawing.Point(157, 134);
+            this.moqdematCH.Location = new System.Drawing.Point(144, 134);
             this.moqdematCH.Name = "moqdematCH";
             this.moqdematCH.Size = new System.Drawing.Size(58, 17);
             this.moqdematCH.TabIndex = 9;
@@ -245,7 +245,7 @@
             // tanazolCH
             // 
             this.tanazolCH.AutoSize = true;
-            this.tanazolCH.Location = new System.Drawing.Point(165, 111);
+            this.tanazolCH.Location = new System.Drawing.Point(152, 111);
             this.tanazolCH.Name = "tanazolCH";
             this.tanazolCH.Size = new System.Drawing.Size(50, 17);
             this.tanazolCH.TabIndex = 9;
@@ -256,7 +256,7 @@
             // settingsCH
             // 
             this.settingsCH.AutoSize = true;
-            this.settingsCH.Location = new System.Drawing.Point(49, 134);
+            this.settingsCH.Location = new System.Drawing.Point(40, 134);
             this.settingsCH.Name = "settingsCH";
             this.settingsCH.Size = new System.Drawing.Size(60, 17);
             this.settingsCH.TabIndex = 9;
@@ -267,7 +267,7 @@
             // transeferUnitCH
             // 
             this.transeferUnitCH.AutoSize = true;
-            this.transeferUnitCH.Location = new System.Drawing.Point(27, 108);
+            this.transeferUnitCH.Location = new System.Drawing.Point(19, 108);
             this.transeferUnitCH.Name = "transeferUnitCH";
             this.transeferUnitCH.Size = new System.Drawing.Size(81, 17);
             this.transeferUnitCH.TabIndex = 9;
@@ -278,7 +278,7 @@
             // addChequeCH
             // 
             this.addChequeCH.AutoSize = true;
-            this.addChequeCH.Location = new System.Drawing.Point(20, 88);
+            this.addChequeCH.Location = new System.Drawing.Point(12, 88);
             this.addChequeCH.Name = "addChequeCH";
             this.addChequeCH.Size = new System.Drawing.Size(88, 17);
             this.addChequeCH.TabIndex = 9;
@@ -289,7 +289,7 @@
             // bankAccountsCH
             // 
             this.bankAccountsCH.AutoSize = true;
-            this.bankAccountsCH.Location = new System.Drawing.Point(3, 65);
+            this.bankAccountsCH.Location = new System.Drawing.Point(-4, 65);
             this.bankAccountsCH.Name = "bankAccountsCH";
             this.bankAccountsCH.Size = new System.Drawing.Size(104, 17);
             this.bankAccountsCH.TabIndex = 9;
@@ -300,7 +300,7 @@
             // payQestCH
             // 
             this.payQestCH.AutoSize = true;
-            this.payQestCH.Location = new System.Drawing.Point(37, 43);
+            this.payQestCH.Location = new System.Drawing.Point(31, 43);
             this.payQestCH.Name = "payQestCH";
             this.payQestCH.Size = new System.Drawing.Size(69, 17);
             this.payQestCH.TabIndex = 9;
@@ -311,18 +311,18 @@
             // sa7bCH
             // 
             this.sa7bCH.AutoSize = true;
-            this.sa7bCH.Location = new System.Drawing.Point(54, 23);
+            this.sa7bCH.Location = new System.Drawing.Point(-1, 20);
             this.sa7bCH.Name = "sa7bCH";
-            this.sa7bCH.Size = new System.Drawing.Size(50, 17);
+            this.sa7bCH.Size = new System.Drawing.Size(101, 17);
             this.sa7bCH.TabIndex = 9;
-            this.sa7bCH.Text = "سحب";
+            this.sa7bCH.Text = "سحب و استرجاع";
             this.sa7bCH.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.sa7bCH.UseVisualStyleBackColor = true;
             // 
             // unitMas7oobaCH
             // 
             this.unitMas7oobaCH.AutoSize = true;
-            this.unitMas7oobaCH.Location = new System.Drawing.Point(107, 88);
+            this.unitMas7oobaCH.Location = new System.Drawing.Point(93, 88);
             this.unitMas7oobaCH.Name = "unitMas7oobaCH";
             this.unitMas7oobaCH.Size = new System.Drawing.Size(109, 17);
             this.unitMas7oobaCH.TabIndex = 9;
@@ -333,7 +333,7 @@
             // editAqsatCH
             // 
             this.editAqsatCH.AutoSize = true;
-            this.editAqsatCH.Location = new System.Drawing.Point(138, 65);
+            this.editAqsatCH.Location = new System.Drawing.Point(125, 65);
             this.editAqsatCH.Name = "editAqsatCH";
             this.editAqsatCH.Size = new System.Drawing.Size(77, 17);
             this.editAqsatCH.TabIndex = 9;
@@ -344,7 +344,7 @@
             // EditChequesCH
             // 
             this.EditChequesCH.AutoSize = true;
-            this.EditChequesCH.Location = new System.Drawing.Point(139, 42);
+            this.EditChequesCH.Location = new System.Drawing.Point(126, 42);
             this.EditChequesCH.Name = "EditChequesCH";
             this.EditChequesCH.Size = new System.Drawing.Size(76, 17);
             this.EditChequesCH.TabIndex = 9;
@@ -355,7 +355,7 @@
             // EditClientsDataCH
             // 
             this.EditClientsDataCH.AutoSize = true;
-            this.EditClientsDataCH.Location = new System.Drawing.Point(130, 22);
+            this.EditClientsDataCH.Location = new System.Drawing.Point(117, 22);
             this.EditClientsDataCH.Name = "EditClientsDataCH";
             this.EditClientsDataCH.Size = new System.Drawing.Size(85, 17);
             this.EditClientsDataCH.TabIndex = 9;
@@ -366,7 +366,7 @@
             // reportCH
             // 
             this.reportCH.AutoSize = true;
-            this.reportCH.Location = new System.Drawing.Point(334, 108);
+            this.reportCH.Location = new System.Drawing.Point(371, 111);
             this.reportCH.Name = "reportCH";
             this.reportCH.Size = new System.Drawing.Size(99, 17);
             this.reportCH.TabIndex = 9;
@@ -377,7 +377,7 @@
             // showChequeCH
             // 
             this.showChequeCH.AutoSize = true;
-            this.showChequeCH.Location = new System.Drawing.Point(231, 65);
+            this.showChequeCH.Location = new System.Drawing.Point(248, 65);
             this.showChequeCH.Name = "showChequeCH";
             this.showChequeCH.Size = new System.Drawing.Size(84, 17);
             this.showChequeCH.TabIndex = 9;
@@ -388,7 +388,7 @@
             // ta5seesCH
             // 
             this.ta5seesCH.AutoSize = true;
-            this.ta5seesCH.Location = new System.Drawing.Point(254, 88);
+            this.ta5seesCH.Location = new System.Drawing.Point(271, 108);
             this.ta5seesCH.Name = "ta5seesCH";
             this.ta5seesCH.Size = new System.Drawing.Size(61, 17);
             this.ta5seesCH.TabIndex = 9;
@@ -399,7 +399,7 @@
             // searchChequeCH
             // 
             this.searchChequeCH.AutoSize = true;
-            this.searchChequeCH.Location = new System.Drawing.Point(234, 20);
+            this.searchChequeCH.Location = new System.Drawing.Point(252, 20);
             this.searchChequeCH.Name = "searchChequeCH";
             this.searchChequeCH.Size = new System.Drawing.Size(80, 17);
             this.searchChequeCH.TabIndex = 9;
@@ -410,7 +410,7 @@
             // addClientCH
             // 
             this.addClientCH.AutoSize = true;
-            this.addClientCH.Location = new System.Drawing.Point(353, 85);
+            this.addClientCH.Location = new System.Drawing.Point(391, 88);
             this.addClientCH.Name = "addClientCH";
             this.addClientCH.Size = new System.Drawing.Size(79, 17);
             this.addClientCH.TabIndex = 10;
@@ -421,7 +421,7 @@
             // searchQestCH
             // 
             this.searchQestCH.AutoSize = true;
-            this.searchQestCH.Location = new System.Drawing.Point(236, 43);
+            this.searchQestCH.Location = new System.Drawing.Point(253, 43);
             this.searchQestCH.Name = "searchQestCH";
             this.searchQestCH.Size = new System.Drawing.Size(79, 17);
             this.searchQestCH.TabIndex = 10;
@@ -432,11 +432,11 @@
             // addNewUnitsCh
             // 
             this.addNewUnitsCh.AutoSize = true;
-            this.addNewUnitsCh.Location = new System.Drawing.Point(314, 64);
+            this.addNewUnitsCh.Location = new System.Drawing.Point(362, 67);
             this.addNewUnitsCh.Name = "addNewUnitsCh";
-            this.addNewUnitsCh.Size = new System.Drawing.Size(118, 17);
+            this.addNewUnitsCh.Size = new System.Drawing.Size(108, 17);
             this.addNewUnitsCh.TabIndex = 10;
-            this.addNewUnitsCh.Text = "اضافة وحدات جديدة ";
+            this.addNewUnitsCh.Text = "اضافة نوع وحدات ";
             this.addNewUnitsCh.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.addNewUnitsCh.UseVisualStyleBackColor = true;
             // 
@@ -454,7 +454,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(728, 228);
+            this.ClientSize = new System.Drawing.Size(819, 216);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

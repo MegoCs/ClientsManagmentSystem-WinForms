@@ -49,6 +49,7 @@
             this.transferUnit = new System.Windows.Forms.Button();
             this.editQrst = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.managmentMoneyPayBtn = new System.Windows.Forms.Button();
             this.montasbeen = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.sadadTa5sees = new System.Windows.Forms.Button();
@@ -61,7 +62,6 @@
             this.editClients = new System.Windows.Forms.Button();
             this.editCheques = new System.Windows.Forms.Button();
             this.settings = new System.Windows.Forms.Button();
-            this.managmentMoneyPayBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -232,6 +232,7 @@
             // recivePaymebntBtn
             // 
             this.recivePaymebntBtn.BackColor = System.Drawing.Color.Gray;
+            this.recivePaymebntBtn.Enabled = false;
             this.recivePaymebntBtn.Location = new System.Drawing.Point(127, 124);
             this.recivePaymebntBtn.Name = "recivePaymebntBtn";
             this.recivePaymebntBtn.Size = new System.Drawing.Size(107, 64);
@@ -330,6 +331,19 @@
             this.groupBox4.TabIndex = 16;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "المنتسبين";
+            // 
+            // managmentMoneyPayBtn
+            // 
+            this.managmentMoneyPayBtn.BackColor = System.Drawing.Color.Plum;
+            this.managmentMoneyPayBtn.Enabled = false;
+            this.managmentMoneyPayBtn.Location = new System.Drawing.Point(13, 94);
+            this.managmentMoneyPayBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.managmentMoneyPayBtn.Name = "managmentMoneyPayBtn";
+            this.managmentMoneyPayBtn.Size = new System.Drawing.Size(100, 64);
+            this.managmentMoneyPayBtn.TabIndex = 12;
+            this.managmentMoneyPayBtn.Text = " المصاريف الادارية";
+            this.managmentMoneyPayBtn.UseVisualStyleBackColor = false;
+            this.managmentMoneyPayBtn.Click += new System.EventHandler(this.managmentMoneyPayBtn_Click);
             // 
             // montasbeen
             // 
@@ -481,19 +495,6 @@
             this.settings.Text = "اعدادات البرنامج";
             this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.ConfigBtn_Click);
-            // 
-            // managmentMoneyPayBtn
-            // 
-            this.managmentMoneyPayBtn.BackColor = System.Drawing.Color.Plum;
-            this.managmentMoneyPayBtn.Enabled = false;
-            this.managmentMoneyPayBtn.Location = new System.Drawing.Point(13, 94);
-            this.managmentMoneyPayBtn.Margin = new System.Windows.Forms.Padding(4);
-            this.managmentMoneyPayBtn.Name = "managmentMoneyPayBtn";
-            this.managmentMoneyPayBtn.Size = new System.Drawing.Size(100, 64);
-            this.managmentMoneyPayBtn.TabIndex = 12;
-            this.managmentMoneyPayBtn.Text = " المصاريف الادارية";
-            this.managmentMoneyPayBtn.UseVisualStyleBackColor = false;
-            this.managmentMoneyPayBtn.Click += new System.EventHandler(this.managmentMoneyPayBtn_Click);
             // 
             // ControlPanel
             // 

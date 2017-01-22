@@ -152,9 +152,11 @@ namespace Mo7meen
                         c1.SQLUPDATE(updateUnitsSql, true);
 
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
                         MessageBox.Show("خطأ ف البيانات المدخلة");
+                        Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                     }
 
                     //clear all errors

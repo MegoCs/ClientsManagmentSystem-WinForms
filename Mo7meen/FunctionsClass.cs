@@ -53,7 +53,7 @@ namespace Mo7meen
         private void loadDeletedClients()
         {
             areasData.Clear();
-            String sql = "select id from Clients where deleted='y'";
+            String sql = "select id from Clients where deleted='Y'";
             con.SQLCODE(sql, false);
             while (con.myReader.Read())
             {

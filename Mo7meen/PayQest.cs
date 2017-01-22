@@ -52,9 +52,11 @@ namespace Mo7meen
                     photosGroup_id = 0;
                     detailsTxt.Text = "";
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                 }
             }
             else {

@@ -23,7 +23,7 @@ namespace Mo7meen
         private System.IO.Stream streamToPrint;
         string streamType;
         private PrintDocument printDoc = new PrintDocument();
-        private int partnerID=-1;
+        private int partnerID = -1;
 
         public string TnazolState { get; private set; }
 
@@ -49,127 +49,157 @@ namespace Mo7meen
         }
         private void ClientReportForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'LatePayment.DataTable1' table. You can move, or remove it, as needed.
             EmpNameLab.Text = SessionInfo.empName;
-            todayDateLab.Text=DateTime.Now.ToString("dd/MM/yyy");
+            todayDateLab.Text = DateTime.Now.ToString("dd/MM/yyy");
+            LoadGeneralData();
+            if (unitTypeComb_LateTab.Items.Count == 0)
+            {
+                FunctionsClass.loadAreaTyeps();
+                foreach (ComboBoxItem item in FunctionsClass.areasData)
+                    unitTypeComb_LateTab.Items.Add(item);
+            }
+
         }
 
         private void fillReportBtn_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(nationalSearch.Text))
             {
-                conObj.startConnection();
-                String sql = "SELECT units.unit_price,units.unit_type, Clients.client_name,Clients.receivingPayments, ClientsUnits.ID as joinid, Clients.membership_id, Clients.phone_number, Clients.address, Clients.deleted, Clients.national_id, Clients.montaseb, Clients.delivered,Clients.ID, Clients.unit_number, Clients.tour_number, Clients.check_out, Clients.description, Clients.TnazolState FROM ((Clients INNER JOIN ClientsUnits ON Clients.ID = ClientsUnits.client_id) INNER JOIN units ON ClientsUnits.unit_id = units.ID) WHERE(Clients.national_id = '" + nationalSearch.Text+"') ORDER BY ClientsUnits.ID DESC";
-                conObj.SQLCODE(sql, false);
-                if (conObj.myReader.Read())
+                try
                 {
-                    #region Load Client Data
-
-                    #region Display Basic Info About the Client
-                    client_id = int.Parse(conObj.myReader["id"].ToString());
-                    client_NameTxt.Text = conObj.myReader["client_name"].ToString();
-                    client_PhoneTxt.Text = conObj.myReader["phone_number"].ToString();
-                    client_NationalTxt.Text = conObj.myReader["national_id"].ToString();
-
-                    if (conObj.myReader["membership_id"].ToString() == "0")
-                        client_MemberShipTxt.Text = "";
-                    else
-                    client_MemberShipTxt.Text = conObj.myReader["membership_id"].ToString();
-
-                    client_AddressTxt.Text = conObj.myReader["address"].ToString();
-                    client_TourNumTxt.Text = conObj.myReader["tour_number"].ToString();
-                    client_UnitNumTxt.Text = conObj.myReader["unit_number"].ToString();
-                    recivePaymentValueTxt.Text= conObj.myReader["receivingPayments"].ToString();
-                    unitPriceTxt.Text = conObj.myReader["unit_price"].ToString();
-                    unitPriceTxt.Text = conObj.myReader["unit_price"].ToString();
-                    unitTypeLab.Text= conObj.myReader["unit_type"].ToString();
-                    #endregion
-
-                    #region check Entsab State and Sum of It`s Money
-                    TnazolState = conObj.myReader["TnazolState"].ToString();
-                    if (conObj.myReader["montaseb"].ToString() == "Y")
+                    conObj.startConnection();
+                    String sql = "SELECT units.unit_price,units.unit_type, Clients.client_name,Clients.receivingPayments, ClientsUnits.ID as joinid, Clients.membership_id, Clients.phone_number, Clients.address, Clients.deleted, Clients.national_id, Clients.montaseb, Clients.delivered,Clients.ID, Clients.unit_number, Clients.tour_number, Clients.check_out, Clients.description, Clients.TnazolState FROM ((Clients INNER JOIN ClientsUnits ON Clients.ID = ClientsUnits.client_id) INNER JOIN units ON ClientsUnits.unit_id = units.ID) WHERE(Clients.national_id = '" + nationalSearch.Text + "' and check_out = 'N') ORDER BY ClientsUnits.ID DESC";
+                    conObj.SQLCODE(sql, false);
+                    if (conObj.myReader.Read())
                     {
-                        entsabCheckBox.Checked = true;
-                        sql = "select sum(paid_value) from montsben where client_id=" + client_id + " and PaymentType=0";
-                        loadOneCell(sql, entsabPaid_ValueTxt);
-                        if (String.IsNullOrEmpty(entsabPaid_ValueTxt.Text))
-                            entsabPaid_ValueTxt.Text = "0";
+                        #region Load Client Data
 
-                        sql = "select sum(paid_value) from montsben where client_id=" + client_id + " and PaymentType=1";
-                        loadOneCell(sql, entsabManagPaid_ValueTxt);
-                        if (String.IsNullOrEmpty(entsabManagPaid_ValueTxt.Text))
-                            entsabManagPaid_ValueTxt.Text = "0";
+                        #region Display Basic Info About the Client
+                        client_id = int.Parse(conObj.myReader["id"].ToString());
+                        client_NameTxt.Text = conObj.myReader["client_name"].ToString();
+                        client_PhoneTxt.Text = conObj.myReader["phone_number"].ToString();
+                        client_NationalTxt.Text = conObj.myReader["national_id"].ToString();
 
-                    }
-                    else
-                    {
-                        EntsabGroup.Visible = false;
-                    }
-                    #endregion
+                        if (conObj.myReader["membership_id"].ToString() == "0")
+                            client_MemberShipTxt.Text = "";
+                        else
+                            client_MemberShipTxt.Text = conObj.myReader["membership_id"].ToString();
 
-                    #region check Tnazol State and Partner
-                    if (TnazolState != "n" && TnazolState != "N")
-                    {
-                        if (TnazolState == "T" || TnazolState == "t")
+                        client_AddressTxt.Text = conObj.myReader["address"].ToString();
+                        client_TourNumTxt.Text = conObj.myReader["tour_number"].ToString();
+                        client_UnitNumTxt.Text = conObj.myReader["unit_number"].ToString();
+                        recivePaymentValueTxt.Text = "0";
+                        recivePaymentValueTxt.Text = conObj.myReader["receivingPayments"].ToString();
+                        unitPriceTxt.Text = conObj.myReader["unit_price"].ToString();
+                        unitTypeLab.Text = conObj.myReader["unit_type"].ToString();
+                        #endregion
+
+                        #region check Entsab State and Sum of It`s Money
+                        TnazolState = conObj.myReader["TnazolState"].ToString();
+                        if (conObj.myReader["montaseb"].ToString() == "Y")
                         {
-                            sql = "SELECT client_name,ID FROM Clients WHERE(ID =(SELECT From_id FROM tanazolat WHERE(to_id = " + client_id + ")))";
-                            motnazelCheckBox.Checked = false;
-                            motnazelToCheckBox.Checked = true;
-                            conObj.SQLCODE(sql, false);
-                            if (conObj.myReader.Read())
+                            entsabCheckBox.Checked = true;
+                            sql = "select sum(paid_value) from montsben where client_id=" + client_id + " and PaymentType=0";
+                            loadOneCell(sql, entsabPaid_ValueTxt);
+                            if (String.IsNullOrEmpty(entsabPaid_ValueTxt.Text))
+                                entsabPaid_ValueTxt.Text = "0";
+
+                            sql = "select sum(paid_value) from montsben where client_id=" + client_id + " and PaymentType=1";
+                            loadOneCell(sql, entsabManagPaid_ValueTxt);
+                            if (String.IsNullOrEmpty(entsabManagPaid_ValueTxt.Text))
+                                entsabManagPaid_ValueTxt.Text = "0";
+
+                        }
+                        else
+                        {
+                            EntsabGroup.Visible = false;
+                        }
+                        #endregion
+
+                        #region check Tnazol State and Partner
+                        if (TnazolState != "N")
+                        {
+                            if (TnazolState == "T")
                             {
-                                tnazolPartenterTxt.Text = conObj.myReader[0].ToString();
-                                partnerID = int.Parse(conObj.myReader[1].ToString());
+                                sql = "SELECT client_name,ID FROM Clients WHERE(ID =(SELECT From_id FROM tanazolat WHERE(to_id = " + client_id + ")))";
+                                motnazelCheckBox.Checked = false;
+                                motnazelToCheckBox.Checked = true;
+                                conObj.SQLCODE(sql, false);
+                                if (conObj.myReader.Read())
+                                {
+                                    tnazolPartenterTxt.Text = conObj.myReader[0].ToString();
+                                    partnerID = int.Parse(conObj.myReader[1].ToString());
+                                }
+
+                                if (partnerID != -1)
+                                {
+                                    sql = "SELECT receivingPayments FROM Clients WHERE(ID =" + partnerID + ")";
+                                    conObj.SQLCODE(sql, false);
+                                    if (conObj.myReader.Read())
+                                    {
+                                        int oldre = int.Parse(conObj.myReader[0].ToString());
+                                        recivePaymentValueTxt.Text = (int.Parse(recivePaymentValueTxt.Text) + oldre).ToString();
+                                    }
+                                }
+
+
+                            }
+                            if (TnazolState == "F")
+                            {
+                                sql = "SELECT client_name FROM Clients WHERE(ID =(SELECT to_id FROM tanazolat WHERE(from_id = " + client_id + ")))";
+                                motnazelCheckBox.Checked = true;
+                                motnazelToCheckBox.Checked = false;
+                                loadOneCell(sql, tnazolPartenterTxt);
                             }
                         }
-                        if (TnazolState == "F" || TnazolState == "f")
+                        else
                         {
-                            sql = "SELECT client_name FROM Clients WHERE(ID =(SELECT to_id FROM tanazolat WHERE(from_id = " + client_id + ")))";
-                            motnazelCheckBox.Checked = true;
-                            motnazelToCheckBox.Checked = false;
-                            loadOneCell(sql, tnazolPartenterTxt);
+                            TnazolGroup.Visible = false;
                         }
+                        #endregion
+
+                        #region Load Paid Fist Values Sum
+                        sql = "select sum(paid_value) from first_paids HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
+                        loadOneCell(sql, client_Firstpaid_SumTxt);
+                        if (String.IsNullOrEmpty(client_Firstpaid_SumTxt.Text))
+                            client_Firstpaid_SumTxt.Text = "0";
+                        #endregion
+
+                        #region Load T5ses Money sum
+                        sql = "select sum(paid_value) from T5sesMoney HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
+                        loadOneCell(sql, client_T5ses_SumTxt);
+                        if (String.IsNullOrEmpty(client_T5ses_SumTxt.Text))
+                            client_T5ses_SumTxt.Text = "0";
+                        #endregion
+
+                        #region Load Aqsat Total Sum
+                        sql = "select sum(qest_value) from aqsat HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
+                        loadOneCell(sql, client_Aqsat_SumTxt);
+                        if (String.IsNullOrEmpty(client_Aqsat_SumTxt.Text))
+                            client_Aqsat_SumTxt.Text = "0";
+                        #endregion
+
+                        #region Sum All data and Display them
+                        int tmp = int.Parse(client_Firstpaid_SumTxt.Text);
+                        tmp += int.Parse(client_T5ses_SumTxt.Text);
+                        tmp += int.Parse(client_Aqsat_SumTxt.Text);
+                        tmp += int.Parse(recivePaymentValueTxt.Text);
+                        client_Total_SumTxt.Text = tmp.ToString();
+                        unitRestPriceTxt.Text = (int.Parse(unitPriceTxt.Text) - tmp).ToString();
+                        thePercentValueTxt.Text = (0.05 * int.Parse(unitPriceTxt.Text)).ToString();
+                        #endregion
+
+                        #endregion
                     }
-                    else {
-                        TnazolGroup.Visible = false;
+                    else
+                    {
+                        MessageBox.Show("لا يوجد بيانات لهذا العميل");
                     }
-                    #endregion
-
-                    #region Load Paid Fist Values Sum
-                    sql = "select sum(paid_value) from first_paids HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
-                    loadOneCell(sql, client_Firstpaid_SumTxt);
-                    if (String.IsNullOrEmpty(client_Firstpaid_SumTxt.Text))
-                        client_Firstpaid_SumTxt.Text = "0";
-                    #endregion
-
-                    #region Load T5ses Money sum
-                    sql = "select sum(paid_value) from T5sesMoney HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
-                    loadOneCell(sql, client_T5ses_SumTxt);
-                    if (String.IsNullOrEmpty(client_T5ses_SumTxt.Text))
-                        client_T5ses_SumTxt.Text = "0";
-                    #endregion
-
-                    #region Load Aqsat Total Sum
-                    sql = "select sum(qest_value) from aqsat HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
-                    loadOneCell(sql, client_Aqsat_SumTxt);
-                    if (String.IsNullOrEmpty(client_Aqsat_SumTxt.Text))
-                        client_Aqsat_SumTxt.Text = "0";
-                    #endregion
-
-                    #region Sum All data and Display them
-                    int tmp = int.Parse(client_Firstpaid_SumTxt.Text);
-                    tmp += int.Parse(client_T5ses_SumTxt.Text);
-                    tmp += int.Parse(client_Aqsat_SumTxt.Text);
-                    tmp += int.Parse(recivePaymentValueTxt.Text);
-                    client_Total_SumTxt.Text = tmp.ToString();
-                    unitRestPriceTxt.Text = (int.Parse(unitPriceTxt.Text) - tmp).ToString();
-                    thePercentValueTxt.Text = (0.05 * int.Parse(unitPriceTxt.Text)).ToString();
-                    #endregion
-
-                    #endregion
                 }
-                else {
-                    MessageBox.Show("لا يوجد بيانات لهذا العميل");
+                catch (Exception ex)
+                {
+                    MessageBox.Show("خطأ فى بيانات العميل");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 }
             }
         }
@@ -187,7 +217,8 @@ namespace Mo7meen
         private void PrintMinReportBtn_Click(object sender, EventArgs e)
         {
             this.ActiveControl = EmpNameLab;
-            if (client_NameTxt.Text!="") {
+            if (client_NameTxt.Text != "")
+            {
                 VisbleContolrsForPrint(false);
                 #region PrintCalling
                 Graphics g1 = this.tabControl1.TabPages[0].CreateGraphics();
@@ -232,7 +263,7 @@ namespace Mo7meen
             else
             {
                 tabControl1.TabPages.Add(e1);
-                tabControl1.TabPages.Add(e2);            
+                tabControl1.TabPages.Add(e2);
             }
         }
 
@@ -260,7 +291,7 @@ namespace Mo7meen
         public void StartPrint(Stream streamToPrint, string streamType)
         {
             this.printDoc.PrintPage += new PrintPageEventHandler(printDoc_PrintPage);
-            this.printDoc.DefaultPageSettings.PaperSize=new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
+            this.printDoc.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
             this.streamToPrint = streamToPrint;
             this.streamType = streamType;
             System.Windows.Forms.PrintDialog PrintDialog1 = new PrintDialog();
@@ -268,7 +299,7 @@ namespace Mo7meen
             PrintDialog1.ShowHelp = true;
             PrintDialog1.Document = printDoc;
             PrintDialog1.Document.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
-            PrintDialog1.PrinterSettings.DefaultPageSettings.PaperSize= new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
+            PrintDialog1.PrinterSettings.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("PaperA4", 826, 11690);
             DialogResult result = PrintDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -279,17 +310,18 @@ namespace Mo7meen
 
         private void moadmReport_Click(object sender, EventArgs e)
         {
-            this.BeginInvoke((Action)delegate {
+            this.BeginInvoke((Action)delegate
+            {
                 SubbReportsViwer subView = new SubbReportsViwer(client_id, partnerID);
                 subView.Text = "تقرير تفصيلى للاقساط و المقدمات";
                 subView.Show();
-             });
+            });
         }
 
         private void percentDisplayCheck_CheckedChanged(object sender, EventArgs e)
         {
             thePercentValueTxt.Visible = percentDisplayCheck.Checked;
-            thePercentValueLab.Visible= percentDisplayCheck.Checked;
+            thePercentValueLab.Visible = percentDisplayCheck.Checked;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -308,26 +340,18 @@ namespace Mo7meen
                 DataTable dtNotValid = new DataTable();
                 conObj.myAdabter.Fill(dtNotValid);
                 dataGridView1.DataSource = dtNotValid;
+
+                sql = "SELECT Clients.client_name as 'اسم العميل', Clients.national_id as 'رقم قومي',(select client_name from clients where id=tanazolat.to_id) as 'اسم المتنازل اليه' , tanazolat.tanazol_date as 'تاريخ التنازل' FROM(Clients INNER JOIN tanazolat ON Clients.ID = tanazolat.from_id AND Clients.ID = tanazolat.from_id)";
+                conObj.SQLCODE(sql, true);
+                DataTable dtNotValid2 = new DataTable();
+                conObj.myAdabter.Fill(dtNotValid2);
+                dataGridView2.DataSource = dtNotValid2;
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ اثناء تحميل البيانات");
-            }
-        }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (tabControl1.SelectedIndex==1)
-            {
-                LoadGeneralData();
-            }
-            if (tabControl1.SelectedIndex == 2)
-            {
-                if(unitTypeComb_LateTab.Items.Count==0)
-                foreach (ComboBoxItem item in FunctionsClass.areasData)
-                {
-                    unitTypeComb_LateTab.Items.Add(item);
-                }
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
             }
         }
 

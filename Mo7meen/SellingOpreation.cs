@@ -240,7 +240,7 @@ namespace Mo7meen
                         membershipId.Text = "0";
                     }
                     String sqlInsert = "insert into Clients(membership_id,client_name,phone_number,address,national_id,deleted,montaseb,delivered,check_out,description,Group_id,TnazolState)"
-                        + "values(" + int.Parse(membershipId.Text) + ",'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','n','n','n','n','" + description.Text + "'," + photosGroup_id + ",'n')";
+                        + "values(" + int.Parse(membershipId.Text) + ",'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','N','N','N','" + description.Text + "'," + photosGroup_id + ",'N')";
                     c1.SQLUPDATE(sqlInsert, false);
                     #endregion
 
@@ -301,6 +301,8 @@ namespace Mo7meen
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
+                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+
                 }
                 #endregion
 

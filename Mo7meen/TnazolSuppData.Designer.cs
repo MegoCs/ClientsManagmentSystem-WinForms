@@ -94,9 +94,9 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(224, 199);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.Size = new System.Drawing.Size(40, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "الوصف";
+            this.label7.Text = "تفاصيل";
             // 
             // label6
             // 
