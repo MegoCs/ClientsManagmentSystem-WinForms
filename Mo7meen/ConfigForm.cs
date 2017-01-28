@@ -12,14 +12,60 @@ namespace Mo7meen
 {
     public partial class ConfigForm : Form
     {
-        public ConfigForm()
-        {
-            InitializeComponent();
-        }
+        BackgroundWorker backUpWorker = new BackgroundWorker(), restorDataWorker = new BackgroundWorker();
+        String folderName;
         String ImgFolderPath;
         String DataFolderPath;
         String choosenFolderToSaveinto;
         private bool imgSaved;
+
+        public ConfigForm()
+        {
+            InitializeComponent();
+            backUpWorker.DoWork += BackUpWorker_DoWorkInbackGround;
+            backUpWorker.RunWorkerCompleted += BackUpWorker_WorkInbackGroundCompleted;
+            backUpWorker.WorkerReportsProgress = true;
+            backUpWorker.ProgressChanged += BackUpWorker_ProgressChanged;
+
+            restorDataWorker.DoWork += RestorDataWorker_DoWorkInbackGround;
+            restorDataWorker.RunWorkerCompleted += RestorDataWorker_WorkInbackGroundCompleted;
+            restorDataWorker.WorkerReportsProgress = true;
+            restorDataWorker.ProgressChanged += RestorDataWorker_ProgressChanged;
+        }
+
+        private void RestorDataWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            restorBackUpProgressLab.Text = (e.ProgressPercentage.ToString() + "%");
+            this.progressBar2.Value = e.ProgressPercentage;
+        }
+
+        private void RestorDataWorker_WorkInbackGroundCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("تم استرجاع نسخة الصور");
+        }
+
+        private void RestorDataWorker_DoWorkInbackGround(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            DirectoryCopy(folderName, ImgFolderPath, restorDataWorker);
+        }
+
+        private void BackUpWorker_WorkInbackGroundCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            MessageBox.Show("تم حفظ نسخه الصور");
+        }
+
+        private void BackUpWorker_DoWorkInbackGround(object sender, DoWorkEventArgs e)
+        {
+            BackgroundWorker worker = sender as BackgroundWorker;
+            DirectoryCopy(ImgFolderPath, folderName + @"/نسخة من الصور بتاريخ" + DateTime.Now.ToString("dd-MM-yyyy") + "", worker);
+        }
+
+        private void BackUpWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            prgressLab.Text = (e.ProgressPercentage.ToString() + "%");
+            this.progressBar1.Value = e.ProgressPercentage;
+        }
 
         public string CurrentRuntimePath { get; private set; }
 
@@ -171,9 +217,8 @@ namespace Mo7meen
                 DialogResult result = folderBrowserDialog1.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    String folderName = folderBrowserDialog1.SelectedPath;
-                    DirectoryCopy(folderName, ImgFolderPath);
-                    MessageBox.Show("تم استرجاع نسخة الصور");
+                    folderName = folderBrowserDialog1.SelectedPath;
+                    restorDataWorker.RunWorkerAsync();
                 }
             }
             catch (Exception ex)
@@ -184,30 +229,43 @@ namespace Mo7meen
             }
         }
 
-        void DirectoryCopy(string sourceDirName, string destDirName)
+        void DirectoryCopy(string sourceDirName, string destDirName, BackgroundWorker worker)
         {
-            // Get the subdirectories for the specified directory.
-            DirectoryInfo dir = new DirectoryInfo(sourceDirName);
+            try
+            {
+                // Get the subdirectories for the specified directory.
+                DirectoryInfo dir = new DirectoryInfo(sourceDirName);
 
-            if (!dir.Exists)
-            {
-                throw new DirectoryNotFoundException(
-                    "Source directory does not exist or could not be found: "
-                    + sourceDirName);
-            }
-            DirectoryInfo[] dirs = dir.GetDirectories();
-            // If the destination directory doesn't exist, create it.
-            if (!Directory.Exists(destDirName))
-            {
-                Directory.CreateDirectory(destDirName);
-            }
+                if (!dir.Exists)
+                {
+                    throw new DirectoryNotFoundException(
+                        "Source directory does not exist or could not be found: "
+                        + sourceDirName);
+                }
+                DirectoryInfo[] dirs = dir.GetDirectories();
+                // If the destination directory doesn't exist, create it.
+                if (!Directory.Exists(destDirName))
+                {
+                    Directory.CreateDirectory(destDirName);
+                }
 
-            // Get the files in the directory and copy them to the new location.
-            FileInfo[] files = dir.GetFiles();
-            foreach (FileInfo file in files)
+                // Get the files in the directory and copy them to the new location.
+                FileInfo[] files = dir.GetFiles();
+                int totalFiles = files.Count(), transferdIndex = 0;
+                foreach (FileInfo file in files)
+                {
+                    float progress = ((transferdIndex + 1) * 100) / totalFiles;
+                    worker.ReportProgress(Convert.ToInt32(progress));
+                    transferdIndex++;
+                    string temppath = Path.Combine(destDirName, file.Name);
+                    file.CopyTo(temppath, true);
+                }
+
+            }
+            catch (Exception ex)
             {
-                string temppath = Path.Combine(destDirName, file.Name);
-                file.CopyTo(temppath, true);
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                MessageBox.Show("خطأ اثناء النقل");
             }
         }
 
@@ -216,11 +274,10 @@ namespace Mo7meen
             DialogResult result = folderBrowserDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
-                String folderName = folderBrowserDialog1.SelectedPath;
+                folderName = folderBrowserDialog1.SelectedPath;
                 choosenFolderToSaveinto = folderName;
                 imgSaved = true;
-                DirectoryCopy(ImgFolderPath, folderName + @"/نسخة من الصور بتاريخ" + DateTime.Now.ToString("dd-MM-yyyy") + "");
-                MessageBox.Show("تم حفظ نسخه الصور");
+                backUpWorker.RunWorkerAsync();
             }
         }
 
@@ -246,19 +303,19 @@ namespace Mo7meen
         {
             if (backUpImgs.Checked)
             {
-                this.Invoke((MethodInvoker)delegate () { SaveBackUpImgFolder(); });
+                SaveBackUpImgFolder();
             }
-            this.Invoke((MethodInvoker)delegate () { SaveBackUpData(); });
+            SaveBackUpData();
         }
 
         private void restorDataBackUpBtn_Click(object sender, EventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate () { RestoreDataBackUp(); });
+            RestoreDataBackUp();
         }
 
         private void restoreImgBackUpBtn_Click(object sender, EventArgs e)
         {
-            this.Invoke((MethodInvoker)delegate () { RestoreImgBackUp(); });
+            RestoreImgBackUp();
         }
 
         private void clearDbFileBtn_Click(object sender, EventArgs e)

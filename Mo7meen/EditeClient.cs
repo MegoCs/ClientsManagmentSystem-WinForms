@@ -131,12 +131,26 @@ namespace Mo7meen
 
                      sql = "delete from Clients where ID = " + ID + " ";
                     conn.SQLUPDATE(sql, true);
+                    ClearFormValues();
                 }
             }
             else
             {
                 MessageBox.Show("برجاء اتمام البيانات");
             }
+        }
+
+        private void ClearFormValues()
+        {
+            national_id_new.Text = "";
+            Client_address.Text = "";
+            client_name.Text = "";
+            phoneNumber.Text = "";
+            membershipNum.Text = "";
+            details_text.Text = "";
+            unitNumber.Text = "";
+            borgNumber.Text = "";
+            checkBox1.Checked = false;
         }
 
         private void changeSearch_CheckedChanged(object sender, EventArgs e)

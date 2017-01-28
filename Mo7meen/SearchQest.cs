@@ -130,9 +130,11 @@ namespace Mo7meen
                     String bankSystem = dataGridView1.SelectedRows[0].Cells[1].Value + String.Empty;
                     String qestDate = dataGridView1.SelectedRows[0].Cells[2].Value + String.Empty;
                     String qestValue = dataGridView1.SelectedRows[0].Cells[3].Value + String.Empty;
+                    string qestDetails = dataGridView1.SelectedRows[0].Cells[0].Value + String.Empty;
                     idToSearch = int.Parse(dataGridView1.SelectedRows[0].Cells["id"].Value.ToString());
+                    int groupId = int.Parse(dataGridView1.SelectedRows[0].Cells["group_id"].Value.ToString());
 
-                    editeQest edite2 = new editeQest(qestValue, qestDate, bankSystem, idToSearch);
+                    editeQest edite2 = new editeQest(qestValue, qestDate,qestDetails, bankSystem, idToSearch, groupId);
                     edite2.ShowDialog();
                 }
                 else

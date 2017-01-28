@@ -134,7 +134,7 @@ namespace Mo7meen
                 if(entsabCheck.Checked)
                 {
                     String sqlInsert = "insert into Clients(membership_id,client_name,phone_number,address,national_id,deleted,montaseb,delivered,check_out,description)"
-                    + "values(0,'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','Y','N'," + "'N','" + description.Text + "')";
+                    + "values(0,'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','Y','N','N','" + description.Text + "')";
                     if (c1.SQLUPDATE(sqlInsert, true))
                     {
                         currentTnazolOp.MotnazelToComplete = true;
@@ -148,7 +148,7 @@ namespace Mo7meen
                     try
                     {
                         String sqlInsert = "insert into Clients(membership_id,client_name,phone_number,address,national_id,deleted,montaseb,delivered,check_out,description)"
-                                    + "values(" + int.Parse(membershipId.Text) + ",'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','N','N'," + "'N','" + description.Text + "')";
+                                    + "values(" + int.Parse(membershipId.Text) + ",'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','N','N','N','" + description.Text + "')";
                         if (c1.SQLUPDATE(sqlInsert, true)) {
                             currentTnazolOp.MotnazelToComplete = true;
                             currentTnazolOp.MotnazelToNationalId = nationalId.Text;

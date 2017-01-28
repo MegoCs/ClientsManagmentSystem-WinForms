@@ -68,7 +68,7 @@ namespace Mo7meen
             if (!String.IsNullOrEmpty(nationalIdtext.Text))
             {
                 conn.startConnection();
-                String sql = "select * from Clients where national_id = '" + nationalIdtext.Text + "'";
+                String sql = "select * from Clients where national_id = '" + nationalIdtext.Text + "' and TnazolState <>'F' and check_out='N'";
                 conn.SQLCODE(sql, false);
                 if (conn.myReader.Read())
                 {

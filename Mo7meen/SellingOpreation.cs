@@ -241,9 +241,9 @@ namespace Mo7meen
                     }
                     String sqlInsert = "insert into Clients(membership_id,client_name,phone_number,address,national_id,deleted,montaseb,delivered,check_out,description,Group_id,TnazolState)"
                         + "values(" + int.Parse(membershipId.Text) + ",'" + clientName.Text + "','" + phoneNumber.Text + "','" + address.Text + "','" + nationalId.Text + "','N','N','N','N','" + description.Text + "'," + photosGroup_id + ",'N')";
-                    c1.SQLUPDATE(sqlInsert, false);
+                    if(c1.SQLUPDATE(sqlInsert, false));
                     #endregion
-
+                    { 
                     #region return the inserted id
                     String subquery = "select * from Clients where national_id='" + nationalId.Text + "'";
                     c1.SQLCODE(subquery, false);
@@ -297,6 +297,7 @@ namespace Mo7meen
                         MessageBox.Show("تم الحجز لكن عدد الوحدات غير كاافي ");
                     }
                     clearFormData();
+                }
                 }
                 catch (Exception ex)
                 {

@@ -45,6 +45,7 @@ namespace Mo7meen
         {
             InitializeComponent();
             conObj = new ConnectionClass();
+            this.FormBorderStyle = FormBorderStyle.Sizable;
 
         }
         private void ClientReportForm_Load(object sender, EventArgs e)
@@ -99,6 +100,7 @@ namespace Mo7meen
                         if (conObj.myReader["montaseb"].ToString() == "Y")
                         {
                             entsabCheckBox.Checked = true;
+                            EntsabGroup.Visible = true;
                             sql = "select sum(paid_value) from montsben where client_id=" + client_id + " and PaymentType=0";
                             loadOneCell(sql, entsabPaid_ValueTxt);
                             if (String.IsNullOrEmpty(entsabPaid_ValueTxt.Text))
@@ -119,6 +121,7 @@ namespace Mo7meen
                         #region check Tnazol State and Partner
                         if (TnazolState != "N")
                         {
+                            TnazolGroup.Visible = true;
                             if (TnazolState == "T")
                             {
                                 sql = "SELECT client_name,ID FROM Clients WHERE(ID =(SELECT From_id FROM tanazolat WHERE(to_id = " + client_id + ")))";
@@ -251,20 +254,10 @@ namespace Mo7meen
             nationalSearch.Visible = v;
             subbDetailsGroup.Visible = v;
             PrintMinReportBtn.Visible = v;
+            printMetaDataGroup.Visible = v;
             fillReportBtn.Visible = v;
             percentDisplayCheck.Visible = v;
-            if (!v)
-            {
-                e1 = tabControl1.TabPages[1];
-                e2 = tabControl1.TabPages[2];
-                tabControl1.TabPages.RemoveAt(1);
-                tabControl1.TabPages.RemoveAt(1);
-            }
-            else
-            {
-                tabControl1.TabPages.Add(e1);
-                tabControl1.TabPages.Add(e2);
-            }
+            
         }
 
         private void printDoc_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -340,6 +333,7 @@ namespace Mo7meen
                 DataTable dtNotValid = new DataTable();
                 conObj.myAdabter.Fill(dtNotValid);
                 dataGridView1.DataSource = dtNotValid;
+                rowsNumberLab.Text = dataGridView1.Rows.Count.ToString();
 
                 sql = "SELECT Clients.client_name as 'اسم العميل', Clients.national_id as 'رقم قومي',(select client_name from clients where id=tanazolat.to_id) as 'اسم المتنازل اليه' , tanazolat.tanazol_date as 'تاريخ التنازل' FROM(Clients INNER JOIN tanazolat ON Clients.ID = tanazolat.from_id AND Clients.ID = tanazolat.from_id)";
                 conObj.SQLCODE(sql, true);
@@ -363,6 +357,21 @@ namespace Mo7meen
             unitRestPriceTxt.Visible = priceAndRestDisplayChk.Checked;
             unitRestLab.Visible = priceAndRestDisplayChk.Checked;
 
+        }
+
+        private void printMetaDataBtn_Click(object sender, EventArgs e)
+        {
+            metaDataDateLab.Text = metaDataDateTxt.Text;
+            metaDataMonyLab.Text = metaDataMonyTxt.Text;
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            label26.Visible = checkBox1.Checked;
+            label28.Visible = checkBox1.Checked;
+            label30.Visible = checkBox1.Checked;
+            metaDataMonyLab.Visible= checkBox1.Checked;
+            metaDataDateLab.Visible = checkBox1.Checked;
         }
 
         private void showLateReportBtn_Click(object sender, EventArgs e)

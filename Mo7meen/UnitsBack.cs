@@ -30,12 +30,13 @@ namespace Mo7meen
         {
             if (!String.IsNullOrEmpty(nationalIdtext.Text))
             {
-                String sql = "select * from Clients where national_id = '" + nationalIdtext.Text + "'";
+                String sql = "select * from Clients where national_id = '" + nationalIdtext.Text + "' and check_out='N' and TnazolState<>'F'";
                 conn.SQLCODE(sql, false);
                 if (conn.myReader.Read())
                 {
                     agentNameText.Text = conn.myReader["client_name"].ToString();
                     ID = int.Parse(conn.myReader["ID"].ToString());
+                    recivingPayment.Text = conn.myReader["receivingPayments"].ToString();
 
                     // return customar data
                     String sql2 = "select SUM(paid_value) As total from first_paids where client_id= " + ID + "";
@@ -50,7 +51,7 @@ namespace Mo7meen
                     sql2 = "select SUM(paid_value)AS total from montsben where client_id= " + ID + "";
                     doSome(otherMoney1Txt, sql2);
                     ifemptySet0(otherMoney1Txt);
-                    sumValue.Text = (int.Parse(moadmValue.Text.ToString())+ int.Parse(otherMoney2Txt.Text.ToString()) + int.Parse(otherMoney1Txt.Text.ToString()) + int.Parse(aqsatValue.Text.ToString())) + "";
+                    sumValue.Text = (int.Parse(recivingPayment.Text.ToString()) + int.Parse(moadmValue.Text.ToString())+ int.Parse(otherMoney2Txt.Text.ToString()) + int.Parse(otherMoney1Txt.Text.ToString()) + int.Parse(aqsatValue.Text.ToString())) + "";
 
                 }
                 else

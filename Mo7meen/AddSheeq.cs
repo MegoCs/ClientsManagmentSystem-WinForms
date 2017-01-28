@@ -30,7 +30,7 @@ namespace Mo7meen
                 conn.startConnection();
                 try
                 {
-                    int sheeque_num = int.Parse(sheeqNumText.Text);
+                    double sheeque_num = double.Parse(sheeqNumText.Text);
                     String sheeque_name = sheequeOwner_text.Text;
                     int sheeque_value = int.Parse(valueText.Text);
                     String DateEsdar = dateTimePickerEsdar.Value.ToString("yyyy/MM/dd");

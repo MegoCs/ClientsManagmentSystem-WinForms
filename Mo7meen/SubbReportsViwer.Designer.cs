@@ -90,8 +90,9 @@
             this.Controls.Add(this.reportViewer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SubbReportsViwer";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SubbReportsViwer";
+            this.Text = "تقرير تفصيلى للاقساط و المقدمات";
             this.Load += new System.EventHandler(this.SubbReportsViwer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.aqsatBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();

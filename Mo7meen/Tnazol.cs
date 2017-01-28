@@ -39,13 +39,16 @@ namespace Mo7meen
 
         private void button3_Click(object sender, EventArgs e)
         {          
-            String sql = "select * from Clients where national_id = '" + nationalIDMota.Text + "'";
+            String sql = "select * from Clients where national_id = '" + nationalIDMota.Text + "'  and check_out='N' and TnazolState ='N'";
             c1.SQLCODE(sql, false);
 
             if (c1.myReader.Read())
             {
                 nameMota.Text = c1.myReader["client_name"].ToString();
                 motnazelID = int.Parse(c1.myReader["id"].ToString());
+            }
+            else {
+                MessageBox.Show("لا يوجد عضو بهذا الرقم يمكنه التنازل");
             }
         }
 
@@ -89,8 +92,15 @@ namespace Mo7meen
                             c1.SQLUPDATE(query2, false);
                             String query3 = "update Clients set TnazolState ='T' where id=" + ToID + "";
                             c1.SQLUPDATE(query3, false);
-
-                            String unitTypeTanazolSql = "select * from ClientsUnits where client_id=" + motnazelID;
+                            //We need to update aqsat history to be with the new client ID
+                            String query4 = "update aqsat set client_id=" + ToID + ",details='تم نقل القسط بعد التنازل' where client_id=" + motnazelID + "";
+                            c1.SQLUPDATE(query4, false);
+                            String query5 = "update first_paids set client_id=" + ToID + " where client_id=" + motnazelID + "";
+                            c1.SQLUPDATE(query5, false);
+                            String query6 = "update T5sesMoney set client_id =" + ToID + " where client_id=" + motnazelID + "";
+                            c1.SQLUPDATE(query6, false);
+                            //
+                            String unitTypeTanazolSql = "select * from ClientsUnits where client_id=" + motnazelID+ " ORDER BY ClientsUnits.ID DESC";
                             c1.SQLCODE(unitTypeTanazolSql, false);
                             if (c1.myReader.Read())
                             {
@@ -99,6 +109,7 @@ namespace Mo7meen
                             String sql2 = "insert into ClientsUnits(client_id,unit_id,RecoredState)values(" + ToID + "," + unitType + ",'N')";
                             c1.SQLUPDATE(sql2, true);
                             FunctionsClass.updtaeMyScriptHistory(motnazelID);
+                            this.Close();
                         }
                     }
                 }

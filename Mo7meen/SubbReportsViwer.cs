@@ -14,13 +14,12 @@ namespace Mo7meen
     {
         private double passed_Client_ID;
         private double partnerID;
-        public SubbReportsViwer(double id,double partID)
+        public SubbReportsViwer(double id, double partID)
         {
             InitializeComponent();
             this.passed_Client_ID = id;
             partnerID = partID;
         }
-
         private void SubbReportsViwer_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'DataSet1.aqsat' table. You can move, or remove it, as needed.

@@ -216,6 +216,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.recivePaymebntBtn);
             this.groupBox1.Controls.Add(this.showCheque);
             this.groupBox1.Controls.Add(this.searchQest);
@@ -255,6 +256,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.addUnits);
             this.groupBox2.Controls.Add(this.addClient);
             this.groupBox2.Controls.Add(this.addNewUnit);
@@ -360,6 +362,7 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.sadadTa5sees);
             this.groupBox5.Controls.Add(this.ta5sees);
             this.groupBox5.Location = new System.Drawing.Point(444, 229);
@@ -397,6 +400,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox6.Controls.Add(this.reportAboutClient);
             this.groupBox6.Controls.Add(this.gard);
             this.groupBox6.Location = new System.Drawing.Point(777, 219);
@@ -486,6 +490,7 @@
             // 
             // settings
             // 
+            this.settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.settings.BackColor = System.Drawing.Color.Olive;
             this.settings.Enabled = false;
             this.settings.Location = new System.Drawing.Point(12, 546);
@@ -518,6 +523,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "وحده التحكم";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.ControlPanel_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

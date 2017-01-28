@@ -32,7 +32,7 @@ namespace Mo7meen
             {
                 try {
                     conObj.startConnection();
-                    String sql = "SELECT  Clients.client_name as 'العميل المنسحب' ,units.unit_type as 'نوع الوحدة' ,cheques.cheque_value as 'قيمة الشيك' , cheques.cheque_number as 'رقم الشيك', cheques.cheque_owner as 'مستفيد الشيك', cheques.cheque_Esdar_Date as 'تاريخ السحب' FROM(((Clients INNER JOIN ClientsUnits ON Clients.ID = ClientsUnits.client_id) INNER JOIN cheques ON Clients.ID = cheques.ID) INNER JOIN units ON ClientsUnits.unit_id = units.ID) WHERE(units.unit_type = " + int.Parse((unitTypes.SelectedItem as ComboBoxItem).Text) + " and ClientsUnits.RecoredState='C')";
+                    String sql = "SELECT  Clients.client_name as 'العميل المنسحب' ,units.unit_type as 'نوع الوحدة' ,cheques.cheque_value as 'قيمة الشيك' , cheques.cheque_number as 'رقم الشيك', cheques.cheque_owner as 'مستفيد الشيك', cheques.cheque_Esdar_Date as 'تاريخ اصدار الشيك' FROM(((Clients INNER JOIN ClientsUnits ON Clients.ID = ClientsUnits.client_id) left JOIN cheques ON Clients.ID = cheques.client_id) INNER JOIN units ON ClientsUnits.unit_id = units.ID) WHERE(units.unit_type = " + int.Parse((unitTypes.SelectedItem as ComboBoxItem).Text) + " and ClientsUnits.RecoredState='C')";
                     conObj.SQLCODE(sql, true);
                     DataTable dtNotValid = new DataTable();
                     conObj.myAdabter.Fill(dtNotValid);

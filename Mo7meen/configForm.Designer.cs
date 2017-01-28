@@ -39,15 +39,18 @@
             this.label3 = new System.Windows.Forms.Label();
             this.restoreImgBackUpBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.prgressLab = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.sizeLab = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.backUpImgs = new System.Windows.Forms.CheckBox();
             this.clearDbFileBtn = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowserDialog2 = new System.Windows.Forms.FolderBrowserDialog();
             this.copyLogBtn = new System.Windows.Forms.Button();
+            this.restorBackUpProgressLab = new System.Windows.Forms.Label();
+            this.progressBar2 = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -94,6 +97,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.restorBackUpProgressLab);
+            this.groupBox1.Controls.Add(this.progressBar2);
             this.groupBox1.Controls.Add(this.textBox3);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
@@ -105,7 +110,7 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(547, 156);
+            this.groupBox1.Size = new System.Drawing.Size(547, 204);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "استرجاع العمل بنسخة قديمة من البيانات";
@@ -152,9 +157,10 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.prgressLab);
+            this.groupBox2.Controls.Add(this.progressBar1);
             this.groupBox2.Controls.Add(this.sizeLab);
             this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.backUpImgs);
             this.groupBox2.Controls.Add(this.textBox2);
@@ -168,6 +174,23 @@
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "حفظ نسخة احتياطية من البيانات";
+            // 
+            // prgressLab
+            // 
+            this.prgressLab.AutoSize = true;
+            this.prgressLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prgressLab.Location = new System.Drawing.Point(265, 145);
+            this.prgressLab.Name = "prgressLab";
+            this.prgressLab.Size = new System.Drawing.Size(29, 18);
+            this.prgressLab.TabIndex = 9;
+            this.prgressLab.Text = "0%";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(32, 143);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(504, 23);
+            this.progressBar1.TabIndex = 8;
             // 
             // sizeLab
             // 
@@ -186,16 +209,6 @@
             this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 7;
             this.label2.Text = "جيجا بايت";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(212, 146);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(327, 16);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "قد يتطلب نقل البيانات لبعد الوقت انتظر حتى اتمام حفظ كافة البيانات";
             // 
             // label1
             // 
@@ -222,10 +235,10 @@
             // 
             // clearDbFileBtn
             // 
-            this.clearDbFileBtn.Location = new System.Drawing.Point(228, 374);
+            this.clearDbFileBtn.Location = new System.Drawing.Point(228, 422);
             this.clearDbFileBtn.Margin = new System.Windows.Forms.Padding(4);
             this.clearDbFileBtn.Name = "clearDbFileBtn";
-            this.clearDbFileBtn.Size = new System.Drawing.Size(335, 53);
+            this.clearDbFileBtn.Size = new System.Drawing.Size(335, 38);
             this.clearDbFileBtn.TabIndex = 6;
             this.clearDbFileBtn.Text = "بدأ فترة مالية جديده";
             this.clearDbFileBtn.UseVisualStyleBackColor = true;
@@ -233,19 +246,36 @@
             // 
             // copyLogBtn
             // 
-            this.copyLogBtn.Location = new System.Drawing.Point(48, 374);
+            this.copyLogBtn.Location = new System.Drawing.Point(48, 422);
             this.copyLogBtn.Name = "copyLogBtn";
-            this.copyLogBtn.Size = new System.Drawing.Size(173, 53);
+            this.copyLogBtn.Size = new System.Drawing.Size(173, 38);
             this.copyLogBtn.TabIndex = 7;
             this.copyLogBtn.Text = "نسخ ملف الاخطاء";
             this.copyLogBtn.UseVisualStyleBackColor = true;
             this.copyLogBtn.Click += new System.EventHandler(this.copyLogBtn_Click);
             // 
+            // restorBackUpProgressLab
+            // 
+            this.restorBackUpProgressLab.AutoSize = true;
+            this.restorBackUpProgressLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.restorBackUpProgressLab.Location = new System.Drawing.Point(265, 164);
+            this.restorBackUpProgressLab.Name = "restorBackUpProgressLab";
+            this.restorBackUpProgressLab.Size = new System.Drawing.Size(29, 18);
+            this.restorBackUpProgressLab.TabIndex = 11;
+            this.restorBackUpProgressLab.Text = "0%";
+            // 
+            // progressBar2
+            // 
+            this.progressBar2.Location = new System.Drawing.Point(32, 162);
+            this.progressBar2.Name = "progressBar2";
+            this.progressBar2.Size = new System.Drawing.Size(504, 23);
+            this.progressBar2.TabIndex = 10;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(582, 442);
+            this.ClientSize = new System.Drawing.Size(582, 473);
             this.Controls.Add(this.copyLogBtn);
             this.Controls.Add(this.clearDbFileBtn);
             this.Controls.Add(this.groupBox2);
@@ -280,11 +310,14 @@
         private System.Windows.Forms.Label sizeLab;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button copyLogBtn;
+        private System.Windows.Forms.Label prgressLab;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label restorBackUpProgressLab;
+        private System.Windows.Forms.ProgressBar progressBar2;
     }
 }

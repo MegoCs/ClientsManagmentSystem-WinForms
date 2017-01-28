@@ -26,7 +26,7 @@ namespace Mo7meen
                 try
                 {
                     conn.startConnection();
-                    int SheeqNum = int.Parse(sheeqNumText.Text);
+                    double SheeqNum = double.Parse(sheeqNumText.Text);
                     String sql = "SELECT * FROM cheques WHERE cheque_number = " + SheeqNum + "";
                     conn.SQLCODE(sql, false);
                     if (conn.myReader.Read())

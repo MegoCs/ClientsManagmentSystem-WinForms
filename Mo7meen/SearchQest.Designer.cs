@@ -255,7 +255,7 @@
             // 
             // showImagesBtn
             // 
-            this.showImagesBtn.Location = new System.Drawing.Point(62, 453);
+            this.showImagesBtn.Location = new System.Drawing.Point(262, 432);
             this.showImagesBtn.Name = "showImagesBtn";
             this.showImagesBtn.Size = new System.Drawing.Size(127, 23);
             this.showImagesBtn.TabIndex = 10;
@@ -265,7 +265,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(290, 453);
+            this.button2.Location = new System.Drawing.Point(405, 432);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(97, 23);
             this.button2.TabIndex = 11;
@@ -277,7 +277,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 488);
+            this.ClientSize = new System.Drawing.Size(745, 468);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.showImagesBtn);
             this.Controls.Add(this.valuesSumLab);

@@ -32,10 +32,6 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TkhcesForm));
-            this.T5SES_TableBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.T5sesUsers = new Mo7meen.T5sesUsers();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.T5sesUsersValid = new Mo7meen.T5sesUsersValid();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,35 +40,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.displayHideBtn = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.T5SES_TableAdapter = new Mo7meen.T5sesUsersTableAdapters.T5SES_TableAdapter();
             this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.notValidDisplayBtn = new System.Windows.Forms.Button();
+            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.T5sesUsersValid = new Mo7meen.T5sesUsersValid();
             this.DataTable1TableAdapter = new Mo7meen.T5sesUsersValidTableAdapters.DataTable1TableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.T5SES_TableBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.T5sesUsers)).BeginInit();
+            this.T5SES_TableBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.T5sesUsers = new Mo7meen.T5sesUsers();
+            this.T5SES_TableAdapter = new Mo7meen.T5sesUsersTableAdapters.T5SES_TableAdapter();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.T5sesUsersValid)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.T5SES_TableBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T5sesUsers)).BeginInit();
             this.SuspendLayout();
-            // 
-            // T5SES_TableBindingSource
-            // 
-            this.T5SES_TableBindingSource.DataMember = "T5SES_Table";
-            this.T5SES_TableBindingSource.DataSource = this.T5sesUsers;
-            // 
-            // T5sesUsers
-            // 
-            this.T5sesUsers.DataSetName = "T5sesUsers";
-            this.T5sesUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.T5sesUsersValid;
-            // 
-            // T5sesUsersValid
-            // 
-            this.T5sesUsersValid.DataSetName = "T5sesUsersValid";
-            this.T5sesUsersValid.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // groupBox1
             // 
@@ -139,7 +120,7 @@
             this.displayHideBtn.Name = "displayHideBtn";
             this.displayHideBtn.Size = new System.Drawing.Size(114, 46);
             this.displayHideBtn.TabIndex = 7;
-            this.displayHideBtn.Text = "مجتاز و غير مجتاز";
+            this.displayHideBtn.Text = "مجتاز";
             this.displayHideBtn.UseVisualStyleBackColor = true;
             this.displayHideBtn.Click += new System.EventHandler(this.displayHideBtn_Click);
             // 
@@ -156,31 +137,63 @@
             this.reportViewer1.Visible = false;
             this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             // 
-            // T5SES_TableAdapter
-            // 
-            this.T5SES_TableAdapter.ClearBeforeFill = true;
-            // 
             // reportViewer2
             // 
             reportDataSource2.Name = "DataSet1";
             reportDataSource2.Value = this.DataTable1BindingSource;
             this.reportViewer2.LocalReport.DataSources.Add(reportDataSource2);
             this.reportViewer2.LocalReport.ReportEmbeddedResource = "Mo7meen.T5sesReportValid.rdlc";
-            this.reportViewer2.Location = new System.Drawing.Point(12, 95);
+            this.reportViewer2.Location = new System.Drawing.Point(12, 79);
             this.reportViewer2.Name = "reportViewer2";
-            this.reportViewer2.Size = new System.Drawing.Size(666, 524);
+            this.reportViewer2.Size = new System.Drawing.Size(666, 540);
             this.reportViewer2.TabIndex = 9;
+            this.reportViewer2.Visible = false;
             this.reportViewer2.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
+            // 
+            // notValidDisplayBtn
+            // 
+            this.notValidDisplayBtn.Location = new System.Drawing.Point(708, 79);
+            this.notValidDisplayBtn.Name = "notValidDisplayBtn";
+            this.notValidDisplayBtn.Size = new System.Drawing.Size(114, 46);
+            this.notValidDisplayBtn.TabIndex = 10;
+            this.notValidDisplayBtn.Text = " غير مجتاز";
+            this.notValidDisplayBtn.UseVisualStyleBackColor = true;
+            this.notValidDisplayBtn.Click += new System.EventHandler(this.notValidDisplayBtn_Click);
+            // 
+            // DataTable1BindingSource
+            // 
+            this.DataTable1BindingSource.DataMember = "DataTable1";
+            this.DataTable1BindingSource.DataSource = this.T5sesUsersValid;
+            // 
+            // T5sesUsersValid
+            // 
+            this.T5sesUsersValid.DataSetName = "T5sesUsersValid";
+            this.T5sesUsersValid.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DataTable1TableAdapter
             // 
             this.DataTable1TableAdapter.ClearBeforeFill = true;
+            // 
+            // T5SES_TableBindingSource
+            // 
+            this.T5SES_TableBindingSource.DataMember = "T5SES_Table";
+            this.T5SES_TableBindingSource.DataSource = this.T5sesUsers;
+            // 
+            // T5sesUsers
+            // 
+            this.T5sesUsers.DataSetName = "T5sesUsers";
+            this.T5sesUsers.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // T5SES_TableAdapter
+            // 
+            this.T5SES_TableAdapter.ClearBeforeFill = true;
             // 
             // TkhcesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(838, 631);
+            this.Controls.Add(this.notValidDisplayBtn);
             this.Controls.Add(this.reportViewer2);
             this.Controls.Add(this.reportViewer1);
             this.Controls.Add(this.displayHideBtn);
@@ -192,12 +205,12 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "عملية التخصيص";
             this.Load += new System.EventHandler(this.TkhcesForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.T5SES_TableBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.T5sesUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.T5sesUsersValid)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T5sesUsersValid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T5SES_TableBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.T5sesUsers)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,5 +232,6 @@
         private System.Windows.Forms.BindingSource DataTable1BindingSource;
         private T5sesUsersValid T5sesUsersValid;
         private T5sesUsersValidTableAdapters.DataTable1TableAdapter DataTable1TableAdapter;
+        private System.Windows.Forms.Button notValidDisplayBtn;
     }
 }

@@ -53,7 +53,13 @@ namespace Mo7meen
 
         private void displayHideBtn_Click(object sender, EventArgs e)
         {
+            reportViewer1.Visible = false;
             reportViewer2.Visible = !reportViewer2.Visible;
+        }
+
+        private void notValidDisplayBtn_Click(object sender, EventArgs e)
+        {
+            reportViewer2.Visible = false;
             reportViewer1.Visible = !reportViewer1.Visible;
         }
 

@@ -43,6 +43,19 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label30 = new System.Windows.Forms.Label();
+            this.metaDataMonyLab = new System.Windows.Forms.Label();
+            this.metaDataDateLab = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.printMetaDataGroup = new System.Windows.Forms.GroupBox();
+            this.printMetaDataBtn = new System.Windows.Forms.Button();
+            this.metaDataMonyTxt = new System.Windows.Forms.TextBox();
+            this.metaDataDateTxt = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.recivePaymentValueTxt = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -79,6 +92,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.subbDetailsGroup = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.priceAndRestDisplayChk = new System.Windows.Forms.CheckBox();
             this.percentDisplayCheck = new System.Windows.Forms.CheckBox();
             this.moadmReport = new System.Windows.Forms.Button();
@@ -104,6 +118,8 @@
             this.nationalSearch = new System.Windows.Forms.TextBox();
             this.nationalLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rowsNumberLab = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.showLateReportBtn = new System.Windows.Forms.Button();
@@ -112,15 +128,16 @@
             this.unitTypeComb_LateTab = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataTable1TableAdapter = new Mo7meen.LatePaymentTableAdapters.DataTable1TableAdapter();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.DataTable1TableAdapter = new Mo7meen.LatePaymentTableAdapters.DataTable1TableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.LatePayment)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.printMetaDataGroup.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.EntsabGroup.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -158,7 +175,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(811, 701);
+            this.tabControl1.Size = new System.Drawing.Size(789, 741);
             this.tabControl1.TabIndex = 27;
             // 
             // tabPage1
@@ -167,13 +184,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(803, 665);
+            this.tabPage1.Size = new System.Drawing.Size(781, 705);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "تقرير العميل الشخصى";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.fillReportBtn);
             this.panel1.Controls.Add(this.nationalSearch);
@@ -181,12 +199,20 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(797, 659);
+            this.panel1.Size = new System.Drawing.Size(775, 699);
             this.panel1.TabIndex = 27;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.label30);
+            this.panel2.Controls.Add(this.metaDataMonyLab);
+            this.panel2.Controls.Add(this.metaDataDateLab);
+            this.panel2.Controls.Add(this.label28);
+            this.panel2.Controls.Add(this.label26);
+            this.panel2.Controls.Add(this.printMetaDataGroup);
+            this.panel2.Controls.Add(this.label23);
+            this.panel2.Controls.Add(this.label21);
             this.panel2.Controls.Add(this.groupBox5);
             this.panel2.Controls.Add(this.todayDateLab);
             this.panel2.Controls.Add(this.EntsabGroup);
@@ -199,10 +225,138 @@
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.TnazolGroup);
             this.panel2.Controls.Add(this.PrintMinReportBtn);
-            this.panel2.Location = new System.Drawing.Point(19, 40);
+            this.panel2.Location = new System.Drawing.Point(4, 40);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(761, 610);
+            this.panel2.Size = new System.Drawing.Size(765, 692);
             this.panel2.TabIndex = 27;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(455, 644);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(262, 20);
+            this.label30.TabIndex = 35;
+            this.label30.Text = "برجاء سداد المتأخرات ف خلال اسبوع من تاريخه";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // metaDataMonyLab
+            // 
+            this.metaDataMonyLab.AutoSize = true;
+            this.metaDataMonyLab.Location = new System.Drawing.Point(348, 622);
+            this.metaDataMonyLab.Name = "metaDataMonyLab";
+            this.metaDataMonyLab.Size = new System.Drawing.Size(54, 20);
+            this.metaDataMonyLab.TabIndex = 34;
+            this.metaDataMonyLab.Text = "10000";
+            this.metaDataMonyLab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // metaDataDateLab
+            // 
+            this.metaDataDateLab.AutoSize = true;
+            this.metaDataDateLab.Location = new System.Drawing.Point(472, 622);
+            this.metaDataDateLab.Name = "metaDataDateLab";
+            this.metaDataDateLab.Size = new System.Drawing.Size(89, 20);
+            this.metaDataDateLab.TabIndex = 33;
+            this.metaDataDateLab.Text = "12/77/2013";
+            this.metaDataDateLab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(408, 622);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(46, 20);
+            this.label28.TabIndex = 32;
+            this.label28.Text = "هو مبلغ";
+            this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(580, 622);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(138, 20);
+            this.label26.TabIndex = 30;
+            this.label26.Text = "المبلغ المستحق سداده حتى";
+            this.label26.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // printMetaDataGroup
+            // 
+            this.printMetaDataGroup.Controls.Add(this.printMetaDataBtn);
+            this.printMetaDataGroup.Controls.Add(this.metaDataMonyTxt);
+            this.printMetaDataGroup.Controls.Add(this.metaDataDateTxt);
+            this.printMetaDataGroup.Controls.Add(this.label25);
+            this.printMetaDataGroup.Controls.Add(this.label24);
+            this.printMetaDataGroup.Location = new System.Drawing.Point(25, 437);
+            this.printMetaDataGroup.Name = "printMetaDataGroup";
+            this.printMetaDataGroup.Size = new System.Drawing.Size(341, 76);
+            this.printMetaDataGroup.TabIndex = 29;
+            this.printMetaDataGroup.TabStop = false;
+            this.printMetaDataGroup.Text = "معلومات الطباعة";
+            // 
+            // printMetaDataBtn
+            // 
+            this.printMetaDataBtn.Location = new System.Drawing.Point(7, 25);
+            this.printMetaDataBtn.Name = "printMetaDataBtn";
+            this.printMetaDataBtn.Size = new System.Drawing.Size(54, 33);
+            this.printMetaDataBtn.TabIndex = 4;
+            this.printMetaDataBtn.Text = "تحديث";
+            this.printMetaDataBtn.UseVisualStyleBackColor = true;
+            this.printMetaDataBtn.Click += new System.EventHandler(this.printMetaDataBtn_Click);
+            // 
+            // metaDataMonyTxt
+            // 
+            this.metaDataMonyTxt.Location = new System.Drawing.Point(67, 14);
+            this.metaDataMonyTxt.Name = "metaDataMonyTxt";
+            this.metaDataMonyTxt.Size = new System.Drawing.Size(162, 26);
+            this.metaDataMonyTxt.TabIndex = 3;
+            // 
+            // metaDataDateTxt
+            // 
+            this.metaDataDateTxt.Location = new System.Drawing.Point(67, 44);
+            this.metaDataDateTxt.Name = "metaDataDateTxt";
+            this.metaDataDateTxt.Size = new System.Drawing.Size(162, 26);
+            this.metaDataDateTxt.TabIndex = 2;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(285, 50);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(30, 20);
+            this.label25.TabIndex = 1;
+            this.label25.Text = "حتى";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(239, 22);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(83, 20);
+            this.label24.TabIndex = 0;
+            this.label24.Text = "مبلغ المتاخرات";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(180, 602);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(548, 20);
+            this.label23.TabIndex = 28;
+            this.label23.Text = "فى حالة عدم الرد فى خلال اسبوع من تاريخه سيعتبر ذلك موافقه منكم بصحة الرصيد ماعدا" +
+    " اى خطأ او سهو";
+            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(192, 582);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(532, 20);
+            this.label21.TabIndex = 27;
+            this.label21.Text = "برجاء مراجعة الاقساط المسدده منكم حسب البيان المرفق و ابلاغ ادارة المشروع لتدارك " +
+    "اى خطا او سهو";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // groupBox5
             // 
@@ -294,7 +448,7 @@
             // todayDateLab
             // 
             this.todayDateLab.AutoSize = true;
-            this.todayDateLab.Location = new System.Drawing.Point(50, 516);
+            this.todayDateLab.Location = new System.Drawing.Point(33, 550);
             this.todayDateLab.Name = "todayDateLab";
             this.todayDateLab.Size = new System.Drawing.Size(89, 20);
             this.todayDateLab.TabIndex = 26;
@@ -393,7 +547,7 @@
             // EmpNameLab
             // 
             this.EmpNameLab.AutoSize = true;
-            this.EmpNameLab.Location = new System.Drawing.Point(239, 516);
+            this.EmpNameLab.Location = new System.Drawing.Point(222, 550);
             this.EmpNameLab.Name = "EmpNameLab";
             this.EmpNameLab.Size = new System.Drawing.Size(71, 20);
             this.EmpNameLab.TabIndex = 26;
@@ -420,7 +574,7 @@
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(386, 297);
+            this.groupBox2.Location = new System.Drawing.Point(386, 279);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -455,7 +609,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(247, 20);
+            this.label15.Location = new System.Drawing.Point(255, 20);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(78, 20);
             this.label15.TabIndex = 18;
@@ -492,7 +646,7 @@
             // 
             this.unitRestLab.AutoSize = true;
             this.unitRestLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitRestLab.Location = new System.Drawing.Point(212, 219);
+            this.unitRestLab.Location = new System.Drawing.Point(221, 219);
             this.unitRestLab.Name = "unitRestLab";
             this.unitRestLab.Size = new System.Drawing.Size(117, 20);
             this.unitRestLab.TabIndex = 17;
@@ -516,7 +670,7 @@
             // 
             this.unitPriceLab.AutoSize = true;
             this.unitPriceLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.unitPriceLab.Location = new System.Drawing.Point(247, 49);
+            this.unitPriceLab.Location = new System.Drawing.Point(271, 49);
             this.unitPriceLab.Name = "unitPriceLab";
             this.unitPriceLab.Size = new System.Drawing.Size(62, 20);
             this.unitPriceLab.TabIndex = 17;
@@ -564,7 +718,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(227, 182);
+            this.label14.Location = new System.Drawing.Point(251, 182);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(83, 20);
             this.label14.TabIndex = 17;
@@ -588,7 +742,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(262, 114);
+            this.label13.Location = new System.Drawing.Point(286, 114);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(48, 20);
             this.label13.TabIndex = 17;
@@ -612,7 +766,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(247, 148);
+            this.label12.Location = new System.Drawing.Point(271, 148);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(63, 20);
             this.label12.TabIndex = 17;
@@ -623,7 +777,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(261, 83);
+            this.label8.Location = new System.Drawing.Point(283, 83);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(51, 20);
             this.label8.TabIndex = 17;
@@ -633,7 +787,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(50, 477);
+            this.label17.Location = new System.Drawing.Point(33, 526);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 20);
             this.label17.TabIndex = 26;
@@ -642,11 +796,12 @@
             // 
             // subbDetailsGroup
             // 
+            this.subbDetailsGroup.Controls.Add(this.checkBox1);
             this.subbDetailsGroup.Controls.Add(this.priceAndRestDisplayChk);
             this.subbDetailsGroup.Controls.Add(this.percentDisplayCheck);
             this.subbDetailsGroup.Controls.Add(this.moadmReport);
             this.subbDetailsGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.subbDetailsGroup.Location = new System.Drawing.Point(25, 356);
+            this.subbDetailsGroup.Location = new System.Drawing.Point(25, 338);
             this.subbDetailsGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.subbDetailsGroup.Name = "subbDetailsGroup";
             this.subbDetailsGroup.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -654,6 +809,19 @@
             this.subbDetailsGroup.TabIndex = 22;
             this.subbDetailsGroup.TabStop = false;
             this.subbDetailsGroup.Text = "تقارير تفصيلية";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(229, 55);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(103, 24);
+            this.checkBox1.TabIndex = 28;
+            this.checkBox1.Text = "طباعة  التاخير";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // priceAndRestDisplayChk
             // 
@@ -673,7 +841,7 @@
             this.percentDisplayCheck.AutoSize = true;
             this.percentDisplayCheck.Checked = true;
             this.percentDisplayCheck.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.percentDisplayCheck.Location = new System.Drawing.Point(249, 55);
+            this.percentDisplayCheck.Location = new System.Drawing.Point(249, 23);
             this.percentDisplayCheck.Name = "percentDisplayCheck";
             this.percentDisplayCheck.Size = new System.Drawing.Size(86, 24);
             this.percentDisplayCheck.TabIndex = 26;
@@ -694,7 +862,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(174, 477);
+            this.label16.Location = new System.Drawing.Point(157, 526);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(163, 20);
             this.label16.TabIndex = 26;
@@ -714,7 +882,7 @@
             this.groupBox1.Controls.Add(this.client_MemberShipTxt);
             this.groupBox1.Controls.Add(this.client_NationalTxt);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(386, 42);
+            this.groupBox1.Location = new System.Drawing.Point(390, 33);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -907,7 +1075,7 @@
             // 
             this.PrintMinReportBtn.Location = new System.Drawing.Point(21, 297);
             this.PrintMinReportBtn.Name = "PrintMinReportBtn";
-            this.PrintMinReportBtn.Size = new System.Drawing.Size(341, 51);
+            this.PrintMinReportBtn.Size = new System.Drawing.Size(341, 34);
             this.PrintMinReportBtn.TabIndex = 25;
             this.PrintMinReportBtn.Text = "طباعة التقرير المختصر";
             this.PrintMinReportBtn.UseVisualStyleBackColor = true;
@@ -917,7 +1085,7 @@
             // 
             this.fillReportBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fillReportBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fillReportBtn.Location = new System.Drawing.Point(380, 7);
+            this.fillReportBtn.Location = new System.Drawing.Point(356, 7);
             this.fillReportBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.fillReportBtn.Name = "fillReportBtn";
             this.fillReportBtn.Size = new System.Drawing.Size(130, 29);
@@ -930,7 +1098,7 @@
             // 
             this.nationalSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nationalSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nationalSearch.Location = new System.Drawing.Point(516, 7);
+            this.nationalSearch.Location = new System.Drawing.Point(492, 7);
             this.nationalSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.nationalSearch.Name = "nationalSearch";
             this.nationalSearch.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -943,7 +1111,7 @@
             this.nationalLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nationalLabel.AutoSize = true;
             this.nationalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nationalLabel.Location = new System.Drawing.Point(718, 10);
+            this.nationalLabel.Location = new System.Drawing.Point(694, 10);
             this.nationalLabel.Name = "nationalLabel";
             this.nationalLabel.Size = new System.Drawing.Size(70, 20);
             this.nationalLabel.TabIndex = 3;
@@ -952,14 +1120,34 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.rowsNumberLab);
+            this.tabPage2.Controls.Add(this.label27);
             this.tabPage2.Controls.Add(this.dataGridView1);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(803, 665);
+            this.tabPage2.Size = new System.Drawing.Size(781, 705);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "تقرير عام عن العملاء النشطين";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // rowsNumberLab
+            // 
+            this.rowsNumberLab.AutoSize = true;
+            this.rowsNumberLab.Location = new System.Drawing.Point(597, 682);
+            this.rowsNumberLab.Name = "rowsNumberLab";
+            this.rowsNumberLab.Size = new System.Drawing.Size(31, 20);
+            this.rowsNumberLab.TabIndex = 21;
+            this.rowsNumberLab.Text = "0.0";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(696, 682);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(77, 20);
+            this.label27.TabIndex = 20;
+            this.label27.Text = "عدد الاعضاء";
             // 
             // dataGridView1
             // 
@@ -988,10 +1176,9 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 4);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
@@ -1007,7 +1194,7 @@
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(797, 659);
+            this.dataGridView1.Size = new System.Drawing.Size(775, 675);
             this.dataGridView1.StandardTab = true;
             this.dataGridView1.TabIndex = 19;
             // 
@@ -1022,7 +1209,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(803, 665);
+            this.tabPage3.Size = new System.Drawing.Size(781, 705);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "تقرير المتاخرين";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1087,21 +1274,17 @@
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "Mo7meen.LatePaymentRep.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(797, 659);
+            this.reportViewer1.Size = new System.Drawing.Size(775, 699);
             this.reportViewer1.TabIndex = 7;
             this.reportViewer1.ZoomMode = Microsoft.Reporting.WinForms.ZoomMode.PageWidth;
             this.reportViewer1.ZoomPercent = 80;
-            // 
-            // DataTable1TableAdapter
-            // 
-            this.DataTable1TableAdapter.ClearBeforeFill = true;
             // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.dataGridView2);
             this.tabPage4.Location = new System.Drawing.Point(4, 32);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(803, 665);
+            this.tabPage4.Size = new System.Drawing.Size(781, 705);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "عملاء التنازلات";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1152,24 +1335,30 @@
             this.dataGridView2.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(803, 665);
+            this.dataGridView2.Size = new System.Drawing.Size(781, 705);
             this.dataGridView2.StandardTab = true;
             this.dataGridView2.TabIndex = 20;
+            // 
+            // DataTable1TableAdapter
+            // 
+            this.DataTable1TableAdapter.ClearBeforeFill = true;
             // 
             // ClientReportForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(811, 701);
+            this.ClientSize = new System.Drawing.Size(789, 741);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ClientReportForm";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تقرير العميل الشامل";
             this.Load += new System.EventHandler(this.ClientReportForm_Load);
@@ -1181,6 +1370,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.printMetaDataGroup.ResumeLayout(false);
+            this.printMetaDataGroup.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.EntsabGroup.ResumeLayout(false);
@@ -1194,6 +1385,7 @@
             this.TnazolGroup.ResumeLayout(false);
             this.TnazolGroup.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
@@ -1284,5 +1476,21 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TabPage tabPage4;
         public System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox printMetaDataGroup;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label metaDataMonyLab;
+        private System.Windows.Forms.Label metaDataDateLab;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button printMetaDataBtn;
+        private System.Windows.Forms.TextBox metaDataMonyTxt;
+        private System.Windows.Forms.TextBox metaDataDateTxt;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label rowsNumberLab;
+        private System.Windows.Forms.Label label27;
     }
 }
