@@ -302,7 +302,7 @@ namespace Mo7meen
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
-                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                    Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
                 }
                 #endregion

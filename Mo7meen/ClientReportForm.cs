@@ -66,10 +66,11 @@ namespace Mo7meen
         {
             if (!String.IsNullOrEmpty(nationalSearch.Text))
             {
+                stoppingGroupbox.Visible = false;
                 try
                 {
                     conObj.startConnection();
-                    String sql = "SELECT units.unit_price,units.unit_type, Clients.client_name,Clients.receivingPayments, ClientsUnits.ID as joinid, Clients.membership_id, Clients.phone_number, Clients.address, Clients.deleted, Clients.national_id, Clients.montaseb, Clients.delivered,Clients.ID, Clients.unit_number, Clients.tour_number, Clients.check_out, Clients.description, Clients.TnazolState FROM ((Clients INNER JOIN ClientsUnits ON Clients.ID = ClientsUnits.client_id) INNER JOIN units ON ClientsUnits.unit_id = units.ID) WHERE(Clients.national_id = '" + nationalSearch.Text + "' and check_out = 'N') ORDER BY ClientsUnits.ID DESC";
+                    String sql = "SELECT Clients.stopReason,Clients.stopDate,Clients.stopState,units.unit_price,units.unit_type, Clients.client_name,Clients.receivingPayments, ClientsUnits.ID as joinid, Clients.membership_id, Clients.phone_number, Clients.address, Clients.deleted, Clients.national_id, Clients.montaseb, Clients.delivered,Clients.ID, Clients.unit_number, Clients.tour_number, Clients.check_out, Clients.description, Clients.TnazolState FROM ((Clients INNER JOIN ClientsUnits ON Clients.ID = ClientsUnits.client_id) INNER JOIN units ON ClientsUnits.unit_id = units.ID) WHERE(Clients.national_id = '" + nationalSearch.Text + "' and check_out = 'N') ORDER BY ClientsUnits.ID DESC";
                     conObj.SQLCODE(sql, false);
                     if (conObj.myReader.Read())
                     {
@@ -80,6 +81,12 @@ namespace Mo7meen
                         client_NameTxt.Text = conObj.myReader["client_name"].ToString();
                         client_PhoneTxt.Text = conObj.myReader["phone_number"].ToString();
                         client_NationalTxt.Text = conObj.myReader["national_id"].ToString();
+                        if (conObj.myReader["stopState"].ToString() == "Y")
+                        {
+                            stoppingGroupbox.Visible = true;
+                            stoppingDateLab.Text = conObj.myReader["stopDate"].ToString();
+                            stopReasonTxt.Text = conObj.myReader["stopReason"].ToString();
+                        }
 
                         if (conObj.myReader["membership_id"].ToString() == "0")
                             client_MemberShipTxt.Text = "";
@@ -202,7 +209,7 @@ namespace Mo7meen
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ فى بيانات العميل");
-                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                    Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 }
             }
         }
@@ -250,6 +257,7 @@ namespace Mo7meen
 
         private void VisbleContolrsForPrint(bool v)
         {
+            stoppingGroupbox.BackColor = (v==true)?Color.Red: printMetaDataGroup.BackColor;
             nationalLabel.Visible = v;
             nationalSearch.Visible = v;
             subbDetailsGroup.Visible = v;
@@ -345,7 +353,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ اثناء تحميل البيانات");
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
             }
         }
 
@@ -361,8 +369,18 @@ namespace Mo7meen
 
         private void printMetaDataBtn_Click(object sender, EventArgs e)
         {
-            metaDataDateLab.Text = metaDataDateTxt.Text;
-            metaDataMonyLab.Text = metaDataMonyTxt.Text;
+
+            try
+            {
+                metaDataDateLab.Text = metaDataDateTxt.Text;
+                metaDataMonyLab.Text = metaDataMonyTxt.Text;
+                int latepayment = int.Parse(metaDataMonyTxt.Text) - int.Parse(client_Total_SumTxt.Text);
+                latePaymentLab.Text = latepayment.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("برجاء مراجعه صحه المبلغ المالى");
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -372,6 +390,8 @@ namespace Mo7meen
             label30.Visible = checkBox1.Checked;
             metaDataMonyLab.Visible= checkBox1.Checked;
             metaDataDateLab.Visible = checkBox1.Checked;
+            label29.Visible = checkBox1.Checked;
+            latePaymentLab.Visible = checkBox1.Checked;
         }
 
         private void showLateReportBtn_Click(object sender, EventArgs e)

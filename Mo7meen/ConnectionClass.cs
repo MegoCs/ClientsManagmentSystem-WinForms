@@ -28,7 +28,7 @@ namespace Mo7meen
             {
                 if (myConnection == null || myConnection.State == System.Data.ConnectionState.Closed)
                     myConnection = new OleDbConnection(myConnectionString);
-            
+                    
             }
 
             catch (Exception ex)
@@ -58,7 +58,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ ف العملية " + ex.Message);
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [ConnectionClass] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". SqlWas: "+sql+" [ConnectionClass] By [" + SessionInfo.empName + "]");
             }
         }
 
@@ -77,7 +77,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطا ف العملية");
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [ ConnectionClass] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ".SqlWas: " + sql + "[ ConnectionClass] By [" + SessionInfo.empName + "]");
                 return false;
             }
         }

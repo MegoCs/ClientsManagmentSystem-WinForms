@@ -13,6 +13,7 @@ namespace Mo7meen
     {
         bool found = false;
         ConnectionClass conn;
+        string stopState="N";
         String sql;
         List<int> photos_group;
         public EditeClient()
@@ -36,7 +37,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ اثناء تحميل البيانات");
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
             }
         }
@@ -44,6 +45,7 @@ namespace Mo7meen
         {
             if (!String.IsNullOrEmpty(national_id.Text)||!String.IsNullOrEmpty(cust_nameComb.Text))
             {
+                
                 conn.startConnection();
                 SetSqlStatment();              
                 conn.SQLCODE(sql, false);
@@ -57,7 +59,21 @@ namespace Mo7meen
                     membershipNum.Text = conn.myReader["membership_id"].ToString();
                     details_text.Text = conn.myReader["description"].ToString();
                     national_id_new.Text = conn.myReader["national_id"].ToString();
+                    stopState = conn.myReader["stopState"].ToString();
+                    if (stopState != "N")
+                    {
+                        stopDateTxt.Text = conn.myReader["stopDate"].ToString();
+                        stopReasonTxt.Text = conn.myReader["stopReason"].ToString();
+                        stopRadioBtn.Checked = true;
+                    }
+                    else {
+                        stopDateTxt.Text = "";
+                        stopReasonTxt.Text = "";
+                        stopRadioBtn.Checked = false;
+
+                    }
                     ID = int.Parse(conn.myReader["ID"].ToString());
+
                     photos_group.Add(int.Parse(conn.myReader["ID"].ToString()));
                 }
                 else
@@ -98,14 +114,14 @@ namespace Mo7meen
                     String name = client_name.Text;
                     String membership = membershipNum.Text;
                     String details = details_text.Text;
-                    sql = "update Clients set client_name = '" + name + "', description='" + details + "', membership_id = '" + membership + "', phone_number= " + client_phone + ",address='" + address + "',national_id='" + national + "'  where id=" + ID + "";
+                    sql = "update Clients set stopState = '" + stopState + "', stopDate = '" + stopDateTxt.Text + "' , stopReason ='" + stopReasonTxt.Text + "',client_name = '" + name + "', description='" + details + "', membership_id = '" + membership + "', phone_number= " + client_phone + ",address='" + address + "',national_id='" + national + "'  where id=" + ID + "";
                     conn.SQLUPDATE(sql, true);
 
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
-                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                    Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
                 }
             }
@@ -142,6 +158,9 @@ namespace Mo7meen
 
         private void ClearFormValues()
         {
+            stopReasonTxt.Text = "";
+            stopDateTxt.Text = "";
+            stopRadioBtn.Checked = false;
             national_id_new.Text = "";
             Client_address.Text = "";
             client_name.Text = "";
@@ -156,7 +175,10 @@ namespace Mo7meen
         private void changeSearch_CheckedChanged(object sender, EventArgs e)
         {
             cust_nameComb.Enabled = !cust_nameComb.Enabled;
+            national_id.Text = "";
+            cust_nameComb.SelectedIndex = -1;
             national_id.Enabled = !national_id.Enabled;
+            ClearFormValues();
         }
 
         private void displayPhotos_Click(object sender, EventArgs e)
@@ -168,7 +190,41 @@ namespace Mo7meen
             }
             else
             {
-                MessageBox.Show("لا توجد ملفات للاقساط المختارة");
+                MessageBox.Show("لا توجد ملفات المختارة");
+            }
+        }
+
+        private void stopCancelBtn_Click(object sender, EventArgs e)
+        {
+            stopRadioBtn.Checked = false;
+            stopReasonTxt.Text = "";
+            stopDateTxt.Text = "";
+            stopState = "N";
+        }
+
+        private void stopRadioBtn_CheckedChanged(object sender, EventArgs e)
+        {
+            if (stopRadioBtn.Checked)
+                stopState = "Y";
+            else
+                stopState = "N";
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            borgNumber.Enabled = checkBox1.Checked;
+            unitNumber.Enabled = checkBox1.Checked;
+        }
+
+        private void warningLetterBtn_Click(object sender, EventArgs e)
+        {
+            if (ID != 0 && !string.IsNullOrEmpty(client_name.Text))
+            {
+                WarningLetterDetails obj = new WarningLetterDetails(ID, client_name.Text);
+                obj.ShowDialog();
+            }
+            else {
+                MessageBox.Show("برجاء اختيار عميل");
             }
         }
     }

@@ -92,7 +92,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("مشكله فى الاعدادات");
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
             }
         }
@@ -120,7 +120,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ اثناء تحميل البيانات!" + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
             }
         }
@@ -160,7 +160,7 @@ namespace Mo7meen
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ اثناء مسح البيانات القديمة !" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                    Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
                 }
             }
@@ -185,7 +185,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("خطأ اثناء مسح البيانات");
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
             }
         }
 
@@ -224,7 +224,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
             }
         }
@@ -264,7 +264,7 @@ namespace Mo7meen
             }
             catch (Exception ex)
             {
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 MessageBox.Show("خطأ اثناء النقل");
             }
         }
@@ -346,7 +346,7 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("مشكله فى الاعدادات");
-                Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
             }
         }

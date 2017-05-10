@@ -57,14 +57,23 @@
             this.changeSearch = new System.Windows.Forms.CheckBox();
             this.cust_nameComb = new System.Windows.Forms.ComboBox();
             this.displayPhotos = new System.Windows.Forms.Button();
+            this.stopGroupBox = new System.Windows.Forms.GroupBox();
+            this.stopDateTxt = new System.Windows.Forms.TextBox();
+            this.stopRadioBtn = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.stopReasonTxt = new System.Windows.Forms.TextBox();
+            this.stopCancelBtn = new System.Windows.Forms.Button();
+            this.warningLetterBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.stopGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // national_id
             // 
             this.national_id.Enabled = false;
-            this.national_id.Location = new System.Drawing.Point(316, 41);
+            this.national_id.Location = new System.Drawing.Point(329, 41);
             this.national_id.Name = "national_id";
             this.national_id.Size = new System.Drawing.Size(152, 20);
             this.national_id.TabIndex = 0;
@@ -98,7 +107,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(484, 41);
+            this.label1.Location = new System.Drawing.Point(497, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 4;
@@ -106,7 +115,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(168, 14);
+            this.button1.Location = new System.Drawing.Point(181, 17);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 47);
             this.button1.TabIndex = 1;
@@ -143,7 +152,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(157, 254);
+            this.button2.Location = new System.Drawing.Point(166, 378);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 25);
             this.button2.TabIndex = 10;
@@ -165,9 +174,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.national_id_new);
             this.groupBox1.Controls.Add(this.phoneNumber);
-            this.groupBox1.Location = new System.Drawing.Point(285, 67);
+            this.groupBox1.Location = new System.Drawing.Point(298, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(341, 300);
+            this.groupBox1.Size = new System.Drawing.Size(341, 312);
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تعديل البيانات";
@@ -230,9 +239,10 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.borgNumber);
             this.groupBox2.Controls.Add(this.unitNumber);
-            this.groupBox2.Location = new System.Drawing.Point(13, 150);
+            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Location = new System.Drawing.Point(298, 407);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(266, 98);
+            this.groupBox2.Size = new System.Drawing.Size(339, 98);
             this.groupBox2.TabIndex = 13;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "بيانات الاستلام";
@@ -240,7 +250,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(189, 66);
+            this.label7.Location = new System.Drawing.Point(206, 66);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(49, 13);
             this.label7.TabIndex = 3;
@@ -249,7 +259,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(189, 35);
+            this.label6.Location = new System.Drawing.Point(199, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 2;
@@ -257,33 +267,36 @@
             // 
             // borgNumber
             // 
-            this.borgNumber.Location = new System.Drawing.Point(17, 66);
+            this.borgNumber.Enabled = false;
+            this.borgNumber.Location = new System.Drawing.Point(31, 66);
             this.borgNumber.Name = "borgNumber";
-            this.borgNumber.Size = new System.Drawing.Size(128, 20);
+            this.borgNumber.Size = new System.Drawing.Size(152, 20);
             this.borgNumber.TabIndex = 9;
             this.borgNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // unitNumber
             // 
-            this.unitNumber.Location = new System.Drawing.Point(17, 29);
+            this.unitNumber.Enabled = false;
+            this.unitNumber.Location = new System.Drawing.Point(31, 29);
             this.unitNumber.Name = "unitNumber";
-            this.unitNumber.Size = new System.Drawing.Size(128, 20);
+            this.unitNumber.Size = new System.Drawing.Size(152, 20);
             this.unitNumber.TabIndex = 8;
             this.unitNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(192, 127);
+            this.checkBox1.Location = new System.Drawing.Point(246, 16);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(87, 17);
             this.checkBox1.TabIndex = 7;
             this.checkBox1.Text = "بيانات الوحدة";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(30, 254);
+            this.button3.Location = new System.Drawing.Point(39, 378);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 25);
             this.button3.TabIndex = 11;
@@ -294,7 +307,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(518, 17);
+            this.label10.Location = new System.Drawing.Point(531, 17);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 4;
@@ -303,7 +316,7 @@
             // changeSearch
             // 
             this.changeSearch.AutoSize = true;
-            this.changeSearch.Location = new System.Drawing.Point(546, 30);
+            this.changeSearch.Location = new System.Drawing.Point(559, 30);
             this.changeSearch.Name = "changeSearch";
             this.changeSearch.Size = new System.Drawing.Size(78, 17);
             this.changeSearch.TabIndex = 14;
@@ -315,31 +328,115 @@
             // 
             this.cust_nameComb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cust_nameComb.FormattingEnabled = true;
-            this.cust_nameComb.Location = new System.Drawing.Point(316, 14);
+            this.cust_nameComb.Location = new System.Drawing.Point(329, 14);
             this.cust_nameComb.Name = "cust_nameComb";
             this.cust_nameComb.Size = new System.Drawing.Size(152, 21);
             this.cust_nameComb.TabIndex = 15;
             // 
             // displayPhotos
             // 
-            this.displayPhotos.Location = new System.Drawing.Point(113, 68);
+            this.displayPhotos.Location = new System.Drawing.Point(181, 70);
             this.displayPhotos.Name = "displayPhotos";
-            this.displayPhotos.Size = new System.Drawing.Size(166, 53);
+            this.displayPhotos.Size = new System.Drawing.Size(111, 53);
             this.displayPhotos.TabIndex = 16;
             this.displayPhotos.Text = "عرض الاصول الورقية";
             this.displayPhotos.UseVisualStyleBackColor = true;
             this.displayPhotos.Click += new System.EventHandler(this.displayPhotos_Click);
             // 
+            // stopGroupBox
+            // 
+            this.stopGroupBox.Controls.Add(this.stopDateTxt);
+            this.stopGroupBox.Controls.Add(this.stopRadioBtn);
+            this.stopGroupBox.Controls.Add(this.label12);
+            this.stopGroupBox.Controls.Add(this.label11);
+            this.stopGroupBox.Controls.Add(this.stopReasonTxt);
+            this.stopGroupBox.Location = new System.Drawing.Point(12, 132);
+            this.stopGroupBox.Name = "stopGroupBox";
+            this.stopGroupBox.Size = new System.Drawing.Size(280, 240);
+            this.stopGroupBox.TabIndex = 17;
+            this.stopGroupBox.TabStop = false;
+            this.stopGroupBox.Text = "إيقاف الوحدة";
+            // 
+            // stopDateTxt
+            // 
+            this.stopDateTxt.Location = new System.Drawing.Point(17, 180);
+            this.stopDateTxt.Name = "stopDateTxt";
+            this.stopDateTxt.Size = new System.Drawing.Size(158, 20);
+            this.stopDateTxt.TabIndex = 12;
+            this.stopDateTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // stopRadioBtn
+            // 
+            this.stopRadioBtn.AutoSize = true;
+            this.stopRadioBtn.Location = new System.Drawing.Point(184, 26);
+            this.stopRadioBtn.Name = "stopRadioBtn";
+            this.stopRadioBtn.Size = new System.Drawing.Size(84, 17);
+            this.stopRadioBtn.TabIndex = 11;
+            this.stopRadioBtn.Text = "إيقاف الوحدة";
+            this.stopRadioBtn.UseVisualStyleBackColor = true;
+            this.stopRadioBtn.CheckedChanged += new System.EventHandler(this.stopRadioBtn_CheckedChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(209, 184);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 13);
+            this.label12.TabIndex = 9;
+            this.label12.Text = "تاريخ الايقاف";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(209, 52);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(62, 13);
+            this.label11.TabIndex = 8;
+            this.label11.Text = "سبب الايقاف";
+            // 
+            // stopReasonTxt
+            // 
+            this.stopReasonTxt.Location = new System.Drawing.Point(17, 52);
+            this.stopReasonTxt.MaxLength = 254;
+            this.stopReasonTxt.Multiline = true;
+            this.stopReasonTxt.Name = "stopReasonTxt";
+            this.stopReasonTxt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.stopReasonTxt.Size = new System.Drawing.Size(158, 122);
+            this.stopReasonTxt.TabIndex = 7;
+            this.stopReasonTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // stopCancelBtn
+            // 
+            this.stopCancelBtn.Location = new System.Drawing.Point(64, 70);
+            this.stopCancelBtn.Name = "stopCancelBtn";
+            this.stopCancelBtn.Size = new System.Drawing.Size(111, 53);
+            this.stopCancelBtn.TabIndex = 18;
+            this.stopCancelBtn.Text = "الغاء إيقاف الوحدة";
+            this.stopCancelBtn.UseVisualStyleBackColor = true;
+            this.stopCancelBtn.Click += new System.EventHandler(this.stopCancelBtn_Click);
+            // 
+            // warningLetterBtn
+            // 
+            this.warningLetterBtn.Location = new System.Drawing.Point(181, 409);
+            this.warningLetterBtn.Name = "warningLetterBtn";
+            this.warningLetterBtn.Size = new System.Drawing.Size(111, 50);
+            this.warningLetterBtn.TabIndex = 19;
+            this.warningLetterBtn.Text = "تسجيل خطاب انذار";
+            this.warningLetterBtn.UseVisualStyleBackColor = true;
+            this.warningLetterBtn.Click += new System.EventHandler(this.warningLetterBtn_Click);
+            // 
             // EditeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 379);
+            this.ClientSize = new System.Drawing.Size(652, 507);
+            this.Controls.Add(this.warningLetterBtn);
+            this.Controls.Add(this.stopCancelBtn);
+            this.Controls.Add(this.stopGroupBox);
             this.Controls.Add(this.displayPhotos);
             this.Controls.Add(this.cust_nameComb);
             this.Controls.Add(this.changeSearch);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.national_id);
             this.Controls.Add(this.groupBox1);
@@ -356,6 +453,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.stopGroupBox.ResumeLayout(false);
+            this.stopGroupBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -391,5 +490,13 @@
         private System.Windows.Forms.CheckBox changeSearch;
         private System.Windows.Forms.ComboBox cust_nameComb;
         private System.Windows.Forms.Button displayPhotos;
+        private System.Windows.Forms.GroupBox stopGroupBox;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox stopReasonTxt;
+        private System.Windows.Forms.RadioButton stopRadioBtn;
+        private System.Windows.Forms.Button stopCancelBtn;
+        private System.Windows.Forms.TextBox stopDateTxt;
+        private System.Windows.Forms.Button warningLetterBtn;
     }
 }

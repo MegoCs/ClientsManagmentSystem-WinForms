@@ -39,7 +39,7 @@ namespace Mo7meen
 
         private void button3_Click(object sender, EventArgs e)
         {          
-            String sql = "select * from Clients where national_id = '" + nationalIDMota.Text + "'  and check_out='N' and TnazolState ='N'";
+            String sql = "select * from Clients where national_id = '" + nationalIDMota.Text + "'  and check_out='N' and TnazolState ='N' and stopState='N'";
             c1.SQLCODE(sql, false);
 
             if (c1.myReader.Read())
@@ -116,7 +116,7 @@ namespace Mo7meen
                 catch (Exception ex)
                 {
                     MessageBox.Show("خطأ ف البيانات المدخلة");
-                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                    Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 }
             }
             else

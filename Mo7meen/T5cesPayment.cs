@@ -40,7 +40,7 @@ namespace Mo7meen
         private void searchBtn_Click(object sender, EventArgs e)
         {
             conObj.startConnection();
-            String qury = "select id,client_name from Clients where national_id='" + nationalIdtext.Text + "' and TnazolState <>'F' and check_out='N'";
+            String qury = "select id,client_name from Clients where national_id='" + nationalIdtext.Text + "' and TnazolState <>'F' and check_out='N' and stopState='N'";
             conObj.SQLCODE(qury, false);
             if (conObj.myReader.Read())
             {

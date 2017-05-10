@@ -33,58 +33,70 @@ namespace Mo7meen
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            String sql = "select * from Clients where national_id = '" + nationalIdText.Text + "'";
-            c1.SQLCODE(sql, false);
 
-            int sumOfMoney = 0;
-            char t = 'm';
-            int ut = 0;
-            while (c1.myReader.Read())
+            try
             {
-                nameText.Text = c1.myReader["client_name"].ToString();
-                clientId = int.Parse(c1.myReader["ID"].ToString());
-                t = char.Parse(c1.myReader["montaseb"].ToString());
-            }
+                String sql = "select * from Clients where national_id = '" + nationalIdText.Text + "' and stopState='N'";
+                c1.SQLCODE(sql, false);
 
-            String subquery = "select unit_id from ClientsUnits where client_id=" + clientId + "";
-            c1.SQLCODE(subquery, false);
-            while (c1.myReader.Read())
-            {
-                ut = int.Parse(c1.myReader["unit_id"].ToString());
-            }
-            currentUnitState.Text = AreaOfUnitID(ut) + "";
-
-            //moqdam
-            String sqlmoqdm = "select SUM(paid_value) as moqdm from first_paids where client_id=" + clientId;
-            c1.SQLCODE(sqlmoqdm, false);
-            if (c1.myReader.Read())
-            {
-                if (!String.IsNullOrEmpty(c1.myReader["moqdm"].ToString()))
-                    sumOfMoney += int.Parse(c1.myReader["moqdm"].ToString());
-            }
-
-            sqlmoqdm = "select SUM(qest_value) as aqsat from aqsat where client_id=" + clientId;
-            c1.SQLCODE(sqlmoqdm, false);
-            if (c1.myReader.Read())
-            {
-                if (!String.IsNullOrEmpty(c1.myReader["aqsat"].ToString()))
-                    sumOfMoney += int.Parse(c1.myReader["aqsat"].ToString());
-            }
-
-            //montas
-
-            if (t == 'Y')
-            {
-                sqlmoqdm = "select SUM(paid_value) as mon from montsben where client_id=" + clientId;
-                c1.SQLCODE(sqlmoqdm, false);
+                int sumOfMoney = 0;
+                char t = 'm';
+                int ut = 0;
                 if (c1.myReader.Read())
                 {
-                    if (!String.IsNullOrEmpty(c1.myReader["mon"].ToString()))
-                        sumOfMoney += int.Parse(c1.myReader["mon"].ToString());
-                }
+                    nameText.Text = c1.myReader["client_name"].ToString();
+                    clientId = int.Parse(c1.myReader["ID"].ToString());
+                    t = char.Parse(c1.myReader["montaseb"].ToString());
+                    //////
+                    String subquery = "select unit_id from ClientsUnits where client_id=" + clientId + " and RecoredState='N'";
+                    c1.SQLCODE(subquery, false);
+                    if (c1.myReader.Read())
+                    {
+                        ut = int.Parse(c1.myReader["unit_id"].ToString());
+                        currentUnitState.Text = AreaOfUnitID(ut) + "";
+                    }
+                    //moqdam
+                    String sqlmoqdm = "select SUM(paid_value) as moqdm from first_paids where client_id=" + clientId;
+                    c1.SQLCODE(sqlmoqdm, false);
+                    if (c1.myReader.Read())
+                    {
+                        if (!String.IsNullOrEmpty(c1.myReader["moqdm"].ToString()))
+                            sumOfMoney += int.Parse(c1.myReader["moqdm"].ToString());
+                    }
 
+                    sqlmoqdm = "select SUM(qest_value) as aqsat from aqsat where client_id=" + clientId;
+                    c1.SQLCODE(sqlmoqdm, false);
+                    if (c1.myReader.Read())
+                    {
+                        if (!String.IsNullOrEmpty(c1.myReader["aqsat"].ToString()))
+                            sumOfMoney += int.Parse(c1.myReader["aqsat"].ToString());
+                    }
+
+                    //montas
+
+                    if (t == 'Y')
+                    {
+                        sqlmoqdm = "select SUM(paid_value) as mon from montsben where client_id=" + clientId;
+                        c1.SQLCODE(sqlmoqdm, false);
+                        if (c1.myReader.Read())
+                        {
+                            if (!String.IsNullOrEmpty(c1.myReader["mon"].ToString()))
+                                sumOfMoney += int.Parse(c1.myReader["mon"].ToString());
+                        }
+
+                    }
+                    thePaidMoney.Text = sumOfMoney + "";
+                }
+                else
+                {
+                    MessageBox.Show("لا يوجد عميل يمكنة التحويل بهذا الرقم القومي");
+                }
             }
-            thePaidMoney.Text = sumOfMoney + "";
+            catch (Exception ex)
+            {
+                MessageBox.Show("خطأ ف البيانات المدخلة");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+            }
         }
 
         private string AreaOfUnitID(int id)
@@ -155,7 +167,7 @@ namespace Mo7meen
                     catch (Exception ex)
                     {
                         MessageBox.Show("خطأ ف البيانات المدخلة");
-                        Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                        Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
 
                     }
 

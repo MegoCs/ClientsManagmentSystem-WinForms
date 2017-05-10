@@ -40,7 +40,7 @@ namespace Mo7meen
                 }
                 catch (Exception ex){
                     MessageBox.Show("خطأ اتمام البيانات");
-                    Logger.WriteLog("[" + DateTime.Now + "] " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
+                    Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString()+ " InnerException: "+ex.InnerException + " ExceptionMessage: "+ex.Message+". [" + this.Name + "] By [" + SessionInfo.empName + "]");
                 }
             }
             else {
