@@ -56,6 +56,7 @@ namespace Mo7meen
                     "" + clientID + "" +
                     ")", true);
                 }
+                this.Close();
             }
             catch (Exception ex)
             {

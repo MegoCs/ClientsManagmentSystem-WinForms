@@ -101,9 +101,7 @@
     <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportViewer.Windows.11.0.3452\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportViewer.Windows.11.0.3452\lib\net40\Microsoft.ReportViewer.WinForms.DLL</HintPath>
-    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
@@ -221,6 +219,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>M7kamaDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Manager.Designer.cs">
+      <DependentUpon>Manager.cs</DependentUpon>
     </Compile>
     <Compile Include="ManagmentPaymentForm.cs">
       <SubType>Form</SubType>
@@ -380,6 +384,12 @@
     <Compile Include="WarningLetterDetails.Designer.cs">
       <DependentUpon>WarningLetterDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="WarningLettersManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WarningLettersManager.Designer.cs">
+      <DependentUpon>WarningLettersManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="WarningLettersReportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -430,6 +440,9 @@
     <EmbeddedResource Include="LatePaymentRep.rdlc" />
     <EmbeddedResource Include="LatePaymentReport.resx">
       <DependentUpon>LatePaymentReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Manager.resx">
+      <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManagmentPaymentForm.resx">
       <DependentUpon>ManagmentPaymentForm.cs</DependentUpon>
@@ -512,6 +525,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WarningLetterDetails.resx">
       <DependentUpon>WarningLetterDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarningLettersManager.resx">
+      <DependentUpon>WarningLettersManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WarningLettersReport.rdlc" />
     <EmbeddedResource Include="WarningLettersReportForm.resx">
@@ -654,16 +670,6 @@
       <FileType>Assembly</FileType>
     </PublishFile>
     <PublishFile Include="Microsoft.ReportViewer.ProcessingObjectModel">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="Microsoft.ReportViewer.WinForms">
       <Visible>False</Visible>
       <Group>
       </Group>

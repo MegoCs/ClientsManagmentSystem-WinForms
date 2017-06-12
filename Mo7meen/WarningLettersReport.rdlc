@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.32847in</Width>
+              <Width>1.70173in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.32847in</Width>
+              <Width>2.10798in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.32847in</Width>
+              <Width>1.20173in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.91181in</Width>
+              <Width>1.85104in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.96389in</Width>
+              <Width>1.04202in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.31597in</Width>
+              <Width>0.46007in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -310,7 +310,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!LetterDate.Value</Value>
+                              <Value>=FormatDateTime(Fields!LetterDate.Value,DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -455,9 +455,9 @@
         </TablixRowHierarchy>
         <DataSetName>WarningLettersReportDataSet</DataSetName>
         <Top>1.12375in</Top>
-        <Left>0.32167in</Left>
+        <Left>0.59945in</Left>
         <Height>0.5in</Height>
-        <Width>7.17708in</Width>
+        <Width>8.36458in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -471,7 +471,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>بيان الخطابات المرسلة</Value>
+                <Value>=First(Fields!client_name.Value, "WarningLettersReportDataSet")</Value>
                 <Style>
                   <FontSize>14pt</FontSize>
                 </Style>
@@ -483,15 +483,16 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
-        <Top>0.42931in</Top>
-        <Left>2.88209in</Left>
+        <Top>0.53348in</Top>
+        <Left>0.59945in</Left>
         <Height>0.33333in</Height>
-        <Width>2.92708in</Width>
+        <Width>6.92222in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -518,14 +519,15 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox29</rd:DefaultName>
-        <Top>0.42931in</Top>
-        <Left>6.49875in</Left>
+        <Top>0.53348in</Top>
+        <Left>7.66056in</Left>
         <Height>0.33333in</Height>
-        <Width>1in</Width>
+        <Width>1.30347in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
+            <Width>1.5pt</Width>
           </Border>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
@@ -534,7 +536,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>2.23958in</Height>
     <Style>
       <Border>
         <Style>Double</Style>
@@ -542,7 +544,7 @@
       </Border>
     </Style>
   </Body>
-  <Width>7.82167in</Width>
+  <Width>9.26959in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -558,7 +560,8 @@
                 <TextRun>
                   <Value>بيان الخطابات المرسلة</Value>
                   <Style>
-                    <FontSize>14pt</FontSize>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -569,12 +572,12 @@
           </Paragraphs>
           <rd:DefaultName>Textbox27</rd:DefaultName>
           <Top>0.43625in</Top>
-          <Left>2.88209in</Left>
-          <Height>0.25in</Height>
-          <Width>2.92708in</Width>
+          <Left>3.25709in</Left>
+          <Height>0.33333in</Height>
+          <Width>3.51041in</Width>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -590,9 +593,78 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1in</Height>
+      <Height>0.49875in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=DateTime.Now.ToShortDateString</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox1</rd:DefaultName>
+          <Top>0.06944in</Top>
+          <Left>0.44181in</Left>
+          <Height>0.3125in</Height>
+          <Width>1in</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox30">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>تاريخ التقرير</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox29</rd:DefaultName>
+          <Top>0.10292in</Top>
+          <Left>1.61917in</Left>
+          <Height>0.27902in</Height>
+          <Width>1in</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>Double</Style>
@@ -600,8 +672,8 @@
         </Border>
       </Style>
     </PageFooter>
-    <PageHeight>11.69in</PageHeight>
-    <PageWidth>8.27in</PageWidth>
+    <PageHeight>8.27in</PageHeight>
+    <PageWidth>11.69in</PageWidth>
     <LeftMargin>1in</LeftMargin>
     <RightMargin>1in</RightMargin>
     <TopMargin>1in</TopMargin>

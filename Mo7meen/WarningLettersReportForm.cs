@@ -12,10 +12,24 @@ namespace Mo7meen
 {
     public partial class WarningLettersReportForm : Form
     {
+        private int client_id;
+
         public WarningLettersReportForm()
         {
             InitializeComponent();
         }
-        
+
+        public WarningLettersReportForm(int client_id)
+        {
+            InitializeComponent();
+            this.client_id = client_id;
+        }
+
+        private void WarningLettersReportForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'WarningLettersReportDataSet.DataTable1' table. You can move, or remove it, as needed.
+            this.DataTable1TableAdapter.Fill(this.WarningLettersReportDataSet.DataTable1,client_id);
+            this.reportViewer1.RefreshReport();
+        }
     }
 }

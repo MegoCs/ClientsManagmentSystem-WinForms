@@ -304,5 +304,11 @@ namespace Mo7meen
             ManagmentPaymentForm manPay = new ManagmentPaymentForm();
             manPay.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Manager obj = new Manager();
+            obj.ShowDialog();
+        }
     }
 }

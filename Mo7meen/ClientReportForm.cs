@@ -64,6 +64,7 @@ namespace Mo7meen
 
         private void fillReportBtn_Click(object sender, EventArgs e)
         {
+            warningLettersBtn.Text = "خطابات الانذارات [0]";
             if (!String.IsNullOrEmpty(nationalSearch.Text))
             {
                 stoppingGroupbox.Visible = false;
@@ -199,6 +200,13 @@ namespace Mo7meen
                         thePercentValueTxt.Text = (0.05 * int.Parse(unitPriceTxt.Text)).ToString();
                         #endregion
 
+                        sql = "SELECT count(*) FROM  WarningLetters where LetterClient_ID =" + client_id + "";
+                        conObj.SQLCODE(sql, false);
+                        if (conObj.myReader.Read())
+                        {
+                            warningLettersBtn.Text = "["+conObj.myReader[0].ToString()+"]" + "خطابات الانذار";
+                        }
+
                         #endregion
                     }
                     else
@@ -214,7 +222,7 @@ namespace Mo7meen
             }
         }
 
-        private void loadOneCell(string sql, TextBox Lcd)
+        private void loadOneCell(string sql, Control Lcd)
         {
             conObj.SQLCODE(sql, false);
             if (conObj.myReader.Read())
@@ -392,6 +400,12 @@ namespace Mo7meen
             metaDataDateLab.Visible = checkBox1.Checked;
             label29.Visible = checkBox1.Checked;
             latePaymentLab.Visible = checkBox1.Checked;
+        }
+
+        private void warningLettersBtn_Click(object sender, EventArgs e)
+        {
+            WarningLettersReportForm obj = new WarningLettersReportForm(client_id);
+            obj.ShowDialog();
         }
 
         private void showLateReportBtn_Click(object sender, EventArgs e)

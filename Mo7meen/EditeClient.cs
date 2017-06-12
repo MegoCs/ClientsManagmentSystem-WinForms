@@ -227,5 +227,11 @@ namespace Mo7meen
                 MessageBox.Show("برجاء اختيار عميل");
             }
         }
+
+        private void manageWarningLettersBtn_Click(object sender, EventArgs e)
+        {
+            WarningLettersManager obj = new WarningLettersManager();
+            obj.ShowDialog();
+        }
     }
 }

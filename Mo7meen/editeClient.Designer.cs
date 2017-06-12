@@ -65,6 +65,7 @@
             this.stopReasonTxt = new System.Windows.Forms.TextBox();
             this.stopCancelBtn = new System.Windows.Forms.Button();
             this.warningLetterBtn = new System.Windows.Forms.Button();
+            this.manageWarningLettersBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.stopGroupBox.SuspendLayout();
@@ -73,7 +74,7 @@
             // national_id
             // 
             this.national_id.Enabled = false;
-            this.national_id.Location = new System.Drawing.Point(329, 41);
+            this.national_id.Location = new System.Drawing.Point(428, 35);
             this.national_id.Name = "national_id";
             this.national_id.Size = new System.Drawing.Size(152, 20);
             this.national_id.TabIndex = 0;
@@ -107,7 +108,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(497, 41);
+            this.label1.Location = new System.Drawing.Point(596, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 4;
@@ -115,7 +116,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(181, 17);
+            this.button1.Location = new System.Drawing.Point(280, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 47);
             this.button1.TabIndex = 1;
@@ -152,7 +153,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(166, 378);
+            this.button2.Location = new System.Drawing.Point(269, 409);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(122, 25);
             this.button2.TabIndex = 10;
@@ -174,7 +175,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.national_id_new);
             this.groupBox1.Controls.Add(this.phoneNumber);
-            this.groupBox1.Location = new System.Drawing.Point(298, 91);
+            this.groupBox1.Location = new System.Drawing.Point(397, 85);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(341, 312);
             this.groupBox1.TabIndex = 12;
@@ -240,7 +241,7 @@
             this.groupBox2.Controls.Add(this.borgNumber);
             this.groupBox2.Controls.Add(this.unitNumber);
             this.groupBox2.Controls.Add(this.checkBox1);
-            this.groupBox2.Location = new System.Drawing.Point(298, 407);
+            this.groupBox2.Location = new System.Drawing.Point(397, 401);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(339, 98);
             this.groupBox2.TabIndex = 13;
@@ -296,7 +297,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(39, 378);
+            this.button3.Location = new System.Drawing.Point(152, 409);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(111, 25);
             this.button3.TabIndex = 11;
@@ -307,7 +308,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(531, 17);
+            this.label10.Location = new System.Drawing.Point(630, 11);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 4;
@@ -316,7 +317,7 @@
             // changeSearch
             // 
             this.changeSearch.AutoSize = true;
-            this.changeSearch.Location = new System.Drawing.Point(559, 30);
+            this.changeSearch.Location = new System.Drawing.Point(658, 24);
             this.changeSearch.Name = "changeSearch";
             this.changeSearch.Size = new System.Drawing.Size(78, 17);
             this.changeSearch.TabIndex = 14;
@@ -328,14 +329,14 @@
             // 
             this.cust_nameComb.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.cust_nameComb.FormattingEnabled = true;
-            this.cust_nameComb.Location = new System.Drawing.Point(329, 14);
+            this.cust_nameComb.Location = new System.Drawing.Point(428, 8);
             this.cust_nameComb.Name = "cust_nameComb";
             this.cust_nameComb.Size = new System.Drawing.Size(152, 21);
             this.cust_nameComb.TabIndex = 15;
             // 
             // displayPhotos
             // 
-            this.displayPhotos.Location = new System.Drawing.Point(181, 70);
+            this.displayPhotos.Location = new System.Drawing.Point(163, 77);
             this.displayPhotos.Name = "displayPhotos";
             this.displayPhotos.Size = new System.Drawing.Size(111, 53);
             this.displayPhotos.TabIndex = 16;
@@ -350,9 +351,9 @@
             this.stopGroupBox.Controls.Add(this.label12);
             this.stopGroupBox.Controls.Add(this.label11);
             this.stopGroupBox.Controls.Add(this.stopReasonTxt);
-            this.stopGroupBox.Location = new System.Drawing.Point(12, 132);
+            this.stopGroupBox.Location = new System.Drawing.Point(39, 136);
             this.stopGroupBox.Name = "stopGroupBox";
-            this.stopGroupBox.Size = new System.Drawing.Size(280, 240);
+            this.stopGroupBox.Size = new System.Drawing.Size(282, 240);
             this.stopGroupBox.TabIndex = 17;
             this.stopGroupBox.TabStop = false;
             this.stopGroupBox.Text = "إيقاف الوحدة";
@@ -379,7 +380,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(209, 184);
+            this.label12.Location = new System.Drawing.Point(190, 183);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(66, 13);
             this.label12.TabIndex = 9;
@@ -388,7 +389,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(209, 52);
+            this.label11.Location = new System.Drawing.Point(184, 52);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(62, 13);
             this.label11.TabIndex = 8;
@@ -407,9 +408,9 @@
             // 
             // stopCancelBtn
             // 
-            this.stopCancelBtn.Location = new System.Drawing.Point(64, 70);
+            this.stopCancelBtn.Location = new System.Drawing.Point(163, 12);
             this.stopCancelBtn.Name = "stopCancelBtn";
-            this.stopCancelBtn.Size = new System.Drawing.Size(111, 53);
+            this.stopCancelBtn.Size = new System.Drawing.Size(111, 54);
             this.stopCancelBtn.TabIndex = 18;
             this.stopCancelBtn.Text = "الغاء إيقاف الوحدة";
             this.stopCancelBtn.UseVisualStyleBackColor = true;
@@ -417,19 +418,30 @@
             // 
             // warningLetterBtn
             // 
-            this.warningLetterBtn.Location = new System.Drawing.Point(181, 409);
+            this.warningLetterBtn.Location = new System.Drawing.Point(38, 11);
             this.warningLetterBtn.Name = "warningLetterBtn";
-            this.warningLetterBtn.Size = new System.Drawing.Size(111, 50);
+            this.warningLetterBtn.Size = new System.Drawing.Size(111, 53);
             this.warningLetterBtn.TabIndex = 19;
             this.warningLetterBtn.Text = "تسجيل خطاب انذار";
             this.warningLetterBtn.UseVisualStyleBackColor = true;
             this.warningLetterBtn.Click += new System.EventHandler(this.warningLetterBtn_Click);
             // 
+            // manageWarningLettersBtn
+            // 
+            this.manageWarningLettersBtn.Location = new System.Drawing.Point(39, 77);
+            this.manageWarningLettersBtn.Name = "manageWarningLettersBtn";
+            this.manageWarningLettersBtn.Size = new System.Drawing.Size(110, 53);
+            this.manageWarningLettersBtn.TabIndex = 20;
+            this.manageWarningLettersBtn.Text = "ادارة خطابات الانذار";
+            this.manageWarningLettersBtn.UseVisualStyleBackColor = true;
+            this.manageWarningLettersBtn.Click += new System.EventHandler(this.manageWarningLettersBtn_Click);
+            // 
             // EditeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(652, 507);
+            this.ClientSize = new System.Drawing.Size(750, 507);
+            this.Controls.Add(this.manageWarningLettersBtn);
             this.Controls.Add(this.warningLetterBtn);
             this.Controls.Add(this.stopCancelBtn);
             this.Controls.Add(this.stopGroupBox);
@@ -498,5 +510,6 @@
         private System.Windows.Forms.Button stopCancelBtn;
         private System.Windows.Forms.TextBox stopDateTxt;
         private System.Windows.Forms.Button warningLetterBtn;
+        private System.Windows.Forms.Button manageWarningLettersBtn;
     }
 }

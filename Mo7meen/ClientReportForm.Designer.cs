@@ -218,8 +218,9 @@
             this.warningLettersBtn.Name = "warningLettersBtn";
             this.warningLettersBtn.Size = new System.Drawing.Size(138, 29);
             this.warningLettersBtn.TabIndex = 28;
-            this.warningLettersBtn.Text = "خطابات الانذار (0)";
+            this.warningLettersBtn.Text = "خطابات الانذارات [0]";
             this.warningLettersBtn.UseVisualStyleBackColor = true;
+            this.warningLettersBtn.Click += new System.EventHandler(this.warningLettersBtn_Click);
             // 
             // panel2
             // 
