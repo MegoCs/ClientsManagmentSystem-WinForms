@@ -153,6 +153,8 @@ namespace Mo7meen
                     conObj.SQLUPDATE(sql, false);
                     sql = "delete from tanazolat";
                     conObj.SQLUPDATE(sql, false);
+                    sql = "delete from WarningLetters";
+                    conObj.SQLUPDATE(sql, false);
                     sql = "delete from transactions where group_id <> 0";
                     conObj.SQLUPDATE(sql, true);
                     #endregion

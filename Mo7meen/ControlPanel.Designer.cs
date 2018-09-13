@@ -41,6 +41,7 @@
             this.sa7b = new System.Windows.Forms.Button();
             this.moqdemat = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.manageEntsabAndFirstBtn = new System.Windows.Forms.Button();
             this.recivePaymebntBtn = new System.Windows.Forms.Button();
             this.showCheque = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -55,6 +56,7 @@
             this.sadadTa5sees = new System.Windows.Forms.Button();
             this.ta5sees = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.MoneyByYearBtn = new System.Windows.Forms.Button();
             this.reportAboutClient = new System.Windows.Forms.Button();
             this.gard = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -62,7 +64,6 @@
             this.editClients = new System.Windows.Forms.Button();
             this.editCheques = new System.Windows.Forms.Button();
             this.settings = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -218,6 +219,7 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.manageEntsabAndFirstBtn);
             this.groupBox1.Controls.Add(this.recivePaymebntBtn);
             this.groupBox1.Controls.Add(this.showCheque);
             this.groupBox1.Controls.Add(this.searchQest);
@@ -226,10 +228,21 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(267, 209);
+            this.groupBox1.Size = new System.Drawing.Size(267, 286);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "البحث و الاستعلامات";
+            // 
+            // manageEntsabAndFirstBtn
+            // 
+            this.manageEntsabAndFirstBtn.BackColor = System.Drawing.Color.Gray;
+            this.manageEntsabAndFirstBtn.Location = new System.Drawing.Point(21, 196);
+            this.manageEntsabAndFirstBtn.Name = "manageEntsabAndFirstBtn";
+            this.manageEntsabAndFirstBtn.Size = new System.Drawing.Size(213, 56);
+            this.manageEntsabAndFirstBtn.TabIndex = 18;
+            this.manageEntsabAndFirstBtn.Text = "عرض و ادارة المقدمات و مصاريف الانتساب";
+            this.manageEntsabAndFirstBtn.UseVisualStyleBackColor = false;
+            this.manageEntsabAndFirstBtn.Click += new System.EventHandler(this.button1_Click);
             // 
             // recivePaymebntBtn
             // 
@@ -366,7 +379,7 @@
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox5.Controls.Add(this.sadadTa5sees);
             this.groupBox5.Controls.Add(this.ta5sees);
-            this.groupBox5.Location = new System.Drawing.Point(444, 229);
+            this.groupBox5.Location = new System.Drawing.Point(444, 316);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(267, 123);
             this.groupBox5.TabIndex = 16;
@@ -402,14 +415,27 @@
             // groupBox6
             // 
             this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Controls.Add(this.MoneyByYearBtn);
             this.groupBox6.Controls.Add(this.reportAboutClient);
             this.groupBox6.Controls.Add(this.gard);
             this.groupBox6.Location = new System.Drawing.Point(777, 219);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(262, 194);
+            this.groupBox6.Size = new System.Drawing.Size(262, 276);
             this.groupBox6.TabIndex = 16;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "تقارير و طباعة";
+            // 
+            // MoneyByYearBtn
+            // 
+            this.MoneyByYearBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.MoneyByYearBtn.Location = new System.Drawing.Point(21, 195);
+            this.MoneyByYearBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.MoneyByYearBtn.Name = "MoneyByYearBtn";
+            this.MoneyByYearBtn.Size = new System.Drawing.Size(228, 67);
+            this.MoneyByYearBtn.TabIndex = 12;
+            this.MoneyByYearBtn.Text = "تقرير مالي سنوي";
+            this.MoneyByYearBtn.UseVisualStyleBackColor = false;
+            this.MoneyByYearBtn.Click += new System.EventHandler(this.MoneyByYearBtn_Click);
             // 
             // reportAboutClient
             // 
@@ -502,23 +528,11 @@
             this.settings.UseVisualStyleBackColor = false;
             this.settings.Click += new System.EventHandler(this.ConfigBtn_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(487, 389);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 56);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1051, 610);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.settings);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox7);
@@ -584,6 +598,7 @@
         private System.Windows.Forms.Button unitMas7ooba;
         private System.Windows.Forms.Button recivePaymebntBtn;
         private System.Windows.Forms.Button managmentMoneyPayBtn;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button manageEntsabAndFirstBtn;
+        private System.Windows.Forms.Button MoneyByYearBtn;
     }
 }

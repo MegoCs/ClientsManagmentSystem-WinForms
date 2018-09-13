@@ -12,7 +12,7 @@ namespace Mo7meen
 {
     public partial class WarningLetterDetails : Form
     {
-        
+
         private int clientID;
         private string clientName;
         private ConnectionClass Dbonj;
@@ -41,14 +41,16 @@ namespace Mo7meen
                     Dbonj.startConnection();
                     Dbonj.SQLUPDATE("insert into WarningLetters" +
                     "(LetterNumber," +
+                    "LetterType," +
                     "LetterSubject," +
                     "LetterDate," +
                     "LetterNotes," +
-                    "Letter_group_id," +
+                    "group_id," +
                     "LetterClient_ID" +
                     ")" +
                     " values (" +
                     "" + outboxNumberTxt.Text + "," +
+                    "'" + letterType.Text + "'," +
                     "'" + subjectTxt.Text + "'," +
                     "'" + letterDatePicker.Value.ToString("yyyy/MM/dd") + "'," +
                     "'" + notesTxt.Text + "'," +
@@ -56,7 +58,9 @@ namespace Mo7meen
                     "" + clientID + "" +
                     ")", true);
                 }
-                this.Close();
+                else {
+                    MessageBox.Show("خطأ ف البيانات المدخلة");
+                }
             }
             catch (Exception ex)
             {
@@ -72,6 +76,16 @@ namespace Mo7meen
             PhotosForm phF = new PhotosForm();
             phF.ShowDialog();
             photosGroup_id = phF.groupID;
+        }
+
+        private void WarningLetterDetails_Load(object sender, EventArgs e)
+        {
+            Dbonj.startConnection();
+            Dbonj.SQLCODE("select max(LetterNumber) from WarningLetters", false);
+            if (Dbonj.myReader.Read())
+                lastLetterNumber.Text = Dbonj.myReader[0].ToString();
+            else
+                lastLetterNumber.Text = "0";
         }
     }
 }

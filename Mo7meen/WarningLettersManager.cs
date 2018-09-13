@@ -27,24 +27,34 @@ namespace Mo7meen
             ClearFormValues();
             try
             {
-                Dbonj.startConnection();
-                Dbonj.SQLCODE("select * from WarningLetters where LetterNumber=" + letterNumberTxt.Text + "", false);
-                if (Dbonj.myReader.Read())
+                if (!string.IsNullOrEmpty(letterNumberTxt.Text))
                 {
-                    subjectTxt.Text = Dbonj.myReader["LetterSubject"].ToString();
-                    notesTxt.Text = Dbonj.myReader["LetterNotes"].ToString();
-                    replyTxt.Text = Dbonj.myReader["LetterReply"].ToString();
-                    photosGroup_id = int.Parse(Dbonj.myReader["Letter_group_id"].ToString());
-                    attchmentsBtn.Enabled = true;
-                    saveUpdateBtn.Enabled = true;
-                    deleteLetterBtn.Enabled = true;
+
+                    Dbonj.startConnection();
+                    Dbonj.SQLCODE("select * from WarningLetters where LetterNumber=" + letterNumberTxt.Text + "", false);
+                    if (Dbonj.myReader.Read())
+                    {
+                        subjectTxt.Text = Dbonj.myReader["LetterSubject"].ToString();
+                        notesTxt.Text = Dbonj.myReader["LetterNotes"].ToString();
+                        replyTxt.Text = Dbonj.myReader["LetterReply"].ToString();
+                        LetterType.Text = Dbonj.myReader["LetterType"].ToString();
+                        dateTimePicker1.Text = Dbonj.myReader["LetterDate"].ToString();
+                        photosGroup_id = int.Parse(Dbonj.myReader["group_id"].ToString());
+                        attchmentsBtn.Enabled = true;
+                        saveUpdateBtn.Enabled = true;
+                        deleteLetterBtn.Enabled = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("لا توجد بيانات بهذا الرقم");
+                    } 
                 }
-                else {
-                    MessageBox.Show("لا توجد بيانات بهذا الرقم");
-                }
+                else
+                    MessageBox.Show("برجاء البحث برقم الخطاب");
             }
             catch (Exception ex) {
-
+                MessageBox.Show("خطأ ف البيانات المدخلة");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString() + " InnerException: " + ex.InnerException + " ExceptionMessage: " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
             }
         }
 

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TotalPaymentByYear" targetNamespace="http://tempuri.org/TotalPaymentByYear.xsd" xmlns:mstns="http://tempuri.org/TotalPaymentByYear.xsd" xmlns="http://tempuri.org/TotalPaymentByYear.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="M7kamaDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="M7kamaDBConnectionString (Settings)" PropertyReference="ApplicationSettings.Mo7meen.Properties.Settings.GlobalReference.Default.M7kamaDBConnectionString" Provider="System.Data.OleDb" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="PaymentByYearDbSetTableAdapter" GeneratorDataComponentClassName="PaymentByYearDbSetTableAdapter" Name="PaymentByYearDbSet" UserDataComponentName="PaymentByYearDbSetTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="M7kamaDBConnectionString (Settings)" DbObjectName="SELECT Clients.client_name, aqsat.client_id, aqsat.qest_value AS PAIDVALUE, aqsat.qest_date AS [YEAR] FROM (aqsat LEFT OUTER JOIN Clients ON aqsat.client_id = Clients.ID) UNION SELECT Clients_2.client_name, first_paids.client_id, first_paids.paid_value AS FIRSTSUM, first_paids.paid_date AS [YEAR] FROM (first_paids LEFT OUTER JOIN Clients Clients_2 ON first_paids.client_id = Clients_2.ID) UNION SELECT Clients_1.client_name, T5sesMoney.client_id, T5sesMoney.paid_value AS MONTSEBSUM, T5sesMoney.paid_date AS [YEAR] FROM (Clients Clients_1 INNER JOIN T5sesMoney ON T5sesMoney.client_id = Clients_1.ID)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        client_name, client_id, SUM(PAIDVALUE) AS Total_Paid_Value_By_Year, DatePart('yyyy', [YEAR]) AS [YEAR]
+FROM            (SELECT        Clients.client_name, aqsat.client_id, aqsat.qest_value AS PAIDVALUE, aqsat.qest_date AS [YEAR]
+                          FROM            (aqsat LEFT OUTER JOIN
+                                                    Clients ON aqsat.client_id = Clients.ID)
+                          UNION
+                          SELECT        Clients_2.client_name, first_paids.client_id, first_paids.paid_value AS FIRSTSUM, first_paids.paid_date AS [YEAR]
+                          FROM            (first_paids LEFT OUTER JOIN
+                                                   Clients Clients_2 ON first_paids.client_id = Clients_2.ID)
+                          UNION
+                          SELECT        Clients_1.client_name, T5sesMoney.client_id, T5sesMoney.paid_value AS MONTSEBSUM, T5sesMoney.paid_date AS [YEAR]
+                          FROM            (Clients Clients_1 INNER JOIN
+                                                   T5sesMoney ON T5sesMoney.client_id = Clients_1.ID)) temp
+GROUP BY client_name, client_id, DatePart('yyyy', [YEAR])
+ORDER BY client_id</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TotalPaymentByYear" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="TotalPaymentByYear" msprop:Generator_UserDSName="TotalPaymentByYear">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PaymentByYearDbSet" msprop:Generator_TableClassName="PaymentByYearDbSetDataTable" msprop:Generator_TableVarName="tablePaymentByYearDbSet" msprop:Generator_TablePropName="PaymentByYearDbSet" msprop:Generator_RowDeletingName="PaymentByYearDbSetRowDeleting" msprop:Generator_RowChangingName="PaymentByYearDbSetRowChanging" msprop:Generator_RowEvHandlerName="PaymentByYearDbSetRowChangeEventHandler" msprop:Generator_RowDeletedName="PaymentByYearDbSetRowDeleted" msprop:Generator_UserTableName="PaymentByYearDbSet" msprop:Generator_RowChangedName="PaymentByYearDbSetRowChanged" msprop:Generator_RowEvArgName="PaymentByYearDbSetRowChangeEvent" msprop:Generator_RowClassName="PaymentByYearDbSetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Client_Name" msprop:Generator_ColumnVarNameInTable="columnClient_Name" msprop:Generator_ColumnPropNameInRow="Client_Name" msprop:Generator_ColumnPropNameInTable="Client_NameColumn" msprop:Generator_UserColumnName="Client_Name" type="xs:string" minOccurs="0" />
+              <xs:element name="Client_Id" msprop:Generator_ColumnVarNameInTable="columnClient_Id" msprop:Generator_ColumnPropNameInRow="Client_Id" msprop:Generator_ColumnPropNameInTable="Client_IdColumn" msprop:Generator_UserColumnName="Client_Id" type="xs:string" minOccurs="0" />
+              <xs:element name="Total_Paid_Value_By_Year" msprop:Generator_ColumnVarNameInTable="columnTotal_Paid_Value_By_Year" msprop:Generator_ColumnPropNameInRow="Total_Paid_Value_By_Year" msprop:Generator_ColumnPropNameInTable="Total_Paid_Value_By_YearColumn" msprop:Generator_UserColumnName="Total_Paid_Value_By_Year" type="xs:string" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

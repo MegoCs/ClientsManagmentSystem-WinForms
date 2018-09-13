@@ -184,7 +184,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(789, 733);
+            this.tabControl1.Size = new System.Drawing.Size(789, 891);
             this.tabControl1.TabIndex = 27;
             // 
             // tabPage1
@@ -193,7 +193,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(781, 697);
+            this.tabPage1.Size = new System.Drawing.Size(781, 855);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "تقرير العميل الشخصى";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -209,7 +209,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(775, 691);
+            this.panel1.Size = new System.Drawing.Size(775, 849);
             this.panel1.TabIndex = 27;
             // 
             // warningLettersBtn
@@ -218,7 +218,7 @@
             this.warningLettersBtn.Name = "warningLettersBtn";
             this.warningLettersBtn.Size = new System.Drawing.Size(138, 29);
             this.warningLettersBtn.TabIndex = 28;
-            this.warningLettersBtn.Text = "خطابات الانذارات [0]";
+            this.warningLettersBtn.Text = "خطابات و انذارات [0]";
             this.warningLettersBtn.UseVisualStyleBackColor = true;
             this.warningLettersBtn.Click += new System.EventHandler(this.warningLettersBtn_Click);
             // 
@@ -1236,7 +1236,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(781, 697);
+            this.tabPage2.Size = new System.Drawing.Size(781, 855);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "تقرير عام عن العملاء النشطين";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1304,7 +1304,6 @@
             this.dataGridView1.RowTemplate.ErrorText = "No data here";
             this.dataGridView1.RowTemplate.Height = 40;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dataGridView1.Size = new System.Drawing.Size(775, 818);
             this.dataGridView1.StandardTab = true;
@@ -1321,7 +1320,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(781, 697);
+            this.tabPage3.Size = new System.Drawing.Size(781, 855);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "تقرير المتاخرين";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1395,7 +1394,7 @@
             this.tabPage4.Controls.Add(this.dataGridView2);
             this.tabPage4.Location = new System.Drawing.Point(4, 32);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(781, 697);
+            this.tabPage4.Size = new System.Drawing.Size(781, 855);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "عملاء التنازلات";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1444,9 +1443,8 @@
             this.dataGridView2.RowTemplate.ErrorText = "No data here";
             this.dataGridView2.RowTemplate.Height = 40;
             this.dataGridView2.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(781, 697);
+            this.dataGridView2.Size = new System.Drawing.Size(781, 855);
             this.dataGridView2.StandardTab = true;
             this.dataGridView2.TabIndex = 20;
             // 
@@ -1461,7 +1459,7 @@
             this.AutoScroll = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.ClientSize = new System.Drawing.Size(789, 733);
+            this.ClientSize = new System.Drawing.Size(789, 891);
             this.Controls.Add(this.tabControl1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -64,7 +64,7 @@ namespace Mo7meen
 
         private void fillReportBtn_Click(object sender, EventArgs e)
         {
-            warningLettersBtn.Text = "خطابات الانذارات [0]";
+            warningLettersBtn.Text = "خطابات و انذارات [0]";
             if (!String.IsNullOrEmpty(nationalSearch.Text))
             {
                 stoppingGroupbox.Visible = false;

@@ -27,7 +27,6 @@ namespace Mo7meen
 
         private void WarningLettersReportForm_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'WarningLettersReportDataSet.DataTable1' table. You can move, or remove it, as needed.
             this.DataTable1TableAdapter.Fill(this.WarningLettersReportDataSet.DataTable1,client_id);
             this.reportViewer1.RefreshReport();
         }

@@ -20,17 +20,17 @@ namespace Mo7meen {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("WarningLettersReportDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("TotalPaymentByYear")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class WarningLettersReportDataSet : global::System.Data.DataSet {
+    public partial class TotalPaymentByYear : global::System.Data.DataSet {
         
-        private DataTable1DataTable tableDataTable1;
+        private PaymentByYearDbSetDataTable tablePaymentByYearDbSet;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public WarningLettersReportDataSet() {
+        public TotalPaymentByYear() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Mo7meen {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected WarningLettersReportDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected TotalPaymentByYear(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Mo7meen {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["PaymentByYearDbSet"] != null)) {
+                    base.Tables.Add(new PaymentByYearDbSetDataTable(ds.Tables["PaymentByYearDbSet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Mo7meen {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DataTable1DataTable DataTable1 {
+        public PaymentByYearDbSetDataTable PaymentByYearDbSet {
             get {
-                return this.tableDataTable1;
+                return this.tablePaymentByYearDbSet;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Mo7meen {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            WarningLettersReportDataSet cln = ((WarningLettersReportDataSet)(base.Clone()));
+            TotalPaymentByYear cln = ((TotalPaymentByYear)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Mo7meen {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DataTable1"] != null)) {
-                    base.Tables.Add(new DataTable1DataTable(ds.Tables["DataTable1"]));
+                if ((ds.Tables["PaymentByYearDbSet"] != null)) {
+                    base.Tables.Add(new PaymentByYearDbSetDataTable(ds.Tables["PaymentByYearDbSet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Mo7meen {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDataTable1 = ((DataTable1DataTable)(base.Tables["DataTable1"]));
+            this.tablePaymentByYearDbSet = ((PaymentByYearDbSetDataTable)(base.Tables["PaymentByYearDbSet"]));
             if ((initTable == true)) {
-                if ((this.tableDataTable1 != null)) {
-                    this.tableDataTable1.InitVars();
+                if ((this.tablePaymentByYearDbSet != null)) {
+                    this.tablePaymentByYearDbSet.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Mo7meen {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "WarningLettersReportDataSet";
+            this.DataSetName = "TotalPaymentByYear";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/WarningLettersReportDataSet.xsd";
+            this.Namespace = "http://tempuri.org/TotalPaymentByYear.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDataTable1 = new DataTable1DataTable();
-            base.Tables.Add(this.tableDataTable1);
+            this.tablePaymentByYearDbSet = new PaymentByYearDbSetDataTable();
+            base.Tables.Add(this.tablePaymentByYearDbSet);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeDataTable1() {
+        private bool ShouldSerializePaymentByYearDbSet() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Mo7meen {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            WarningLettersReportDataSet ds = new WarningLettersReportDataSet();
+            TotalPaymentByYear ds = new TotalPaymentByYear();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,37 +270,27 @@ namespace Mo7meen {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void DataTable1RowChangeEventHandler(object sender, DataTable1RowChangeEvent e);
+        public delegate void PaymentByYearDbSetRowChangeEventHandler(object sender, PaymentByYearDbSetRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DataTable1DataTable : global::System.Data.TypedTableBase<DataTable1Row> {
+        public partial class PaymentByYearDbSetDataTable : global::System.Data.TypedTableBase<PaymentByYearDbSetRow> {
             
-            private global::System.Data.DataColumn columnLetterNumber;
+            private global::System.Data.DataColumn columnClient_Name;
             
-            private global::System.Data.DataColumn columnLetterSubject;
+            private global::System.Data.DataColumn columnClient_Id;
             
-            private global::System.Data.DataColumn columnLetterDate;
+            private global::System.Data.DataColumn columnTotal_Paid_Value_By_Year;
             
-            private global::System.Data.DataColumn columnLetterNotes;
-            
-            private global::System.Data.DataColumn columngroup_id;
-            
-            private global::System.Data.DataColumn columnLetterClient_ID;
-            
-            private global::System.Data.DataColumn columnclient_name;
-            
-            private global::System.Data.DataColumn columnLetterReply;
-            
-            private global::System.Data.DataColumn columnLetterType;
+            private global::System.Data.DataColumn columnYear;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1DataTable() {
-                this.TableName = "DataTable1";
+            public PaymentByYearDbSetDataTable() {
+                this.TableName = "PaymentByYearDbSet";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +298,7 @@ namespace Mo7meen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DataTable1DataTable(global::System.Data.DataTable table) {
+            internal PaymentByYearDbSetDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,80 +315,40 @@ namespace Mo7meen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected DataTable1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PaymentByYearDbSetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LetterNumberColumn {
+            public global::System.Data.DataColumn Client_NameColumn {
                 get {
-                    return this.columnLetterNumber;
+                    return this.columnClient_Name;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LetterSubjectColumn {
+            public global::System.Data.DataColumn Client_IdColumn {
                 get {
-                    return this.columnLetterSubject;
+                    return this.columnClient_Id;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LetterDateColumn {
+            public global::System.Data.DataColumn Total_Paid_Value_By_YearColumn {
                 get {
-                    return this.columnLetterDate;
+                    return this.columnTotal_Paid_Value_By_Year;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LetterNotesColumn {
+            public global::System.Data.DataColumn YearColumn {
                 get {
-                    return this.columnLetterNotes;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn group_idColumn {
-                get {
-                    return this.columngroup_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LetterClient_IDColumn {
-                get {
-                    return this.columnLetterClient_ID;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn client_nameColumn {
-                get {
-                    return this.columnclient_name;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LetterReplyColumn {
-                get {
-                    return this.columnLetterReply;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LetterTypeColumn {
-                get {
-                    return this.columnLetterType;
+                    return this.columnYear;
                 }
             }
             
@@ -413,53 +363,48 @@ namespace Mo7meen {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row this[int index] {
+            public PaymentByYearDbSetRow this[int index] {
                 get {
-                    return ((DataTable1Row)(this.Rows[index]));
+                    return ((PaymentByYearDbSetRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanging;
+            public event PaymentByYearDbSetRowChangeEventHandler PaymentByYearDbSetRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowChanged;
+            public event PaymentByYearDbSetRowChangeEventHandler PaymentByYearDbSetRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleting;
+            public event PaymentByYearDbSetRowChangeEventHandler PaymentByYearDbSetRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DataTable1RowChangeEventHandler DataTable1RowDeleted;
+            public event PaymentByYearDbSetRowChangeEventHandler PaymentByYearDbSetRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddDataTable1Row(DataTable1Row row) {
+            public void AddPaymentByYearDbSetRow(PaymentByYearDbSetRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row AddDataTable1Row(int LetterNumber, string LetterSubject, System.DateTime LetterDate, string LetterNotes, int group_id, int LetterClient_ID, string client_name, string LetterReply, string LetterType) {
-                DataTable1Row rowDataTable1Row = ((DataTable1Row)(this.NewRow()));
+            public PaymentByYearDbSetRow AddPaymentByYearDbSetRow(string Client_Name, string Client_Id, string Total_Paid_Value_By_Year, string Year) {
+                PaymentByYearDbSetRow rowPaymentByYearDbSetRow = ((PaymentByYearDbSetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        LetterNumber,
-                        LetterSubject,
-                        LetterDate,
-                        LetterNotes,
-                        group_id,
-                        LetterClient_ID,
-                        client_name,
-                        LetterReply,
-                        LetterType};
-                rowDataTable1Row.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDataTable1Row);
-                return rowDataTable1Row;
+                        Client_Name,
+                        Client_Id,
+                        Total_Paid_Value_By_Year,
+                        Year};
+                rowPaymentByYearDbSetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPaymentByYearDbSetRow);
+                return rowPaymentByYearDbSetRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DataTable1DataTable cln = ((DataTable1DataTable)(base.Clone()));
+                PaymentByYearDbSetDataTable cln = ((PaymentByYearDbSetDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,73 +412,55 @@ namespace Mo7meen {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DataTable1DataTable();
+                return new PaymentByYearDbSetDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnLetterNumber = base.Columns["LetterNumber"];
-                this.columnLetterSubject = base.Columns["LetterSubject"];
-                this.columnLetterDate = base.Columns["LetterDate"];
-                this.columnLetterNotes = base.Columns["LetterNotes"];
-                this.columngroup_id = base.Columns["group_id"];
-                this.columnLetterClient_ID = base.Columns["LetterClient_ID"];
-                this.columnclient_name = base.Columns["client_name"];
-                this.columnLetterReply = base.Columns["LetterReply"];
-                this.columnLetterType = base.Columns["LetterType"];
+                this.columnClient_Name = base.Columns["Client_Name"];
+                this.columnClient_Id = base.Columns["Client_Id"];
+                this.columnTotal_Paid_Value_By_Year = base.Columns["Total_Paid_Value_By_Year"];
+                this.columnYear = base.Columns["Year"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnLetterNumber = new global::System.Data.DataColumn("LetterNumber", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterNumber);
-                this.columnLetterSubject = new global::System.Data.DataColumn("LetterSubject", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterSubject);
-                this.columnLetterDate = new global::System.Data.DataColumn("LetterDate", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterDate);
-                this.columnLetterNotes = new global::System.Data.DataColumn("LetterNotes", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterNotes);
-                this.columngroup_id = new global::System.Data.DataColumn("group_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columngroup_id);
-                this.columnLetterClient_ID = new global::System.Data.DataColumn("LetterClient_ID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterClient_ID);
-                this.columnclient_name = new global::System.Data.DataColumn("client_name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnclient_name);
-                this.columnLetterReply = new global::System.Data.DataColumn("LetterReply", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterReply);
-                this.columnLetterType = new global::System.Data.DataColumn("LetterType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLetterType);
-                this.columnLetterSubject.MaxLength = 255;
-                this.columnLetterNotes.MaxLength = 255;
-                this.columnclient_name.MaxLength = 50;
+                this.columnClient_Name = new global::System.Data.DataColumn("Client_Name", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClient_Name);
+                this.columnClient_Id = new global::System.Data.DataColumn("Client_Id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnClient_Id);
+                this.columnTotal_Paid_Value_By_Year = new global::System.Data.DataColumn("Total_Paid_Value_By_Year", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal_Paid_Value_By_Year);
+                this.columnYear = new global::System.Data.DataColumn("Year", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnYear);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row NewDataTable1Row() {
-                return ((DataTable1Row)(this.NewRow()));
+            public PaymentByYearDbSetRow NewPaymentByYearDbSetRow() {
+                return ((PaymentByYearDbSetRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DataTable1Row(builder);
+                return new PaymentByYearDbSetRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DataTable1Row);
+                return typeof(PaymentByYearDbSetRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DataTable1RowChanged != null)) {
-                    this.DataTable1RowChanged(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.PaymentByYearDbSetRowChanged != null)) {
+                    this.PaymentByYearDbSetRowChanged(this, new PaymentByYearDbSetRowChangeEvent(((PaymentByYearDbSetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -541,8 +468,8 @@ namespace Mo7meen {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DataTable1RowChanging != null)) {
-                    this.DataTable1RowChanging(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.PaymentByYearDbSetRowChanging != null)) {
+                    this.PaymentByYearDbSetRowChanging(this, new PaymentByYearDbSetRowChangeEvent(((PaymentByYearDbSetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -550,8 +477,8 @@ namespace Mo7meen {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DataTable1RowDeleted != null)) {
-                    this.DataTable1RowDeleted(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.PaymentByYearDbSetRowDeleted != null)) {
+                    this.PaymentByYearDbSetRowDeleted(this, new PaymentByYearDbSetRowChangeEvent(((PaymentByYearDbSetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -559,14 +486,14 @@ namespace Mo7meen {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DataTable1RowDeleting != null)) {
-                    this.DataTable1RowDeleting(this, new DataTable1RowChangeEvent(((DataTable1Row)(e.Row)), e.Action));
+                if ((this.PaymentByYearDbSetRowDeleting != null)) {
+                    this.PaymentByYearDbSetRowDeleting(this, new PaymentByYearDbSetRowChangeEvent(((PaymentByYearDbSetRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveDataTable1Row(DataTable1Row row) {
+            public void RemovePaymentByYearDbSetRow(PaymentByYearDbSetRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -575,7 +502,7 @@ namespace Mo7meen {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                WarningLettersReportDataSet ds = new WarningLettersReportDataSet();
+                TotalPaymentByYear ds = new TotalPaymentByYear();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -593,7 +520,7 @@ namespace Mo7meen {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DataTable1DataTable";
+                attribute2.FixedValue = "PaymentByYearDbSetDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -637,267 +564,128 @@ namespace Mo7meen {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DataTable1Row : global::System.Data.DataRow {
+        public partial class PaymentByYearDbSetRow : global::System.Data.DataRow {
             
-            private DataTable1DataTable tableDataTable1;
+            private PaymentByYearDbSetDataTable tablePaymentByYearDbSet;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DataTable1Row(global::System.Data.DataRowBuilder rb) : 
+            internal PaymentByYearDbSetRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDataTable1 = ((DataTable1DataTable)(this.Table));
+                this.tablePaymentByYearDbSet = ((PaymentByYearDbSetDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int LetterNumber {
+            public string Client_Name {
                 get {
                     try {
-                        return ((int)(this[this.tableDataTable1.LetterNumberColumn]));
+                        return ((string)(this[this.tablePaymentByYearDbSet.Client_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterNumber\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Client_Name\' in table \'PaymentByYearDbSet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.LetterNumberColumn] = value;
+                    this[this.tablePaymentByYearDbSet.Client_NameColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LetterSubject {
+            public string Client_Id {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.LetterSubjectColumn]));
+                        return ((string)(this[this.tablePaymentByYearDbSet.Client_IdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterSubject\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Client_Id\' in table \'PaymentByYearDbSet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.LetterSubjectColumn] = value;
+                    this[this.tablePaymentByYearDbSet.Client_IdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime LetterDate {
+            public string Total_Paid_Value_By_Year {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableDataTable1.LetterDateColumn]));
+                        return ((string)(this[this.tablePaymentByYearDbSet.Total_Paid_Value_By_YearColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterDate\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total_Paid_Value_By_Year\' in table \'PaymentByYearDbSet\' is " +
+                                "DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.LetterDateColumn] = value;
+                    this[this.tablePaymentByYearDbSet.Total_Paid_Value_By_YearColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LetterNotes {
+            public string Year {
                 get {
                     try {
-                        return ((string)(this[this.tableDataTable1.LetterNotesColumn]));
+                        return ((string)(this[this.tablePaymentByYearDbSet.YearColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterNotes\' in table \'DataTable1\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Year\' in table \'PaymentByYearDbSet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDataTable1.LetterNotesColumn] = value;
+                    this[this.tablePaymentByYearDbSet.YearColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int group_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableDataTable1.group_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'group_id\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.group_idColumn] = value;
-                }
+            public bool IsClient_NameNull() {
+                return this.IsNull(this.tablePaymentByYearDbSet.Client_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int LetterClient_ID {
-                get {
-                    try {
-                        return ((int)(this[this.tableDataTable1.LetterClient_IDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterClient_ID\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.LetterClient_IDColumn] = value;
-                }
+            public void SetClient_NameNull() {
+                this[this.tablePaymentByYearDbSet.Client_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string client_name {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.client_nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'client_name\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.client_nameColumn] = value;
-                }
+            public bool IsClient_IdNull() {
+                return this.IsNull(this.tablePaymentByYearDbSet.Client_IdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LetterReply {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.LetterReplyColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterReply\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.LetterReplyColumn] = value;
-                }
+            public void SetClient_IdNull() {
+                this[this.tablePaymentByYearDbSet.Client_IdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LetterType {
-                get {
-                    try {
-                        return ((string)(this[this.tableDataTable1.LetterTypeColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LetterType\' in table \'DataTable1\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableDataTable1.LetterTypeColumn] = value;
-                }
+            public bool IsTotal_Paid_Value_By_YearNull() {
+                return this.IsNull(this.tablePaymentByYearDbSet.Total_Paid_Value_By_YearColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLetterNumberNull() {
-                return this.IsNull(this.tableDataTable1.LetterNumberColumn);
+            public void SetTotal_Paid_Value_By_YearNull() {
+                this[this.tablePaymentByYearDbSet.Total_Paid_Value_By_YearColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLetterNumberNull() {
-                this[this.tableDataTable1.LetterNumberColumn] = global::System.Convert.DBNull;
+            public bool IsYearNull() {
+                return this.IsNull(this.tablePaymentByYearDbSet.YearColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLetterSubjectNull() {
-                return this.IsNull(this.tableDataTable1.LetterSubjectColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLetterSubjectNull() {
-                this[this.tableDataTable1.LetterSubjectColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLetterDateNull() {
-                return this.IsNull(this.tableDataTable1.LetterDateColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLetterDateNull() {
-                this[this.tableDataTable1.LetterDateColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLetterNotesNull() {
-                return this.IsNull(this.tableDataTable1.LetterNotesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLetterNotesNull() {
-                this[this.tableDataTable1.LetterNotesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isgroup_idNull() {
-                return this.IsNull(this.tableDataTable1.group_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setgroup_idNull() {
-                this[this.tableDataTable1.group_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLetterClient_IDNull() {
-                return this.IsNull(this.tableDataTable1.LetterClient_IDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLetterClient_IDNull() {
-                this[this.tableDataTable1.LetterClient_IDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isclient_nameNull() {
-                return this.IsNull(this.tableDataTable1.client_nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setclient_nameNull() {
-                this[this.tableDataTable1.client_nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLetterReplyNull() {
-                return this.IsNull(this.tableDataTable1.LetterReplyColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLetterReplyNull() {
-                this[this.tableDataTable1.LetterReplyColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLetterTypeNull() {
-                return this.IsNull(this.tableDataTable1.LetterTypeColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLetterTypeNull() {
-                this[this.tableDataTable1.LetterTypeColumn] = global::System.Convert.DBNull;
+            public void SetYearNull() {
+                this[this.tablePaymentByYearDbSet.YearColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -905,22 +693,22 @@ namespace Mo7meen {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class DataTable1RowChangeEvent : global::System.EventArgs {
+        public class PaymentByYearDbSetRowChangeEvent : global::System.EventArgs {
             
-            private DataTable1Row eventRow;
+            private PaymentByYearDbSetRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1RowChangeEvent(DataTable1Row row, global::System.Data.DataRowAction action) {
+            public PaymentByYearDbSetRowChangeEvent(PaymentByYearDbSetRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DataTable1Row Row {
+            public PaymentByYearDbSetRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -936,7 +724,7 @@ namespace Mo7meen {
         }
     }
 }
-namespace Mo7meen.WarningLettersReportDataSetTableAdapters {
+namespace Mo7meen.TotalPaymentByYearTableAdapters {
     
     
     /// <summary>
@@ -948,7 +736,7 @@ namespace Mo7meen.WarningLettersReportDataSetTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class DataTable1TableAdapter : global::System.ComponentModel.Component {
+    public partial class PaymentByYearDbSetTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.OleDb.OleDbDataAdapter _adapter;
         
@@ -962,7 +750,7 @@ namespace Mo7meen.WarningLettersReportDataSetTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public DataTable1TableAdapter() {
+        public PaymentByYearDbSetTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1057,17 +845,6 @@ namespace Mo7meen.WarningLettersReportDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitAdapter() {
             this._adapter = new global::System.Data.OleDb.OleDbDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "DataTable1";
-            tableMapping.ColumnMappings.Add("LetterNumber", "LetterNumber");
-            tableMapping.ColumnMappings.Add("LetterSubject", "LetterSubject");
-            tableMapping.ColumnMappings.Add("LetterDate", "LetterDate");
-            tableMapping.ColumnMappings.Add("LetterNotes", "LetterNotes");
-            tableMapping.ColumnMappings.Add("Letter_group_id", "group_id");
-            tableMapping.ColumnMappings.Add("LetterClient_ID", "LetterClient_ID");
-            tableMapping.ColumnMappings.Add("client_name", "client_name");
-            this._adapter.TableMappings.Add(tableMapping);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1083,22 +860,29 @@ namespace Mo7meen.WarningLettersReportDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT WarningLetters.LetterNumber, WarningLetters.LetterSubject, WarningLetters.LetterDate, WarningLetters.LetterNotes, WarningLetters.LetterReply, WarningLetters.LetterType, Clients.client_name
-FROM Clients INNER JOIN WarningLetters ON Clients.ID = WarningLetters.LetterClient_ID
-WHERE        (Clients.ID = @client_id)
-ORDER BY WarningLetters.LetterDate DESC;
-";
+            this._commandCollection[0].CommandText = @"SELECT        client_name, client_id, SUM(PAIDVALUE) AS Total_Paid_Value_By_Year, DatePart('yyyy', [YEAR]) AS [YEAR]
+FROM            (SELECT        Clients.client_name, aqsat.client_id, aqsat.qest_value AS PAIDVALUE, aqsat.qest_date AS [YEAR]
+                          FROM            (aqsat LEFT OUTER JOIN
+                                                    Clients ON aqsat.client_id = Clients.ID)
+                          UNION
+                          SELECT        Clients_2.client_name, first_paids.client_id, first_paids.paid_value AS FIRSTSUM, first_paids.paid_date AS [YEAR]
+                          FROM            (first_paids LEFT OUTER JOIN
+                                                   Clients Clients_2 ON first_paids.client_id = Clients_2.ID)
+                          UNION
+                          SELECT        Clients_1.client_name, T5sesMoney.client_id, T5sesMoney.paid_value AS MONTSEBSUM, T5sesMoney.paid_date AS [YEAR]
+                          FROM            (Clients Clients_1 INNER JOIN
+                                                   T5sesMoney ON T5sesMoney.client_id = Clients_1.ID)) temp
+GROUP BY client_name, client_id, DatePart('yyyy', [YEAR])
+ORDER BY client_id";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[0].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("client_id", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), null, global::System.Data.DataRowVersion.Current, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(WarningLettersReportDataSet.DataTable1DataTable dataTable, int client_id) {
+        public virtual int Fill(TotalPaymentByYear.PaymentByYearDbSetDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(client_id));
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -1110,10 +894,9 @@ ORDER BY WarningLetters.LetterDate DESC;
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual WarningLettersReportDataSet.DataTable1DataTable GetData(int client_id) {
+        public virtual TotalPaymentByYear.PaymentByYearDbSetDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(client_id));
-            WarningLettersReportDataSet.DataTable1DataTable dataTable = new WarningLettersReportDataSet.DataTable1DataTable();
+            TotalPaymentByYear.PaymentByYearDbSetDataTable dataTable = new TotalPaymentByYear.PaymentByYearDbSetDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1187,7 +970,7 @@ ORDER BY WarningLetters.LetterDate DESC;
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(WarningLettersReportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(TotalPaymentByYear dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1197,7 +980,7 @@ ORDER BY WarningLetters.LetterDate DESC;
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(WarningLettersReportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(TotalPaymentByYear dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1207,7 +990,7 @@ ORDER BY WarningLetters.LetterDate DESC;
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(WarningLettersReportDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(TotalPaymentByYear dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1241,7 +1024,7 @@ ORDER BY WarningLetters.LetterDate DESC;
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(WarningLettersReportDataSet dataSet) {
+        public virtual int UpdateAll(TotalPaymentByYear dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

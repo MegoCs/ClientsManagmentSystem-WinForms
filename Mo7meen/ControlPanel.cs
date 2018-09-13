@@ -14,17 +14,19 @@ namespace Mo7meen
     {
         ConnectionClass con = new ConnectionClass();
         String priv;
-       
+        BackgroundWorker worker;
+        ClientReportForm clientReportObj;
         public ControlPanel(String prev)
         {         
             InitializeComponent();
             con.startConnection();
             priv = prev;
             addpriv();
+            clientReportObj = new ClientReportForm();
         }
 
         #region Buttons Actions And Forms Mapping
-
+        
         private void button6_Click(object sender, EventArgs e)
         {
             MessageBox.Show("برجاء اختيار القسط من بحث الاقساط");
@@ -55,7 +57,6 @@ namespace Mo7meen
 
         private void reportAboutClient_Click(object sender, EventArgs e)
         {
-            ClientReportForm clientReportObj = new ClientReportForm();
             clientReportObj.ShowDialog();
         }
 
@@ -74,7 +75,7 @@ namespace Mo7meen
         private void edit3_Click(object sender, EventArgs e)
         {
             EditeClient eC = new EditeClient();
-            eC.ShowDialog();
+            eC.Show();
         }
 
         private void edit2_Click(object sender, EventArgs e)
@@ -161,7 +162,7 @@ namespace Mo7meen
             if (found(priv, '5'))
             {
                 gard.Enabled = true;
-                
+                MoneyByYearBtn.Enabled = true;
             }
             if (found(priv, '6'))
             {
@@ -170,6 +171,7 @@ namespace Mo7meen
             if (found(priv, '7'))
             {
                 searchQest.Enabled = true;
+                manageEntsabAndFirstBtn.Enabled = true;
             }
             if (found(priv, '8'))
             {
@@ -284,8 +286,7 @@ namespace Mo7meen
             NewItem item = new NewItem();
             item.ShowDialog();
         }
-        #endregion
-
+        
         private void checkoutBtn_Click(object sender, EventArgs e)
         {
            
@@ -307,8 +308,15 @@ namespace Mo7meen
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Manager obj = new Manager();
+            MontasbenMoneyManager obj = new MontasbenMoneyManager();
             obj.ShowDialog();
+        }
+        #endregion
+
+        private void MoneyByYearBtn_Click(object sender, EventArgs e)
+        {
+            PaymentByYearReportFormManager obj = new PaymentByYearReportFormManager();
+            obj.Show();
         }
     }
 }

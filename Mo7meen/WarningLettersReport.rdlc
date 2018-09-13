@@ -6,16 +6,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.70173in</Width>
+              <Width>1.31631in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.10798in</Width>
+              <Width>1.42638in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.20173in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.85104in</Width>
+              <Width>1.20173in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.78854in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.04202in</Width>
@@ -64,7 +67,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox21">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -72,6 +75,40 @@
                           <TextRuns>
                             <TextRun>
                               <Value>الرد</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox21">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>نوع البيان</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -303,6 +340,38 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="LetterType">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!LetterType.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>LetterType</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="LetterDate">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -441,6 +510,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -455,9 +525,9 @@
         </TablixRowHierarchy>
         <DataSetName>WarningLettersReportDataSet</DataSetName>
         <Top>1.12375in</Top>
-        <Left>0.59945in</Left>
+        <Left>0.58557in</Left>
         <Height>0.5in</Height>
-        <Width>8.36458in</Width>
+        <Width>9.43678in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -478,13 +548,13 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox27</rd:DefaultName>
         <Top>0.53348in</Top>
-        <Left>0.59945in</Left>
+        <Left>1.60529in</Left>
         <Height>0.33333in</Height>
         <Width>6.92222in</Width>
         <ZIndex>1</ZIndex>
@@ -520,7 +590,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox29</rd:DefaultName>
         <Top>0.53348in</Top>
-        <Left>7.66056in</Left>
+        <Left>8.71888in</Left>
         <Height>0.33333in</Height>
         <Width>1.30347in</Width>
         <ZIndex>2</ZIndex>
@@ -536,15 +606,15 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>2.23958in</Height>
+    <Height>2.66542in</Height>
     <Style>
       <Border>
         <Style>Double</Style>
-        <Width>1.25pt</Width>
+        <Width>1.5pt</Width>
       </Border>
     </Style>
   </Body>
-  <Width>9.26959in</Width>
+  <Width>10.39111in</Width>
   <Page>
     <PageHeader>
       <Height>1in</Height>
@@ -560,8 +630,10 @@
                 <TextRun>
                   <Value>بيان الخطابات المرسلة</Value>
                   <Style>
-                    <FontSize>16pt</FontSize>
+                    <FontStyle>Normal</FontStyle>
+                    <FontSize>18pt</FontSize>
                     <FontWeight>Bold</FontWeight>
+                    <TextDecoration>Underline</TextDecoration>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -572,13 +644,15 @@
           </Paragraphs>
           <rd:DefaultName>Textbox27</rd:DefaultName>
           <Top>0.43625in</Top>
-          <Left>3.25709in</Left>
-          <Height>0.33333in</Height>
-          <Width>3.51041in</Width>
+          <Left>2.30118in</Left>
+          <Height>0.42708in</Height>
+          <Width>5.16075in</Width>
           <Style>
             <Border>
               <Style>Solid</Style>
+              <Width>1.5pt</Width>
             </Border>
+            <VerticalAlign>Top</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -589,11 +663,12 @@
       <Style>
         <Border>
           <Style>Double</Style>
+          <Width>1.5pt</Width>
         </Border>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.49875in</Height>
+      <Height>0.55083in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -616,13 +691,13 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.06944in</Top>
-          <Left>0.44181in</Left>
+          <Top>0.125in</Top>
+          <Left>0.1255in</Left>
           <Height>0.3125in</Height>
-          <Width>1in</Width>
+          <Width>1.31631in</Width>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -649,14 +724,14 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox29</rd:DefaultName>
-          <Top>0.10292in</Top>
+          <Top>0.125in</Top>
           <Left>1.61917in</Left>
           <Height>0.27902in</Height>
           <Width>1in</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
-              <Style>None</Style>
+              <Style>Solid</Style>
             </Border>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
@@ -668,16 +743,12 @@
       <Style>
         <Border>
           <Style>Double</Style>
-          <Width>1.25pt</Width>
+          <Width>1.5pt</Width>
         </Border>
       </Style>
     </PageFooter>
     <PageHeight>8.27in</PageHeight>
     <PageWidth>11.69in</PageWidth>
-    <LeftMargin>1in</LeftMargin>
-    <RightMargin>1in</RightMargin>
-    <TopMargin>1in</TopMargin>
-    <BottomMargin>1in</BottomMargin>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
@@ -713,7 +784,7 @@
           <DataField>LetterNotes</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Letter_group_id">
+        <Field Name="group_id">
           <DataField>Letter_group_id</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
@@ -729,6 +800,10 @@
           <DataField>LetterReply</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="LetterType">
+          <DataField>LetterType</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>WarningLettersReportDataSet</rd:DataSetName>
@@ -740,6 +815,7 @@
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>a0c646c8-96c2-4095-b435-93a5b541f084</rd:ReportID>
 </Report>

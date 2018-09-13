@@ -135,7 +135,7 @@
             this.Name = "CheckOutList";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CheckOutList";
+            this.Text = "بيانات الوحدات المسحوبه";
             this.Load += new System.EventHandler(this.CheckOutList_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

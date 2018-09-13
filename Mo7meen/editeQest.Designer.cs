@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editeQest));
             this.value = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addAttachmentBtn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.detailsTxt = new System.Windows.Forms.TextBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.detailsTxt = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.addAttachmentBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +68,36 @@
             this.groupBox1.Size = new System.Drawing.Size(327, 255);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "بيانات القسط";
+            this.groupBox1.Text = "البيانات الاساسية";
+            // 
+            // addAttachmentBtn
+            // 
+            this.addAttachmentBtn.Enabled = false;
+            this.addAttachmentBtn.Location = new System.Drawing.Point(7, 219);
+            this.addAttachmentBtn.Name = "addAttachmentBtn";
+            this.addAttachmentBtn.Size = new System.Drawing.Size(155, 30);
+            this.addAttachmentBtn.TabIndex = 10;
+            this.addAttachmentBtn.Text = "اضافة مستندات";
+            this.addAttachmentBtn.UseVisualStyleBackColor = true;
+            this.addAttachmentBtn.Click += new System.EventHandler(this.addAttachmentBtn_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(257, 148);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "تفاصيل";
+            // 
+            // detailsTxt
+            // 
+            this.detailsTxt.Location = new System.Drawing.Point(7, 145);
+            this.detailsTxt.Multiline = true;
+            this.detailsTxt.Name = "detailsTxt";
+            this.detailsTxt.Size = new System.Drawing.Size(183, 68);
+            this.detailsTxt.TabIndex = 8;
+            this.detailsTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // comboBox1
             // 
@@ -108,11 +137,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(240, 35);
+            this.label1.Location = new System.Drawing.Point(213, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(75, 13);
             this.label1.TabIndex = 3;
-            this.label1.Text = "قيمة القسط";
+            this.label1.Text = "القيمة المدفوعة";
             // 
             // button1
             // 
@@ -124,42 +153,13 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // detailsTxt
-            // 
-            this.detailsTxt.Location = new System.Drawing.Point(7, 145);
-            this.detailsTxt.Multiline = true;
-            this.detailsTxt.Name = "detailsTxt";
-            this.detailsTxt.Size = new System.Drawing.Size(183, 68);
-            this.detailsTxt.TabIndex = 8;
-            this.detailsTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(257, 148);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "تفاصيل";
-            // 
-            // addAttachmentBtn
-            // 
-            this.addAttachmentBtn.Enabled = false;
-            this.addAttachmentBtn.Location = new System.Drawing.Point(7, 219);
-            this.addAttachmentBtn.Name = "addAttachmentBtn";
-            this.addAttachmentBtn.Size = new System.Drawing.Size(155, 30);
-            this.addAttachmentBtn.TabIndex = 10;
-            this.addAttachmentBtn.Text = "اضافة مستندات";
-            this.addAttachmentBtn.UseVisualStyleBackColor = true;
-            this.addAttachmentBtn.Click += new System.EventHandler(this.addAttachmentBtn_Click);
-            // 
             // deleteBtn
             // 
             this.deleteBtn.Location = new System.Drawing.Point(225, 273);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(108, 25);
             this.deleteBtn.TabIndex = 5;
-            this.deleteBtn.Text = "مسح بيانات القسط";
+            this.deleteBtn.Text = "مسح البيان";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
@@ -174,7 +174,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "editeQest";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "تعديل بيانات القسط";
+            this.Text = "تعديل البيانات";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
