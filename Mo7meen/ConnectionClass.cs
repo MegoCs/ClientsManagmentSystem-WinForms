@@ -12,8 +12,6 @@ namespace Mo7meen
         public OleDbCommand myCommand = null;
         public OleDbDataAdapter myAdabter = null;
         
-        string myConnectionString;
-        
         public ConnectionClass()
         {
             string executable = System.Reflection.Assembly.GetExecutingAssembly().Location;

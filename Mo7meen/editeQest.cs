@@ -16,7 +16,6 @@ namespace Mo7meen
      
         ConnectionClass conn = new ConnectionClass();
         private object groupId;
-        private bool v;
         private string OpreationTable = "";
 
         public editeQest(String qestVAlue2, String qestDate2,string details, String bank7esab2 ,int ID2, int groupId)

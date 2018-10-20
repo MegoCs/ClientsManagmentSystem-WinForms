@@ -16,7 +16,6 @@ namespace Mo7meen
     public partial class TkhcesForm : Form
     {
         ConnectionClass conObj;
-        DataTable dtValid, dtNotValid;
         
         public TkhcesForm()
         {
@@ -24,9 +23,8 @@ namespace Mo7meen
             conObj = new ConnectionClass();
             conObj.startConnection();
         }
-        private String tableName;
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (t5sesTypeCombo.SelectedIndex != -1 && !String.IsNullOrEmpty(t5sesValue.Text))
             {
@@ -51,13 +49,13 @@ namespace Mo7meen
             }
         }
 
-        private void displayHideBtn_Click(object sender, EventArgs e)
+        private void DisplayHideBtn_Click(object sender, EventArgs e)
         {
             reportViewer1.Visible = false;
             reportViewer2.Visible = !reportViewer2.Visible;
         }
 
-        private void notValidDisplayBtn_Click(object sender, EventArgs e)
+        private void NotValidDisplayBtn_Click(object sender, EventArgs e)
         {
             reportViewer2.Visible = false;
             reportViewer1.Visible = !reportViewer1.Visible;

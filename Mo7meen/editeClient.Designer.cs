@@ -51,7 +51,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.borgNumber = new System.Windows.Forms.TextBox();
             this.unitNumber = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.deliveredcheckBox1 = new System.Windows.Forms.CheckBox();
             this.button3 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.changeSearch = new System.Windows.Forms.CheckBox();
@@ -122,7 +122,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "بحث";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label2
             // 
@@ -159,7 +159,7 @@
             this.button2.TabIndex = 10;
             this.button2.Text = "حفظ التعديل";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // groupBox1
             // 
@@ -240,7 +240,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.borgNumber);
             this.groupBox2.Controls.Add(this.unitNumber);
-            this.groupBox2.Controls.Add(this.checkBox1);
+            this.groupBox2.Controls.Add(this.deliveredcheckBox1);
             this.groupBox2.Location = new System.Drawing.Point(397, 401);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(339, 98);
@@ -286,14 +286,14 @@
             // 
             // checkBox1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(246, 16);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(87, 17);
-            this.checkBox1.TabIndex = 7;
-            this.checkBox1.Text = "بيانات الوحدة";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.deliveredcheckBox1.AutoSize = true;
+            this.deliveredcheckBox1.Location = new System.Drawing.Point(246, 16);
+            this.deliveredcheckBox1.Name = "checkBox1";
+            this.deliveredcheckBox1.Size = new System.Drawing.Size(87, 17);
+            this.deliveredcheckBox1.TabIndex = 7;
+            this.deliveredcheckBox1.Text = "بيانات الوحدة";
+            this.deliveredcheckBox1.UseVisualStyleBackColor = true;
+            this.deliveredcheckBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // button3
             // 
@@ -303,7 +303,7 @@
             this.button3.TabIndex = 11;
             this.button3.Text = "مسح العميل";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // label10
             // 
@@ -323,7 +323,7 @@
             this.changeSearch.TabIndex = 14;
             this.changeSearch.Text = "تبديل البحث";
             this.changeSearch.UseVisualStyleBackColor = true;
-            this.changeSearch.CheckedChanged += new System.EventHandler(this.changeSearch_CheckedChanged);
+            this.changeSearch.CheckedChanged += new System.EventHandler(this.ChangeSearch_CheckedChanged);
             // 
             // cust_nameComb
             // 
@@ -342,7 +342,7 @@
             this.displayPhotos.TabIndex = 16;
             this.displayPhotos.Text = "عرض الاصول الورقية";
             this.displayPhotos.UseVisualStyleBackColor = true;
-            this.displayPhotos.Click += new System.EventHandler(this.displayPhotos_Click);
+            this.displayPhotos.Click += new System.EventHandler(this.DisplayPhotos_Click);
             // 
             // stopGroupBox
             // 
@@ -375,7 +375,7 @@
             this.stopRadioBtn.TabIndex = 11;
             this.stopRadioBtn.Text = "إيقاف الوحدة";
             this.stopRadioBtn.UseVisualStyleBackColor = true;
-            this.stopRadioBtn.CheckedChanged += new System.EventHandler(this.stopRadioBtn_CheckedChanged);
+            this.stopRadioBtn.CheckedChanged += new System.EventHandler(this.StopRadioBtn_CheckedChanged);
             // 
             // label12
             // 
@@ -414,7 +414,7 @@
             this.stopCancelBtn.TabIndex = 18;
             this.stopCancelBtn.Text = "الغاء إيقاف الوحدة";
             this.stopCancelBtn.UseVisualStyleBackColor = true;
-            this.stopCancelBtn.Click += new System.EventHandler(this.stopCancelBtn_Click);
+            this.stopCancelBtn.Click += new System.EventHandler(this.StopCancelBtn_Click);
             // 
             // warningLetterBtn
             // 
@@ -424,7 +424,7 @@
             this.warningLetterBtn.TabIndex = 19;
             this.warningLetterBtn.Text = "تسجيل خطاب انذار";
             this.warningLetterBtn.UseVisualStyleBackColor = true;
-            this.warningLetterBtn.Click += new System.EventHandler(this.warningLetterBtn_Click);
+            this.warningLetterBtn.Click += new System.EventHandler(this.WarningLetterBtn_Click);
             // 
             // manageWarningLettersBtn
             // 
@@ -434,7 +434,7 @@
             this.manageWarningLettersBtn.TabIndex = 20;
             this.manageWarningLettersBtn.Text = "ادارة خطابات الانذار";
             this.manageWarningLettersBtn.UseVisualStyleBackColor = true;
-            this.manageWarningLettersBtn.Click += new System.EventHandler(this.manageWarningLettersBtn_Click);
+            this.manageWarningLettersBtn.Click += new System.EventHandler(this.ManageWarningLettersBtn_Click);
             // 
             // EditeClient
             // 
@@ -492,7 +492,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox borgNumber;
         private System.Windows.Forms.TextBox unitNumber;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox deliveredcheckBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox details_text;
         private System.Windows.Forms.Button button3;

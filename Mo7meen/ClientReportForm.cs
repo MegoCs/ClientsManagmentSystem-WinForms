@@ -17,7 +17,6 @@ namespace Mo7meen
     public partial class ClientReportForm : Form
     {
         int client_id;
-        TabPage e1, e2;
         ConnectionClass conObj;
         #region Printing Assembly
         private System.IO.Stream streamToPrint;
@@ -62,7 +61,7 @@ namespace Mo7meen
 
         }
 
-        private void fillReportBtn_Click(object sender, EventArgs e)
+        private void FillReportBtn_Click(object sender, EventArgs e)
         {
             warningLettersBtn.Text = "خطابات و انذارات [0]";
             if (!String.IsNullOrEmpty(nationalSearch.Text))
@@ -110,12 +109,12 @@ namespace Mo7meen
                             entsabCheckBox.Checked = true;
                             EntsabGroup.Visible = true;
                             sql = "select sum(paid_value) from montsben where client_id=" + client_id + " and PaymentType=0";
-                            loadOneCell(sql, entsabPaid_ValueTxt);
+                            LoadOneCell(sql, entsabPaid_ValueTxt);
                             if (String.IsNullOrEmpty(entsabPaid_ValueTxt.Text))
                                 entsabPaid_ValueTxt.Text = "0";
 
                             sql = "select sum(paid_value) from montsben where client_id=" + client_id + " and PaymentType=1";
-                            loadOneCell(sql, entsabManagPaid_ValueTxt);
+                            LoadOneCell(sql, entsabManagPaid_ValueTxt);
                             if (String.IsNullOrEmpty(entsabManagPaid_ValueTxt.Text))
                                 entsabManagPaid_ValueTxt.Text = "0";
 
@@ -160,7 +159,7 @@ namespace Mo7meen
                                 sql = "SELECT client_name FROM Clients WHERE(ID =(SELECT to_id FROM tanazolat WHERE(from_id = " + client_id + ")))";
                                 motnazelCheckBox.Checked = true;
                                 motnazelToCheckBox.Checked = false;
-                                loadOneCell(sql, tnazolPartenterTxt);
+                                LoadOneCell(sql, tnazolPartenterTxt);
                             }
                         }
                         else
@@ -171,21 +170,21 @@ namespace Mo7meen
 
                         #region Load Paid Fist Values Sum
                         sql = "select sum(paid_value) from first_paids HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
-                        loadOneCell(sql, client_Firstpaid_SumTxt);
+                        LoadOneCell(sql, client_Firstpaid_SumTxt);
                         if (String.IsNullOrEmpty(client_Firstpaid_SumTxt.Text))
                             client_Firstpaid_SumTxt.Text = "0";
                         #endregion
 
                         #region Load T5ses Money sum
                         sql = "select sum(paid_value) from T5sesMoney HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
-                        loadOneCell(sql, client_T5ses_SumTxt);
+                        LoadOneCell(sql, client_T5ses_SumTxt);
                         if (String.IsNullOrEmpty(client_T5ses_SumTxt.Text))
                             client_T5ses_SumTxt.Text = "0";
                         #endregion
 
                         #region Load Aqsat Total Sum
                         sql = "select sum(qest_value) from aqsat HAVING client_id=" + client_id + " OR client_id=" + partnerID + "";
-                        loadOneCell(sql, client_Aqsat_SumTxt);
+                        LoadOneCell(sql, client_Aqsat_SumTxt);
                         if (String.IsNullOrEmpty(client_Aqsat_SumTxt.Text))
                             client_Aqsat_SumTxt.Text = "0";
                         #endregion
@@ -222,7 +221,7 @@ namespace Mo7meen
             }
         }
 
-        private void loadOneCell(string sql, Control Lcd)
+        private void LoadOneCell(string sql, Control Lcd)
         {
             conObj.SQLCODE(sql, false);
             if (conObj.myReader.Read())
@@ -317,7 +316,7 @@ namespace Mo7meen
         }
         #endregion
 
-        private void moadmReport_Click(object sender, EventArgs e)
+        private void MoadmReport_Click(object sender, EventArgs e)
         {
             this.BeginInvoke((Action)delegate
             {
@@ -327,13 +326,13 @@ namespace Mo7meen
             });
         }
 
-        private void percentDisplayCheck_CheckedChanged(object sender, EventArgs e)
+        private void PercentDisplayCheck_CheckedChanged(object sender, EventArgs e)
         {
             thePercentValueTxt.Visible = percentDisplayCheck.Checked;
             thePercentValueLab.Visible = percentDisplayCheck.Checked;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             LatePaymentReport lPr = new LatePaymentReport(1, 1);
             lPr.ShowDialog();
@@ -365,7 +364,7 @@ namespace Mo7meen
             }
         }
 
-        private void priceAndRestDisplayChk_CheckedChanged(object sender, EventArgs e)
+        private void PriceAndRestDisplayChk_CheckedChanged(object sender, EventArgs e)
         {
             unitPriceTxt.Visible = priceAndRestDisplayChk.Checked;
             unitPriceLab.Visible = priceAndRestDisplayChk.Checked;
@@ -388,10 +387,11 @@ namespace Mo7meen
             catch (Exception ex)
             {
                 MessageBox.Show("برجاء مراجعه صحه المبلغ المالى");
+                Logger.WriteLog("[" + DateTime.Now + "] ExceptionString: " + ex.ToString() + " InnerException: " + ex.InnerException + " ExceptionMessage: " + ex.Message + ". [" + this.Name + "] By [" + SessionInfo.empName + "]");
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
             label26.Visible = checkBox1.Checked;
             label28.Visible = checkBox1.Checked;
@@ -402,13 +402,13 @@ namespace Mo7meen
             latePaymentLab.Visible = checkBox1.Checked;
         }
 
-        private void warningLettersBtn_Click(object sender, EventArgs e)
+        private void WarningLettersBtn_Click(object sender, EventArgs e)
         {
             WarningLettersReportForm obj = new WarningLettersReportForm(client_id);
             obj.ShowDialog();
         }
 
-        private void showLateReportBtn_Click(object sender, EventArgs e)
+        private void ShowLateReportBtn_Click(object sender, EventArgs e)
         {
             if (unitTypeComb_LateTab.SelectedIndex != -1)
             {

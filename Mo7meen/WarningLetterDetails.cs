@@ -36,7 +36,7 @@ namespace Mo7meen
         {
             try
             {
-                if (!string.IsNullOrEmpty(clientName) && clientID != null && !string.IsNullOrEmpty(outboxNumberTxt.Text) && !string.IsNullOrEmpty(subjectTxt.Text))
+                if (!string.IsNullOrEmpty(clientName) && !string.IsNullOrEmpty(outboxNumberTxt.Text) && !string.IsNullOrEmpty(subjectTxt.Text))
                 {
                     Dbonj.startConnection();
                     Dbonj.SQLUPDATE("insert into WarningLetters" +

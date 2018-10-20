@@ -70,7 +70,7 @@
             this.deletButton.TabIndex = 3;
             this.deletButton.Text = "مسح";
             this.deletButton.UseVisualStyleBackColor = true;
-            this.deletButton.Click += new System.EventHandler(this.deletButton_Click);
+            this.deletButton.Click += new System.EventHandler(this.DeletButton_Click);
             // 
             // eButton
             // 
@@ -80,7 +80,7 @@
             this.eButton.TabIndex = 4;
             this.eButton.Text = "تعديل";
             this.eButton.UseVisualStyleBackColor = true;
-            this.eButton.Click += new System.EventHandler(this.eButton_Click);
+            this.eButton.Click += new System.EventHandler(this.EButton_Click);
             // 
             // jkshgk
             // 
@@ -95,7 +95,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "مسح موظف";
-            this.Load += new System.EventHandler(this.deletEmployee_Load);
+            this.Load += new System.EventHandler(this.DeletEmployee_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

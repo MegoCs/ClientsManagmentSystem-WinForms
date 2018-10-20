@@ -42,7 +42,7 @@
             this.browsBtn.TabIndex = 0;
             this.browsBtn.Text = "اختيار الصور";
             this.browsBtn.UseVisualStyleBackColor = true;
-            this.browsBtn.Click += new System.EventHandler(this.browsBtn_Click);
+            this.browsBtn.Click += new System.EventHandler(this.BrowsBtn_Click);
             // 
             // listBox1
             // 

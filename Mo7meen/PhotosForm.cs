@@ -15,24 +15,24 @@ namespace Mo7meen
         ConnectionClass conObj;
         public int groupID = -1;
         int phCount=0;
-        int IdToInsert = 0;
-
-        string executable ;
+        private string executable ;
         string dst ;
 
         public PhotosForm()
         {
             InitializeComponent();
             conObj = new ConnectionClass();
-            loadLastTrans();
+            LoadLastTrans();
             executable = System.Reflection.Assembly.GetExecutingAssembly().Location;
         }
 
-        private void browsBtn_Click(object sender, EventArgs e)
+        private void BrowsBtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog x = new OpenFileDialog();
-            x.Multiselect = true;
-            x.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif";
+            OpenFileDialog x = new OpenFileDialog
+            {
+                Multiselect = true,
+                Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.tif"
+            };
             if (x.ShowDialog() == DialogResult.OK&& groupID!=-1)
             {
                 string[] result = x.FileNames;               
@@ -42,7 +42,7 @@ namespace Mo7meen
                     dst = (System.IO.Path.GetDirectoryName(executable));
                     dst += @"\Transactions\"+groupID+"-"+phCount+".png";
                     System.IO.File.Copy(y, dst, true);
-                    if (!insertNewTrans())
+                    if (!InsertNewTrans())
                     {
                         MessageBox.Show("خطأ اثناء تسجيل الملف برجاء المحاولة مره اخرى");
                         break;
@@ -53,7 +53,7 @@ namespace Mo7meen
             }
         }
 
-        private void loadLastTrans()
+        private void LoadLastTrans()
         {
             conObj.startConnection();
             conObj.SQLCODE("select max(group_id) as oldGroupId from transactions;", false);
@@ -63,7 +63,7 @@ namespace Mo7meen
             }
         }
 
-        private bool insertNewTrans()
+        private bool InsertNewTrans()
         {
             return conObj.SQLUPDATE("insert into transactions (group_id,photo_id) values (" + groupID + "," + phCount++ + ")",true);
         }

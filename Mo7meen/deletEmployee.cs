@@ -19,7 +19,7 @@ namespace Mo7meen
             con.startConnection();
         }
 
-        private void getData(AutoCompleteStringCollection dataCollection)
+        private void GetData(AutoCompleteStringCollection dataCollection)
         {
 
             DataSet ds = new DataSet();
@@ -37,16 +37,16 @@ namespace Mo7meen
 
         }
 
-        private void deletEmployee_Load(object sender, EventArgs e)
+        private void DeletEmployee_Load(object sender, EventArgs e)
         {
             Name.AutoCompleteMode = AutoCompleteMode.Suggest;
             Name.AutoCompleteSource = AutoCompleteSource.CustomSource;
             AutoCompleteStringCollection DataCollection = new AutoCompleteStringCollection();
-            getData(DataCollection);
+            GetData(DataCollection);
             Name.AutoCompleteCustomSource = DataCollection;
         }
 
-        private void deletButton_Click(object sender, EventArgs e)
+        private void DeletButton_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("هل أنت متأكد من مسح هذا العميل ؟", "نأكد من المسح", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
@@ -61,7 +61,7 @@ namespace Mo7meen
             }         
         }
 
-        private void eButton_Click(object sender, EventArgs e)
+        private void EButton_Click(object sender, EventArgs e)
         {
             try
             {

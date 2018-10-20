@@ -14,7 +14,6 @@ namespace Mo7meen
     {
         ConnectionClass con = new ConnectionClass();
         String priv;
-        BackgroundWorker worker;
         ClientReportForm clientReportObj;
         public ControlPanel(String prev)
         {         

@@ -112,7 +112,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "بدا العملية";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // displayHideBtn
             // 
@@ -122,7 +122,7 @@
             this.displayHideBtn.TabIndex = 7;
             this.displayHideBtn.Text = "مجتاز";
             this.displayHideBtn.UseVisualStyleBackColor = true;
-            this.displayHideBtn.Click += new System.EventHandler(this.displayHideBtn_Click);
+            this.displayHideBtn.Click += new System.EventHandler(this.DisplayHideBtn_Click);
             // 
             // reportViewer1
             // 
@@ -158,7 +158,7 @@
             this.notValidDisplayBtn.TabIndex = 10;
             this.notValidDisplayBtn.Text = " غير مجتاز";
             this.notValidDisplayBtn.UseVisualStyleBackColor = true;
-            this.notValidDisplayBtn.Click += new System.EventHandler(this.notValidDisplayBtn_Click);
+            this.notValidDisplayBtn.Click += new System.EventHandler(this.NotValidDisplayBtn_Click);
             // 
             // DataTable1BindingSource
             // 

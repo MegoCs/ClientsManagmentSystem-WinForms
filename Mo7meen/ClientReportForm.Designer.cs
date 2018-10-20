@@ -220,7 +220,7 @@
             this.warningLettersBtn.TabIndex = 28;
             this.warningLettersBtn.Text = "خطابات و انذارات [0]";
             this.warningLettersBtn.UseVisualStyleBackColor = true;
-            this.warningLettersBtn.Click += new System.EventHandler(this.warningLettersBtn_Click);
+            this.warningLettersBtn.Click += new System.EventHandler(this.WarningLettersBtn_Click);
             // 
             // panel2
             // 
@@ -931,7 +931,7 @@
             this.checkBox1.TabIndex = 28;
             this.checkBox1.Text = "طباعة  التاخير";
             this.checkBox1.UseVisualStyleBackColor = true;
-            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // priceAndRestDisplayChk
             // 
@@ -944,7 +944,7 @@
             this.priceAndRestDisplayChk.TabIndex = 27;
             this.priceAndRestDisplayChk.Text = "اظهار ثمن الوحده و المتبقى";
             this.priceAndRestDisplayChk.UseVisualStyleBackColor = true;
-            this.priceAndRestDisplayChk.CheckedChanged += new System.EventHandler(this.priceAndRestDisplayChk_CheckedChanged);
+            this.priceAndRestDisplayChk.CheckedChanged += new System.EventHandler(this.PriceAndRestDisplayChk_CheckedChanged);
             // 
             // percentDisplayCheck
             // 
@@ -957,7 +957,7 @@
             this.percentDisplayCheck.TabIndex = 26;
             this.percentDisplayCheck.Text = "اظهار 5%";
             this.percentDisplayCheck.UseVisualStyleBackColor = true;
-            this.percentDisplayCheck.CheckedChanged += new System.EventHandler(this.percentDisplayCheck_CheckedChanged);
+            this.percentDisplayCheck.CheckedChanged += new System.EventHandler(this.PercentDisplayCheck_CheckedChanged);
             // 
             // moadmReport
             // 
@@ -967,7 +967,7 @@
             this.moadmReport.TabIndex = 25;
             this.moadmReport.Text = "تقرير تفصيلى";
             this.moadmReport.UseVisualStyleBackColor = true;
-            this.moadmReport.Click += new System.EventHandler(this.moadmReport_Click);
+            this.moadmReport.Click += new System.EventHandler(this.MoadmReport_Click);
             // 
             // label16
             // 
@@ -1202,7 +1202,7 @@
             this.fillReportBtn.TabIndex = 1;
             this.fillReportBtn.Text = "عرض";
             this.fillReportBtn.UseVisualStyleBackColor = true;
-            this.fillReportBtn.Click += new System.EventHandler(this.fillReportBtn_Click);
+            this.fillReportBtn.Click += new System.EventHandler(this.FillReportBtn_Click);
             // 
             // nationalSearch
             // 
@@ -1333,7 +1333,7 @@
             this.showLateReportBtn.TabIndex = 2;
             this.showLateReportBtn.Text = "عرض ";
             this.showLateReportBtn.UseVisualStyleBackColor = true;
-            this.showLateReportBtn.Click += new System.EventHandler(this.showLateReportBtn_Click);
+            this.showLateReportBtn.Click += new System.EventHandler(this.ShowLateReportBtn_Click);
             // 
             // mNumComb_LateTab
             // 

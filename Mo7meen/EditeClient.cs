@@ -14,6 +14,7 @@ namespace Mo7meen
         bool found = false;
         ConnectionClass conn;
         string stopState="N";
+        private string delivered;
         String sql;
         List<int> photos_group;
         public EditeClient()
@@ -41,11 +42,10 @@ namespace Mo7meen
 
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             if (!String.IsNullOrEmpty(national_id.Text)||!String.IsNullOrEmpty(cust_nameComb.Text))
             {
-                
                 conn.startConnection();
                 SetSqlStatment();              
                 conn.SQLCODE(sql, false);
@@ -60,6 +60,8 @@ namespace Mo7meen
                     details_text.Text = conn.myReader["description"].ToString();
                     national_id_new.Text = conn.myReader["national_id"].ToString();
                     stopState = conn.myReader["stopState"].ToString();
+                    delivered = conn.myReader["delivered"].ToString();
+
                     if (stopState != "N")
                     {
                         stopDateTxt.Text = conn.myReader["stopDate"].ToString();
@@ -71,6 +73,17 @@ namespace Mo7meen
                         stopReasonTxt.Text = "";
                         stopRadioBtn.Checked = false;
 
+                    }
+                    if (delivered.ToLower() == "y")
+                    {
+                        borgNumber.Text = conn.myReader["tour_number"].ToString(); 
+                        unitNumber.Text = conn.myReader["unit_number"].ToString(); 
+                        deliveredcheckBox1.Checked = true;
+                    }
+                    else {
+                        borgNumber.Text = "";
+                        unitNumber.Text = "";
+                        deliveredcheckBox1.Checked = false;
                     }
                     ID = int.Parse(conn.myReader["ID"].ToString());
 
@@ -95,17 +108,15 @@ namespace Mo7meen
             sql = "select * from Clients where client_name = '" + cust_nameComb.Text + "'";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             if (found)
             {
                 try
                 {
-                    if (checkBox1.Checked)
+                    if (deliveredcheckBox1.Checked)
                     {
-                        int unit = int.Parse(unitNumber.Text);
-                        int borg = int.Parse(borgNumber.Text);
-                        sql = "update Clients set unit_number = " + unit + ", tour_number = " + borg + " , delivered ='Y' where id=" + ID + " ";
+                        sql = "update Clients set unit_number = '" + unitNumber.Text + "', tour_number = '" + borgNumber.Text + "' , delivered ='Y' where id=" + ID + " ";
                         conn.SQLUPDATE(sql, false);
                     }
                     String national = national_id_new.Text;
@@ -132,7 +143,7 @@ namespace Mo7meen
         }
         public int ID { get; set; }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
 
             if (found)
@@ -169,10 +180,10 @@ namespace Mo7meen
             details_text.Text = "";
             unitNumber.Text = "";
             borgNumber.Text = "";
-            checkBox1.Checked = false;
+            deliveredcheckBox1.Checked = false;
         }
 
-        private void changeSearch_CheckedChanged(object sender, EventArgs e)
+        private void ChangeSearch_CheckedChanged(object sender, EventArgs e)
         {
             cust_nameComb.Enabled = !cust_nameComb.Enabled;
             national_id.Text = "";
@@ -181,7 +192,7 @@ namespace Mo7meen
             ClearFormValues();
         }
 
-        private void displayPhotos_Click(object sender, EventArgs e)
+        private void DisplayPhotos_Click(object sender, EventArgs e)
         {
             if (photos_group.Count > 0)
             {
@@ -194,7 +205,7 @@ namespace Mo7meen
             }
         }
 
-        private void stopCancelBtn_Click(object sender, EventArgs e)
+        private void StopCancelBtn_Click(object sender, EventArgs e)
         {
             stopRadioBtn.Checked = false;
             stopReasonTxt.Text = "";
@@ -202,7 +213,7 @@ namespace Mo7meen
             stopState = "N";
         }
 
-        private void stopRadioBtn_CheckedChanged(object sender, EventArgs e)
+        private void StopRadioBtn_CheckedChanged(object sender, EventArgs e)
         {
             if (stopRadioBtn.Checked)
                 stopState = "Y";
@@ -210,13 +221,13 @@ namespace Mo7meen
                 stopState = "N";
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void CheckBox1_CheckedChanged(object sender, EventArgs e)
         {
-            borgNumber.Enabled = checkBox1.Checked;
-            unitNumber.Enabled = checkBox1.Checked;
+            borgNumber.Enabled = deliveredcheckBox1.Checked;
+            unitNumber.Enabled = deliveredcheckBox1.Checked;
         }
 
-        private void warningLetterBtn_Click(object sender, EventArgs e)
+        private void WarningLetterBtn_Click(object sender, EventArgs e)
         {
             if (ID != 0 && !string.IsNullOrEmpty(client_name.Text))
             {
@@ -228,7 +239,7 @@ namespace Mo7meen
             }
         }
 
-        private void manageWarningLettersBtn_Click(object sender, EventArgs e)
+        private void ManageWarningLettersBtn_Click(object sender, EventArgs e)
         {
             WarningLettersManager obj = new WarningLettersManager();
             obj.ShowDialog();
